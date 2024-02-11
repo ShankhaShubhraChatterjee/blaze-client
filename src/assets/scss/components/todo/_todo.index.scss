@@ -1,0 +1,47 @@
+@use './modules/todobar';
+@use './modules/sidebar-todo';
+@use './modules/todo-preview';
+:root {
+    --todo-section-height: 80vh;
+}
+.todo-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo {
+    color: var(--default-fg-color);
+    width: 1200px;
+    display:grid;
+    grid-gap: 5px;
+    position: relative;
+    padding: 5px;
+    grid-template-rows: 50px auto;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+        "todo-bar todo-bar todo-bar"
+        "todo-sidebar todo-preview todo-preview"
+        "todo-sidebar todo-preview todo-preview"
+    ;
+    font-size:16px;
+}
+.todobar-task-name {
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    .todo {
+        grid-template-areas: 
+            "todo-bar todo-bar todo-bar"
+            "todo-preview todo-preview todo-preview"
+            "todo-preview todo-preview todo-preview"
+        ;
+    }
+}
+@media (max-width: 400px) {
+    .todo {
+        grid-template-rows: 100px auto;
+    }
+}

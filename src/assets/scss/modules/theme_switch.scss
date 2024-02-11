@@ -1,0 +1,66 @@
+:root {
+    --theme-switch-bg-color-dark: rgba(0, 0, 0, 0.4);
+    --theme-switch-bg-color-light:rgba(255,255,255,0.5);
+    --theme-switch-width: 45px;
+    --theme-switch-height: 25px;
+    --theme-switch-transition-type: ease;
+    --theme-switch-transition-duration: 400ms;
+    --theme-switch-box-shadow-color-light: 0 0 10px black;
+    --theme-switch-box-shadow-color-dark: 0 0 10px white;
+    --theme-switch-slide-width: 15px;
+    --theme-switch-slide-icon-light: '\f185';
+    --theme-switch-slide-icon-dark: '\f186';
+    --theme-switch-slide-icon-color-light:black;
+    --theme-switch-slide-icon-color-dark:white;
+    --theme-switch-slide-height: 17px;
+
+}
+.switch-input {
+    display: none;
+}
+.switch-input:checked + .custom-switch::before {
+    left: 95%;
+    content: var(--theme-switch-slide-icon-dark);
+    color: var(--theme-switch-slide-icon-color-dark);
+    transition: left,content, 
+    var(--theme-switch-transition-duration) 
+    var(--theme-switch-transition-type);
+}
+.switch-input:checked + .custom-switch {
+    box-shadow: var(--theme-switch-box-shadow-color-dark);
+    background-color: var(--theme-switch-bg-color-dark);
+    transition:box-shadow, background-color, 
+    var(--theme-switch-transition-duration) 
+    var(--theme-switch-transition-type);
+}
+.custom-switch {
+    box-shadow: var(--theme-switch-box-shadow-color-light);
+    width: var(--theme-switch-width);
+    height: var(--theme-switch-height);
+    border-radius: var(--theme-switch-height);
+    background: var(--theme-switch-bg-color-light);
+    transition: background-color, 
+    var(--theme-switch-transition-duration) 
+    var(--theme-switch-transition-type);
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.custom-switch::before {
+    color: var(--theme-switch-slide-icon-color-light);
+    font-weight: lighter;
+    position: absolute;
+    top: calc(50% - 5.5px); left: 40%;
+    transition: left,content, 
+    var(--theme-switch-transition-duration) 
+    var(--theme-switch-transition-type);
+    transform: translate(-100%, -50%);
+    content: var(--theme-switch-slide-icon-light);
+    font-size:1.3em;
+    font-family: "FontAwesome";
+    border-radius: 50%;
+    width: var(--theme-switch-slide-width);
+    height: var(--theme-switch-slide-height);
+    display: block;
+}

@@ -1,0 +1,25 @@
+.signin-form-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: scroll;
+}
+.signin-form-container {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.signin-form {
+    border-radius: 10px;
+    box-shadow: 0 0 10px silver;
+    background-color: var(--default-bg-color);
+    color: var(--default-fg-color);
+    padding: 10px;
+    max-width: 750px;
+    width: 600px;
+}
