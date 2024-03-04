@@ -10,7 +10,7 @@ import NotFound from "./components/helpers/404";
 import Forbidden from "./components/helpers/403";
 import HomePage from "./components/Home";
 import Account from "./components/Account";
-import Signin from "./components/Signin";
+import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Todo from "./components/Todo";
 import ForgotPassword from "./components/helpers/Forgot-Password";
@@ -51,7 +51,7 @@ function App() {
 					}
 				})()}
 				
-				<Route path="/login" element={<Signin url={URL} />} />
+				<Route path="/login" element={<Login url={URL} />} />
 				<Route path="/register" element={<Signup />} />
 				<Route path="*" element={<NotFound />} />
 				<Route path="/forgot-password" element={<ForgotPassword />} />
