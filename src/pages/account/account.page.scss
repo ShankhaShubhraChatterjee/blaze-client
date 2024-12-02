@@ -1,0 +1,78 @@
+:root {
+    --account-bg-color: floralwhite;
+    --account-fg-color: rgba(0,0,0,0.85);
+    --account-window-bg-color: white;
+    --account-window-fg-color:rgba(0,0,0,0.3);
+    --accent-color:orange;
+}
+.account-page {
+    color: var(--default-fg-color);
+    background: var(--default-bg-color);
+    padding: 10px;
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+    grid-template-areas: 
+    // ai = account-intro
+    // au = account-update
+    // aa = account-additional
+    // ap = account-password
+    // ao = account-operations
+
+        "ai au" 
+        "ai au"
+        "aa ap"
+        "aa ao"
+    ;
+    grid-template-columns: repeat(2, 1fr);
+}
+.account-window {
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+.account-window-headers {
+    width: 100%;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    text-align: center;
+    font-family: "Arial", cursive;
+}
+.input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+.icon {
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .account-page {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "ai ai"
+            "au au"
+            "ap ap"
+            "aa aa"
+            "ao ao"
+        ;
+    }
+}
+.account-intro {
+    grid-area: ai;
+}
+.account-operation {
+    grid-area: ao;
+}
+.account-update {
+    grid-area: au;
+}
+.account-password {
+    grid-area: ap;
+}
+.account-additionals {
+    grid-area: aa;
+}

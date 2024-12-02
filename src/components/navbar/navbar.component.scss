@@ -1,0 +1,186 @@
+:root {
+    --navbar-hover-bg-color: rgba(0, 0, 0, 0.7);
+    --navbar-bg-color: linear-gradient(45deg,rgba(114, 63, 145, 0.85), rgba(255, 68, 0, 0.89), rgba(212, 125, 25, 0.932));
+}
+
+#theme-toggle {
+    transition: text-shadow, 200ms ease-in-out;
+
+    &:hover {
+        transition: text-shadow, 200ms ease-in-out;
+        text-shadow: 0 0 10px black;
+    }
+}
+
+.navbar {
+    padding: 10px 10px;
+    font-family: 'Open Sans', cursive;
+    color: white;
+    display: grid;
+    height: 70px;
+    width: 100%;
+    align-self: center;
+    backdrop-filter: blur(2px);
+    grid-template-areas: "navbar_header navbar_link navbar_button";
+    grid-template-columns: 180px 1fr 100px;
+    align-items: center;
+    justify-content: space-between;
+    transition: height, 200ms ease;
+    overflow: hidden;
+    background: var(--navbar-bg-color);
+    z-index: 1;
+}
+
+.navbar-header {
+    grid-area: navbar_header;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: center;
+    align-items: center;
+    .home-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        .nav-title {
+            font-size: 2em;
+            margin-bottom: 2px;
+            font-weight: bolder;
+        }
+        .nav-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+    .nav-theme-switch {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1px;
+        margin-left: 5px;
+    }
+}
+
+.nav-link-container {
+    grid-area: navbar_link;
+    display: flex;
+    margin-right: 100px;
+    list-style-type: none;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    transform: scale(1);
+    transform-origin: top;
+    transition: transform, 200ms ease-in-out;
+    li {
+        padding: 2px 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+
+        a {
+            width: inherit;
+            display: inline-block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 1.2em;
+            font-weight: 500;
+            border-radius: 5px;
+            transform: scale(1.0);
+            transition: transform, 200ms ease;
+            &:hover {
+                transform: scale(1.1);
+                transition: transform, 200ms ease;
+                background-color: var(--navbar-hover-bg-color);
+            }
+
+            &:focus {
+                font-weight: bolder;
+            }
+        }
+    }
+    .theme-nav-item {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: space-around;
+        background-color: rgba(0,0,0,0.65);
+        padding: 10px 0;
+        display: none!important;
+        border-radius: 5px;
+        span {
+            font-weight: bold;
+        }
+    }
+}
+
+.nav-button-container {
+    grid-area: navbar_button;
+    margin-right: 5px;
+
+    .nav-menu-btn {
+        display: none;
+        margin: 0;
+        padding: 2.5px 5px 5px 5px;
+    }
+
+    .nav-profile-btn {
+        padding: 0 5px;
+    }
+
+    .profile-image {
+        background-color: white;
+        box-shadow: 0 0 5px white;
+        width: 45px;
+        height: 45px;
+        padding: 1px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    i {
+        font-size: 2em;
+    }
+}
+.hide-navbar {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform, 200ms ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+    .transit-navbar-height {
+        height:330px;
+        transition: height, 200ms ease-in-out;
+    }
+    .navbar {
+        grid-template-areas:
+            "navbar_header navbar_button"
+            "navbar_link navbar_link"
+        ;
+        grid-template-columns: auto;
+    }
+    .navbar-header .nav-theme-switch {
+        display: none;
+    }
+    .nav-link-container {
+        margin-top: 10px !important;
+        flex-direction: column;
+        margin: 0;
+
+        li {
+            width: inherit;
+        }
+        .theme-nav-item {
+            display: flex!important;
+        }
+    }
+    .nav-button-container {
+        .nav-menu-btn {
+            display: inline-block;
+        }
+    }
+}

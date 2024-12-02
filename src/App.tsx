@@ -6,15 +6,14 @@ import
 } 
 from "react-router-dom";
 
-import NotFound from "./components/helpers/404";
-import Forbidden from "./components/helpers/403";
-import HomePage from "./components/Home";
-import Account from "./components/Account";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Todo from "./components/Todo";
-import ForgotPassword from "./components/helpers/Forgot-Password";
-import CheckEmail from "./components/helpers/Check-Email";
+import NotFound from "./pages/error/Error.page";
+import HomePage from "./pages/home/Home.page";
+import Account from "./pages/account/Account.page";
+import Login from "./pages/login/Login.page";
+import Register from "./pages/register/Register.page";
+import Todo from "./pages/todo/Todo.page";
+import ForgotPassword from "./pages/forgot-password/ForgotPassword.page";
+import CheckEmail from "./pages/check-email/CheckEmail.page";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Axios from 'axios'
@@ -44,15 +43,10 @@ function App() {
 							<Route path="/account" element={<Account />} />
 						)
 					}
-					else {
-						return(
-							<Route path="/account" element={<Forbidden />} />
-						)
-					}
 				})()}
 				
 				<Route path="/login" element={<Login url={URL} />} />
-				<Route path="/register" element={<Signup />} />
+				<Route path="/register" element={<Register />} />
 				<Route path="*" element={<NotFound />} />
 				<Route path="/forgot-password" element={<ForgotPassword />} />
 				<Route path="/forgot-password/check-email" element={<CheckEmail />} />

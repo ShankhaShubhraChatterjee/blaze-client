@@ -1,0 +1,50 @@
+:root {
+    // Global Variables
+    
+    --default-fg-color: var(--chakra-colors-chakra-body-text);
+    --default-bg-color: var(--chakra-colors-chakra-body-bg);
+    --default-fg-error: orange;
+
+
+    // Theme-Switch Component Variables
+
+    --theme-switch-bg-color-dark: rgba(0, 0, 0, 0.4);
+    --theme-switch-bg-color-light:rgba(255,255,255,0.5);
+    --theme-switch-width: 45px;
+    --theme-switch-height: 25px;
+    --theme-switch-transition-type: ease;
+    --theme-switch-transition-duration: 400ms;
+    --theme-switch-box-shadow-color-light: 0 0 10px black;
+    --theme-switch-box-shadow-color-dark: 0 0 10px white;
+    --theme-switch-slide-width: 15px;
+    --theme-switch-slide-icon-light: '\f185';
+    --theme-switch-slide-icon-dark: '\f186';
+    --theme-switch-slide-icon-color-light:black;
+    --theme-switch-slide-icon-color-dark:white;
+    --theme-switch-slide-height: 17px;
+}
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+
+}
+
+body {
+    font-size: 14px;
+}
+
+#root {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.password-eye-button {
+    cursor: pointer;
+}
