@@ -1,9 +1,8 @@
 // NPM Packages
 
-import axios from "axios";
 import { useState } from "react";
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { joiResolver } from '@hookform/resolvers/joi';
 import { Stack, Input, InputGroup, InputLeftAddon, Text, Button, Checkbox, InputRightAddon } from "@chakra-ui/react";
 
@@ -21,7 +20,6 @@ import background from './../../assets/img/background-2.svg'
 import './login.page.scss'
 
 const Login = (props: any) => {
-    const navigate = useNavigate();
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -33,16 +31,9 @@ const Login = (props: any) => {
             email: null,
             password: null
         }
-    })    
-    const onSubmit = async () => {
-        await axios
-            .post(`${props.url}/login/`, { email, password })
-            .then((response) => {
-                console.log(response)
-                response.data.authenticated ? navigate("/account") : console.log("Incorrect Credentials")
-            })
-            .catch(err => console.error(err))
-            console.log(errors)
+    })  
+    const onSubmit = (data: any) => {
+        console.log(data)
     }
     return (
         <div className="signin-form-section" style={{ backgroundImage: `url(${background})` }}>
@@ -67,7 +58,7 @@ const Login = (props: any) => {
                                 <i className={showPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
                             </InputRightAddon>
                         </InputGroup>
-                        <Text className="login-error-msg" >Passwords doesnt Match</Text>
+                        <Text size="sm" className="login-error-msg" >{errors.password?.message}</Text>
                         <Checkbox name="remember" colorScheme="orange">Remember Me</Checkbox>
                         <Text fontSize="md" textAlign="center">
                             Forgot Password?

@@ -1,8 +1,8 @@
 import {
     Input,
+    Box,
     Stack,
     Text,
-    VStack
 } from '@chakra-ui/react';
 import ProfilePicture from './../../../assets/img/user.png'
 import './account-intro.component.scss'
@@ -21,22 +21,22 @@ const AccountIntro = () => {
                     </div>
                 </div>
                 <Stack direction="column">
-                    <VStack>
+                    <Box>
                         <Text fontSize="md" fontWeight="bold">Full Name</Text>
                         <Text>Foster Z</Text>
-                    </VStack>
-                    <VStack>
+                    </Box>
+                    <Box>
                         <Text fontSize="md" fontWeight="bold">Username</Text>
                         <Text>Foster0123</Text>
-                    </VStack>
-                    <VStack>
+                    </Box>
+                    <Box>
                         <Text fontSize="md" fontWeight="bold">Email</Text>
                         <Text>somethingspecial6834@gmail.com</Text>
-                    </VStack>
-                    <VStack>
+                    </Box>
+                    <Box>
                         <Text fontSize="md" fontWeight="bold">Bio</Text>
                         <Text>Some Bio Here</Text>
-                    </VStack>
+                    </Box>
                 </Stack>
             </section>
         </section>
