@@ -64,7 +64,7 @@ const Login = (props: any) => {
                             Forgot Password?
                             <Link style={{ color: "darkorange", fontWeight: "bold", fontSize: "18px", marginLeft: "10px" }} to="/forgot-password">Reset</Link>
                         </Text>
-                        <Button type="submit">Login</Button>
+                        <Button type="submit" isLoading={false} >Login</Button>
                     </Stack>
                 </form>
             </div>
