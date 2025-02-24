@@ -4,17 +4,17 @@ import ThemeSwitch from '../../modules/theme-switch/ThemeSwitch.module'
 import { NavLink } from 'react-router-dom'
 import Logo from './../../assets/img/blaze.png'
 import ProfilePicture from './../../assets/img/user.png'
-
+import { ColorModeButton } from './../ui/color-mode'
 import './navbar.component.scss'
 
 const NavBar = () => {
-    const Navbar: any = useRef(null);
+    const Navbar: any = useRef(null)
     const navMenuIcon: any = useRef(null)
     const toggleNavbar = (e: any) => {
-        navMenuIcon.current.classList.contains("fa-bars") ? 
-        navMenuIcon.current.className = "fa-solid fa-xmark":
-        navMenuIcon.current.className = "fa-solid fa-bars"
-        Navbar.current.classList.toggle("transit-navbar-height")
+        navMenuIcon.current.classList.contains('fa-bars')
+            ? (navMenuIcon.current.className = 'fa-solid fa-xmark')
+            : (navMenuIcon.current.className = 'fa-solid fa-bars')
+        Navbar.current.classList.toggle('transit-navbar-height')
     }
     return (
         <nav className="navbar" ref={Navbar}>
@@ -23,11 +23,9 @@ const NavBar = () => {
                     <img src={Logo} alt="Blaze Logo" className="nav-logo" />
                     <h1 className="nav-title">Blaze</h1>
                 </NavLink>
-                <Stack className='nav-theme-switch'>
-                    <ThemeSwitch name="theme-switch-1" id="theme-switch-1" />
+                <Stack className="nav-theme-switch">
+                    <ColorModeButton />
                 </Stack>
-
-
             </section>
             <ul className="nav-link-container">
                 <li>
@@ -42,9 +40,9 @@ const NavBar = () => {
                 <li>
                     <NavLink to="/register">Register</NavLink>
                 </li>
-                <li className='theme-nav-item'>
+                <li className="theme-nav-item">
                     <span>Appearance: </span>
-                    <ThemeSwitch name="theme-switch-2" id="theme-switch-2" />
+                    <ColorModeButton />
                 </li>
             </ul>
             <section className="nav-button-container">
@@ -59,9 +57,13 @@ const NavBar = () => {
                             alt="Profile Picture Placeholder"
                         />
                     </NavLink>
-
                 </Button>
-                <Button onClick={toggleNavbar} colorScheme="white" variant="outline" className="chakra-btn nav-menu-btn">
+                <Button
+                    onClick={toggleNavbar}
+                    colorScheme="white"
+                    variant="outline"
+                    className="chakra-btn nav-menu-btn"
+                >
                     <i className="fa-solid fa-bars" ref={navMenuIcon}></i>
                 </Button>
             </section>

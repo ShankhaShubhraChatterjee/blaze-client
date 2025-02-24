@@ -1,7 +1,7 @@
-import { Switch } from '@chakra-ui/react';
+import { Switch } from '@chakra-ui/react'
 
-import './theme-switch.module.scss';
-import { useState } from 'react';
+import './theme-switch.module.scss'
+import { useState } from 'react'
 
 function ThemeSwitch(props: any) {
     const [colorMode, toggleColorMode] = useState(true)
@@ -19,8 +19,7 @@ function ThemeSwitch(props: any) {
                 <Switch.Label>Label</Switch.Label>
             </Switch.Root>
         </div>
-
     )
 }
 
-export default ThemeSwitch;
+export default ThemeSwitch

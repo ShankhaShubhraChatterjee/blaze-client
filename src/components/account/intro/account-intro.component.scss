@@ -1,4 +1,3 @@
-
 .account-intro {
     display: grid;
     justify-content: center;
@@ -52,7 +51,7 @@
     }
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
     .account-intro-profile-section {
         grid-template-columns: 1fr;
         justify-content: center;

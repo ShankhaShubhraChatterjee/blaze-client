@@ -1,13 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
-import NavBar from "../../components/navbar/Navbar.component";
-import TodoPreview from "../../components/todo/preview/TodoPreview.component";
-import TodoSideBar from "../../components/todo/sidebar/TodoSidebar.component";
-import TodoBar from "../../components/todo/toolbar/TodoToolbar.component";
+import NavBar from '../../components/navbar/Navbar.component'
+import TodoPreview from '../../components/todo/preview/TodoPreview.component'
+import TodoSideBar from '../../components/todo/sidebar/TodoSidebar.component'
+import TodoBar from '../../components/todo/toolbar/TodoToolbar.component'
 import './todo.page.scss'
 
 const Todo = () => {
-    const sidebarVisible = useSelector((state: any) => state.todoSidebarSlice.sidebarVisible)
+    const sidebarVisible = useSelector(
+        (state: any) => state.todoSidebarSlice.sidebarVisible
+    )
     return (
         <div>
             <NavBar />
@@ -23,6 +25,6 @@ const Todo = () => {
                 </div>
             </div>
         </div>
-    );
-};
-export default Todo;
+    )
+}
+export default Todo

@@ -1,7 +1,7 @@
-import './footer.component.scss';
+import './footer.component.scss'
 
 const Footer = () => {
-    const date = new Date().getFullYear();
+    const date = new Date().getFullYear()
     return (
         <footer>
             <div className="social-accounts-container">
@@ -22,4 +22,4 @@ const Footer = () => {
     )
 }
 
-export default Footer;
+export default Footer

@@ -1,15 +1,14 @@
 :root {
     // Global Variables
-    
+
     --default-fg-color: var(--chakra-colors-chakra-body-text);
     --default-bg-color: var(--chakra-colors-chakra-body-bg);
     --default-fg-error: orange;
 
-
     // Theme-Switch Component Variables
 
     --theme-switch-bg-color-dark: rgba(0, 0, 0, 0.4);
-    --theme-switch-bg-color-light:rgba(255,255,255,0.5);
+    --theme-switch-bg-color-light: rgba(255, 255, 255, 0.5);
     --theme-switch-width: 45px;
     --theme-switch-height: 25px;
     --theme-switch-transition-type: ease;
@@ -19,8 +18,8 @@
     --theme-switch-slide-width: 15px;
     --theme-switch-slide-icon-light: '\f185';
     --theme-switch-slide-icon-dark: '\f186';
-    --theme-switch-slide-icon-color-light:black;
-    --theme-switch-slide-icon-color-dark:white;
+    --theme-switch-slide-icon-color-light: black;
+    --theme-switch-slide-icon-color-dark: white;
     --theme-switch-slide-height: 17px;
 }
 
@@ -28,7 +27,6 @@ html,
 body {
     height: 100%;
     min-height: 100%;
-
 }
 
 body {

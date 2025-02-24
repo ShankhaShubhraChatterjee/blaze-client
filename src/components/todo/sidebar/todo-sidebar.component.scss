@@ -1,7 +1,7 @@
 :root {
-    --todo-sidebar-bg-color:red;
+    --todo-sidebar-bg-color: red;
     --todo-sidebar-item-bg-color: orange;
-    --scrollbar-thumb-bg-color:orange;
+    --scrollbar-thumb-bg-color: orange;
 }
 .todo-sidebar-container {
     color: var(--default-fg-color);
@@ -32,7 +32,7 @@
         border-radius: 5px;
     }
 }
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .todo-sidebar-container {
         position: absolute;
         left: 5px;

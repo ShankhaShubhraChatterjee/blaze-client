@@ -3,7 +3,6 @@ import Login from './Login.page'
 import * as loginData from './../../../tests/data/login.test.data'
 
 describe('Login With Email & Password', () => {
-
     it('Type No Email & Password', () => {
         cy.mount(<Login />)
         // cy.get('[data-testid="login-form-submit-button"]').click();

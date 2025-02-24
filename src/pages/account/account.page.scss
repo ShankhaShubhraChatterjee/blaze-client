@@ -1,9 +1,9 @@
 :root {
     --account-bg-color: floralwhite;
-    --account-fg-color: rgba(0,0,0,0.85);
+    --account-fg-color: rgba(0, 0, 0, 0.85);
     --account-window-bg-color: white;
-    --account-window-fg-color:rgba(0,0,0,0.3);
-    --accent-color:orange;
+    --account-window-fg-color: rgba(0, 0, 0, 0.3);
+    --accent-color: orange;
 }
 .account-page {
     color: var(--default-fg-color);
@@ -19,11 +19,10 @@
     // ap = account-password
     // ao = account-operations
 
-        "ai au" 
-        "ai au"
-        "aa ap"
-        "aa ao"
-    ;
+        'ai au'
+        'ai au'
+        'aa ap'
+        'aa ao';
     grid-template-columns: repeat(2, 1fr);
 }
 .account-window {
@@ -37,7 +36,7 @@
     margin-bottom: 10px;
     font-weight: bolder;
     text-align: center;
-    font-family: "Arial", cursive;
+    font-family: 'Arial', cursive;
 }
 .input-section {
     display: flex;
@@ -52,13 +51,12 @@
 @media (max-width: 768px) {
     .account-page {
         grid-template-columns: 1fr;
-        grid-template-areas: 
-            "ai ai"
-            "au au"
-            "ap ap"
-            "aa aa"
-            "ao ao"
-        ;
+        grid-template-areas:
+            'ai ai'
+            'au au'
+            'ap ap'
+            'aa aa'
+            'ao ao';
     }
 }
 .account-intro {

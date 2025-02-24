@@ -1,14 +1,14 @@
 :root {
     --index-page-bg-color: rgba(0, 0, 0, 0.9);
     --index-page-fg-color: whitesmoke;
-    --index-page-accent-color:orange;
+    --index-page-accent-color: orange;
     // --index-page-bg-color: rgba(255, 255,255,0.9);
 }
 
 .index-page {
     min-height: 100%;
     background-color: var(--default-bg-color);
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
     background-attachment: scroll;
@@ -27,7 +27,7 @@
         padding: 0 20px;
         max-width: 450px;
         position: relative;
-        font-family: "Oswald", sans-serif;
+        font-family: 'Oswald', sans-serif;
         font-weight: bolder;
         font-size: 36px;
         animation-iteration-count: 5;
@@ -36,10 +36,14 @@
             text-shadow: 0 0 2.5px var(--index-page-accent-color);
             color: var(--index-page-accent-color);
             text-decoration: wavy;
-            transition: letter-spacing,  300ms ease;
+            transition:
+                letter-spacing,
+                300ms ease;
             &:hover {
                 letter-spacing: 5px;
-                transition: letter-spacing,  300ms ease;
+                transition:
+                    letter-spacing,
+                    300ms ease;
             }
         }
     }
@@ -51,7 +55,7 @@
     position: relative;
     padding: 0 15px;
     .index-logo {
-        box-shadow: inset 0 0 30px  var(--index-page-accent-color);
+        box-shadow: inset 0 0 30px var(--index-page-accent-color);
         border-radius: 50%;
         max-width: 250px;
         max-height: 250px;
@@ -98,7 +102,6 @@
 @media (max-width: 450px) {
     .intro-section {
         padding: 0;
-        
     }
     .index-image-section {
         .index-logo {

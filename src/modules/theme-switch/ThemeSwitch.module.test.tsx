@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
-import ThemeSwitch from "./ThemeSwitch.module";
+import ThemeSwitch from './ThemeSwitch.module'
 
 describe('ThemeSwitch.module.ts', () => {
     it('Check If It Is Defined', () => {

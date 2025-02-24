@@ -1,5 +1,5 @@
 :root {
-    --todobar-bg-color:rgba(0,0,0,0.85);
+    --todobar-bg-color: rgba(0, 0, 0, 0.85);
 }
 .todobar-container {
     grid-area: todo-bar;
@@ -23,16 +23,21 @@
         height: 5px;
         display: block;
         border-radius: 10px;
-        background: linear-gradient(90deg, rgba(255,98,0,1) 0%, rgba(232,255,0,1) 60%, rgba(244,0,255,1) 100%);
+        background: linear-gradient(
+            90deg,
+            rgba(255, 98, 0, 1) 0%,
+            rgba(232, 255, 0, 1) 60%,
+            rgba(244, 0, 255, 1) 100%
+        );
     }
 }
 .todobar-sidebar-button {
-    display: none!important;
+    display: none !important;
 }
 
 @media (max-width: 768px) {
     .todobar-sidebar-button {
-        display: block!important;
+        display: block !important;
     }
 }
 @media (max-width: 400px) {
