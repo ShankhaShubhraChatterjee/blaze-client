@@ -1,4 +1,5 @@
-import { Checkbox, IconButton, Stack } from '@chakra-ui/react'
+import { IconButton, Stack } from '@chakra-ui/react'
+import { Checkbox } from './../../ui/checkbox'
 import { todos } from '../../../../tmp/data/data'
 
 import './todo-preview.component.scss';

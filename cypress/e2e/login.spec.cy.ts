@@ -1,21 +1,16 @@
+/// <reference types="cypress" />
 
-const loginPasswordField = '[data-testid="login-form-submit-button"]'
-const loginUsernameField = '[data-testid="login-form-submit-button"]'
+import * as loginData from './../../tests/data/login.test.data';
 
-describe('Login Page E2E Testing', () => {
+describe('Login With Email & Password', () => {
+
   beforeEach(() => {
     cy.visit('/login')
   })
 
-  it('Type Username Into Username Input Field', () => {
-    cy.get('[data-testid="login-form-username-input"]').type('something@something.')
-  })
-
-  it('Type Password Into Username Input Field', () => {
-    cy.get('[data-testid="login-form-password-input"]').type('something')
-  })
-
-  it('Click The Submit Button', () => {
-    cy.get('[data-testid="login-form-submit-button"]').click();
+  it('Type Correct Email & Password', () => {
+    cy.get(loginData.emailField).type(loginData.correctValues.email)
+    cy.get(loginData.passwordField).type(loginData.correctValues.password)
+    cy.get(loginData.submitButton).click();
   })
 })

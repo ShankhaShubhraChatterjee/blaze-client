@@ -5,7 +5,6 @@ import { showSideBar, toggleSideBar } from "../../../redux/todo-sidebar.slice";
 import './todo-toolbar.component.scss'
 const TodoBar = () => {
     const dispatch = useDispatch()
-    const sidebarVisible = useSelector((state: any) => state.todoSidebarSlice.sidebarVisible)
     return (
         <div className="todobar-container">
             <div className="todobar">
@@ -15,15 +14,14 @@ const TodoBar = () => {
                     size="sm" 
                     colorScheme="orange" 
                     variant="outline" 
-                    className="todobar-sidebar-button"
-                    onClick={() => sidebarVisible ? dispatch(toggleSideBar(false)) : dispatch(toggleSideBar(true))}>
+                    className="todobar-sidebar-button">
                         <i className="bi bi-layout-sidebar"></i>
                     </IconButton>
                     <Text className="todobar-header" fontSize="xl">User's Todo Dashboard</Text>
                 </Stack>
-                <Stack direction="row" spacing={2} className="todobar-buttons">
+                <Stack direction="row" className="todobar-buttons">
                     <Button size="sm" colorScheme="green">Add</Button>
-                    <Button isDisabled size="sm" colorScheme="red">Delete</Button>
+                    <Button size="sm" colorScheme="red">Delete</Button>
                 </Stack>
             </div>
         </div>

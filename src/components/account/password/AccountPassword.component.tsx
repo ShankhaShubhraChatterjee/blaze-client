@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { InputGroup, InputRightAddon, InputLeftAddon, Input, Stack, Button } from "@chakra-ui/react"
-
+import { Input, Stack, Button } from "@chakra-ui/react"
+import { InputGroup } from './../../ui/input-group'
 const PasswordUpdate = () => {
 	const [showCurrentPassword, setShowCurrentPassword] = useState(false)
     const [showNewPassword, setShowNewPassword] = useState(false)
@@ -13,32 +13,14 @@ const PasswordUpdate = () => {
 		<div>
 		<h2 className='account-window-headers'>Update Password</h2>
 		<Stack className='input-section'>
-			<InputGroup>
-				<InputLeftAddon>
-					<i className="bi bi-unlock-fill"></i>
-				</InputLeftAddon>
+			<InputGroup startElement={<i className="bi bi-unlock-fill" />} endElement={<i onClick={toggleVisibility1} className={showCurrentPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"} />}>
 				<Input type={showCurrentPassword ? 'text' : 'password'} name='username' placeholder='Current Password' />
-				<InputRightAddon onClick={toggleVisibility1} className="password-eye-button">
-					<i className={showCurrentPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
-				</InputRightAddon>
 			</InputGroup>
-			<InputGroup>
-				<InputLeftAddon>
-					<i className="bi bi-key"></i>
-				</InputLeftAddon>
-				<Input type={showNewPassword ? 'text' : 'password'} name='username' placeholder='New Password' />
-				<InputRightAddon onClick={toggleVisibility2} className="password-eye-button">
-					<i className={showNewPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
-				</InputRightAddon>
+			<InputGroup startElement={<i className="bi bi-unlock-fill" />} endElement={<i onClick={toggleVisibility2} className={showNewPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"} />}>
+				<Input type={showNewPassword ? 'text' : 'password'} name='username' placeholder='Current Password' />
 			</InputGroup>
-			<InputGroup>
-				<InputLeftAddon>
-					<i className="bi bi-lock-fill"></i>
-				</InputLeftAddon>
-				<Input type={showConfirmPassword ? 'text' : 'password'} name='username' placeholder='Confirm Password' />
-				<InputRightAddon onClick={toggleVisibility3} className="password-eye-button">
-					<i className={showConfirmPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
-				</InputRightAddon>
+			<InputGroup startElement={<i className="bi bi-unlock-fill" />} endElement={<i onClick={toggleVisibility3} className={showConfirmPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"} />}>
+				<Input type={showConfirmPassword ? 'text' : 'password'} name='username' placeholder='Current Password' />
 			</InputGroup>
 			<Button type='submit'>Submit</Button>
 			</Stack>

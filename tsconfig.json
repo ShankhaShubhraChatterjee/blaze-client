@@ -14,8 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
   },
-  "include": ["src", "tmp/data"],
+  "include": ["src", "tmp/data", "cypress.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

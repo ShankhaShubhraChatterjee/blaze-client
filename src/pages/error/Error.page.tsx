@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 import './error.page.scss'
 
-const NotFound = () => {
+const ErrorPage = (props: any) => {
 	return (
 		<div className="error-page">
 			<div className="error-header">
 				<i className="bi bi-emoji-frown"></i>
-				<h1>404 Not Found</h1>
+				<h1>{props.status} | {props.statusText}</h1>
 			</div>
 			<div className="back-to-home-from-error">
 				<Button colorScheme="orange">
@@ -18,4 +18,4 @@ const NotFound = () => {
 		</div>
 	);
 };
-export default NotFound;
+export default ErrorPage;

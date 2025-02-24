@@ -1,10 +1,11 @@
+import { LuGlobe, LuPhoneIncoming, LuBuilding } from 'react-icons/lu';
+import { FaLocationDot, FaBriefcase } from "react-icons/fa6";
 import {
     Button,
     Input,
-    InputGroup,
-    InputLeftAddon,
     Stack
 } from '@chakra-ui/react';
+import {InputGroup} from './../../ui/input-group'; 
 
 const AccountAdditional = () => {
     return (
@@ -12,38 +13,23 @@ const AccountAdditional = () => {
             <h2 className='account-window-headers'>Additionals</h2>
             <Stack className='input-section'>
 
-                <InputGroup>
-                    <InputLeftAddon>
-                        <i className="fa-solid fa-globe"></i>
-                    </InputLeftAddon>
+                <InputGroup startElement={<LuGlobe />}>
                     <Input type='text' name='website' placeholder='Website' />
                 </InputGroup>
 
-                <InputGroup>
-                    <InputLeftAddon>
-                        <i className='fa-solid fa-phone'></i>
-                    </InputLeftAddon>
+                <InputGroup startElement={<LuPhoneIncoming />}>
                     <Input type='text' name='phone' placeholder='Phone Number' />
                 </InputGroup>
 
-                <InputGroup>
-                    <InputLeftAddon>
-                        <i className='fa-solid fa-location'></i>
-                    </InputLeftAddon>
+                <InputGroup startElement={<FaLocationDot />}>
                     <Input type='text' name='location' placeholder='Location' />
                 </InputGroup>
 
-                <InputGroup>
-                    <InputLeftAddon>
-                        <i className="fa-solid fa-briefcase"></i>
-                    </InputLeftAddon>
+                <InputGroup startElement={<FaBriefcase />}>
                     <Input type='text' name='profession' placeholder='Profession' />
                 </InputGroup>
 
-                <InputGroup>
-                    <InputLeftAddon>
-                        <i className="bi bi-buildings-fill"></i>
-                    </InputLeftAddon>
+                <InputGroup startElement={<LuBuilding />}>
                     <Input type='text' name='company' placeholder='Company Name' />
                 </InputGroup>
 
