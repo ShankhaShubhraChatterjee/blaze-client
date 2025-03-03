@@ -1,0 +1,52 @@
+.todo__preview--list__item {
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.todo__preview--list__item--header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo__list--item__header--section-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.todo__list--item__header--section-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    button {
+        padding: 0;
+        border-radius: 50%;
+    }
+}
+// Todo Item Body Section
+.todo__list--item__content {
+    margin-left: 0.5px;
+    
+}
+.todo__list--item__content--header {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.todo__list--item__content--body {
+    font-size: small;
+    margin-bottom: 25px;
+}
+// Todo Item Index
+
+.todo__list--item__content--index {
+    position: absolute;
+    bottom: -0.5px;
+    right: -0.5px;
+    background-color: rgba(82, 74, 74, 0.5);
+    border-radius: 5px 2.5px 10px 0;
+    padding: 2.5px 10px;
+    z-index: 10;
+    color: whitesmoke;
+}
