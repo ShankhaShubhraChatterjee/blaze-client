@@ -1,47 +1,56 @@
-import { Input, Text, Button, Stack, Box, InputAddon } from '@chakra-ui/react'
+// Chakra Imports
+import { Input, Button, Stack } from '@chakra-ui/react'
+import { InputGroup } from '../../components/ui/input-group'
+
+// Assets & Image Imports
 import background from './../../assets/img/background.svg'
 
+// React Icon Imports
+import { FaRegEnvelope } from "react-icons/fa6"
+import { FaHome } from "react-icons/fa";
+// Stylesheet Imports
 import './forgot-password.page.scss'
+import { Link } from 'react-router-dom';
 
+// Root Component (ForgotPassword)
 const ForgotPassword = () => {
     return (
-        <div>
-            <div
-                className="forgot-password-container"
-                style={{ backgroundImage: `url(${background})` }}
-            >
-                <section className="forgot-password">
-                    <form
-                        className="forgot-password-form"
-                        action=""
-                        method="POST"
-                    >
-                        <h1>Forgot Password</h1>
-                        <Text fontSize="lg" fontWeight="bold">
-                            Email
-                        </Text>
-                        <Box>
-                            <InputAddon>
-                                <i
-                                    className="fa-solid fa-envelope"
-                                    style={{ color: 'teal' }}
-                                ></i>
-                            </InputAddon>
-                            <Input
-                                type="text"
-                                name="forgot_password"
-                                placeholder="Email Address"
-                            />
-                        </Box>
-                        <Stack align="center" marginTop="10px">
-                            <Button width="200px" type="submit">
-                                Submit
-                            </Button>
-                        </Stack>
-                    </form>
-                </section>
-            </div>
+        <div
+            className="forgot__password--container"
+            style={{ backgroundImage: `url(${background})` }}
+        >
+            <section className="forgot__password--container">
+                <form
+                    className="forgot__password--container--form"
+                    action=""
+                    method="POST"
+                >
+                    <Button rounded='full' color='orange.500'>
+                        <Link to="/">
+                            <FaHome size={24} />
+                        </Link>
+                    </Button>
+                    <h1 className='forgot__password--title'>Forgot Password</h1>
+                    <InputGroup
+                        width='100%'
+                        flex="5"
+                        startElement={<FaRegEnvelope />}>
+                        <Input
+                            type="text"
+                            name="forgot_email"
+                            placeholder="Email"
+                            data-testid="forgot-password-form-email-input"
+                        />
+                    </InputGroup>
+                    <Stack align="center" marginTop="10px">
+                        <Button width="200px" marginTop='10px' type="submit">
+                            Submit
+                        </Button>
+                    </Stack>
+                </form>
+            </section>
         </div>
+
     )
 }
 export default ForgotPassword
