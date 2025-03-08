@@ -1,37 +1,23 @@
+// React Router Imports
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
 
-import ErrorPage from './pages/error/Error.page'
-import HomePage from './pages/home/Home.page'
-import Account from './pages/account/Account.page'
+// Custom User Page Imports
+import Home from './pages/home/Home.page'
 import Login from './pages/login/Login.page'
 import Register from './pages/register/Register.page'
+import Account from './pages/account/Account.page'
 import Todo from './pages/todo/Todo.page'
-import ForgotPassword from './pages/forgot-password/ForgotPassword.page'
+import ErrorPage from './pages/error/Error.page'
 import CheckEmail from './pages/check-email/CheckEmail.page'
+import ResetPassword from './pages/reset-password/ResetPassword.page'
+import ForgotPassword from './pages/forgot-password/ForgotPassword.page'
 
-import Axios from 'axios'
+// User Configuration Imports
 import { rootURL } from './configs/server.config'
+
 function App() {
     const URL = `${rootURL}/user/account`
-    const [auth, setAuth] = useState(false)
-    const [status, setStatus] = useState(404)
-    const [statusText, setStatusText] = useState('Not Found')
-    useEffect(() => {
-        try {
-            Axios.get(URL)
-                .then((res: any) => {
-                    setAuth(res.data.auth)
-                })
-                .catch((err: any) => {
-                    setStatus(err.status)
-                    setStatusText(err.response.statusText)
-                })
-        } catch (err) {
-            console.error(err)
-        }
-    }, [])
+    const statusText = 404;
     return (
         <BrowserRouter>
             <Routes>
@@ -41,15 +27,10 @@ function App() {
                     errorElement={
                         <ErrorPage status={status} statusText={statusText} />
                     }
-                    element={<HomePage />}
+                    element={<Home />}
                 />
                 <Route path="/todos" element={<Todo />} />
-                {(() => {
-                    if (auth) {
-                        return <Route path="/account" element={<Account />} />
-                    }
-                })()}
-
+                <Route path="/account" element={<Account />} />
                 <Route path="/login" element={<Login url={URL} />} />
                 <Route path="/register" element={<Register />} />
                 <Route
@@ -59,6 +40,7 @@ function App() {
                     }
                 />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
                 <Route
                     path="/forgot-password/check-email"
                     element={<CheckEmail />}

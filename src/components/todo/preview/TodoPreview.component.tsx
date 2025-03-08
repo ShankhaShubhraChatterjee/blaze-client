@@ -1,41 +1,19 @@
-import { IconButton, Stack } from '@chakra-ui/react'
-import { Checkbox } from './../../ui/checkbox'
 import { todos } from '../../../../tmp/data/data'
-
 import './todo-preview.component.scss'
+import { useState } from 'react';
+import { Box } from '@chakra-ui/react'
+import TodoItem from '../todo-item/TodoItem.component';
 
 const TodoPreview = () => {
+    const [starred, setStarred] = useState(false)
+    const content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
     return (
-        <div className="todo-preview-container">
-            <header>Todos</header>
-            <ul className="todo-list">
-                {todos.map((todo: any) => {
-                    return (
-                        <li className="todo-tasks" key={todo.id}>
-                            <Checkbox
-                                colorScheme="orange"
-                                marginLeft="5px"
-                            ></Checkbox>
-                            <section className="todo-task-index">
-                                <p className="todo-index">{todo.id}</p>
-                            </section>
-                            <section className="todo-task-info">
-                                <h4 className="todo-task-header">
-                                    {todo.header}
-                                </h4>
-                                <p className="todo-task-content">
-                                    {todo.content}
-                                </p>
-                            </section>
-                            <section className="todo-task-buttons">
-                                <button className="edit-button">
-                                    <i className="bi bi-pen edit"></i>
-                                </button>
-                                <button className="delete-button">
-                                    <i className="bi bi-trash delete"></i>
-                                </button>
-                            </section>
-                        </li>
+        <div className="todo__preview--container">
+            <Box shadow='md' className='todo__preview--header'>Todos / Objectives</Box>
+            <ul className="todo__preview--list">
+                {todos.map((todo: any, index: number) => {
+                    return(
+                        <TodoItem key={index} title={todo.title} description={todo.description} />
                     )
                 })}
             </ul>

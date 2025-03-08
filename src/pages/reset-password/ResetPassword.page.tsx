@@ -1,48 +1,45 @@
 import './reset-password.page.scss'
 
-import { Input, Text, Button, Stack, Box, InputAddon } from '@chakra-ui/react'
-import background from './../../assets/img/background.svg'
+import { Input, Text, Button, Stack } from '@chakra-ui/react'
 
-import './forgot-password.page.scss'
+import './reset-password.page.scss'
+import { InputGroup } from '../../components/ui/input-group'
+import { RiLockPasswordFill } from 'react-icons/ri'
+import { PasswordInput } from '../../components/ui/password-input'
 
 const ResetPassword = () => {
     return (
-        <div>
-            <div
-                className="reset-password-container"
-                style={{ backgroundImage: `url(${background})` }}
+        <div className="reset__password--container">
+            <form
+                className="reset__password--container--form"
+                action=""
+                method="POST"
             >
-                <section className="forgot-password">
-                    <form
-                        className="forgot-password-form"
-                        action=""
-                        method="POST"
-                    >
-                        <h1>Forgot Password</h1>
-                        <Text fontSize="lg" fontWeight="bold">
-                            Email
-                        </Text>
-                        <Box>
-                            <InputAddon>
-                                <i
-                                    className="fa-solid fa-envelope"
-                                    style={{ color: 'orange' }}
-                                ></i>
-                            </InputAddon>
-                            <Input
-                                type="text"
-                                name="reset_password"
-                                placeholder="Type New Password ..."
-                            />
-                        </Box>
-                        <Stack align="center" marginTop="10px">
-                            <Button width="200px" type="submit">
-                                Submit
-                            </Button>
-                        </Stack>
-                    </form>
-                </section>
-            </div>
+                <h1 className='reset__password--title'>Reset Password</h1>
+                <InputGroup
+                    startElement={<RiLockPasswordFill />}>
+                    <PasswordInput
+                        name="reset__password__new"
+                        placeholder="New Password ..."
+                        data-testid="reset-password-new-password-input"
+                    />
+                </InputGroup>
+                <Text color='red.500' marginBottom={5} marginTop={1.5} fontWeight={'bold'} fontSize="sm" className="login-error-msg">Invalid Password</Text>
+                <InputGroup
+                    startElement={<RiLockPasswordFill />}>
+                    <PasswordInput
+                        name="reset__password__confirm"
+                        placeholder="Confirm Password ..."
+                        data-testid="reset-password-confirm-password-input"
+                    />
+                </InputGroup>
+                <Text color='red.500' marginBottom={5} marginTop={1.5} fontWeight={'bold'} fontSize="sm" className="login-error-msg">Invalid Password</Text>
+                <Stack align="center" marginTop="10px">
+                    <Button width="200px" marginTop='10px' type="submit" colorPalette='blue'>
+                        Reset Password
+                    </Button>
+                </Stack>
+            </form>
         </div>
     )
 }

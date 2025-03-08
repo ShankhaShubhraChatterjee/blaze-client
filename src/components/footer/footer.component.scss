@@ -12,56 +12,37 @@
     );
 }
 
-footer {
-    // background: var(--footer-bg-color);
+.footer {
+    margin-top: 50px;
+}
+
+.footer__copyright {
     padding: 10px;
-    margin-top: 100px;
     font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
-
-    .footer-text {
-        text-align: center;
-        font-size: 16px;
-    }
+    text-align: center;
+    font-size: 16px;
 }
 
-.social-accounts-container {
+.footer__social {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
-.social-accounts {
-    background-color: var(--chakra-colors-chakra-body-tag);
-    width: 140px;
-    border-radius: 10px;
-    padding: 5px 0;
 
-    a {
-        padding: 10px;
-        border-radius: 50%;
+.footer__social--item {
+    margin: 5px;
+    transition: color 200ms ease-in-out;
+}
 
-        .fa-facebook {
-            color: var(--facebook-color);
-        }
+.footer__social--item:nth-child(1):hover {
+    color: #4267b2;
+}
 
-        .fa-twitter {
-            color: var(--twitter-color);
-        }
+.footer__social--item:nth-child(2):hover {
+    color:#e4ac45;
+}
 
-        .fa-instagram {
-            background: var(--instagram-color);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        i {
-            font-size: 24px;
-            cursor: pointer;
-            border-radius: 50%;
-            padding: 1.5px;
-        }
-    }
+.footer__social--item:nth-child(3):hover {
+    color:#1da1f2;
 }

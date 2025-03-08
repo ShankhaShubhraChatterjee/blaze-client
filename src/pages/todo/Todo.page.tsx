@@ -7,20 +7,14 @@ import TodoBar from '../../components/todo/toolbar/TodoToolbar.component'
 import './todo.page.scss'
 
 const Todo = () => {
-    const sidebarVisible = useSelector(
-        (state: any) => state.todoSidebarSlice.sidebarVisible
-    )
+    const sidebarVisible = true
     return (
         <div>
             <NavBar />
-            <div className="todo-container">
+            <div className="todo__container">
                 <div className="todo">
                     <TodoBar />
-                    {(() => {
-                        if (sidebarVisible) {
-                            return <TodoSideBar />
-                        }
-                    })()}
+                    {sidebarVisible ? <TodoSideBar /> : ''}
                     <TodoPreview />
                 </div>
             </div>

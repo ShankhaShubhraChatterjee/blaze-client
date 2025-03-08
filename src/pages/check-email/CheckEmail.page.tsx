@@ -1,7 +1,6 @@
-import { Text, Button, IconButton, Center } from '@chakra-ui/react'
+import { Text, IconButton, Center } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-import background from './../../assets/img/background.svg'
 
 import './check-email.page.scss'
 
@@ -10,7 +9,6 @@ const CheckEmail = () => {
         <div>
             <section
                 className="check-email"
-                style={{ backgroundImage: `url(${background})` }}
             >
                 <div className="check-email-box">
                     <Text fontSize="lg" fontWeight="bold" marginBottom={5}>

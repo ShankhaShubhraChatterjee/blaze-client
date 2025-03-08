@@ -9,24 +9,15 @@ const TodoBar = () => {
         <div className="todobar-container">
             <div className="todobar">
                 <Stack direction="row" padding={0}>
-                    <IconButton
-                        aria-label=""
-                        size="sm"
-                        colorScheme="orange"
-                        variant="outline"
-                        className="todobar-sidebar-button"
-                    >
-                        <i className="bi bi-layout-sidebar"></i>
-                    </IconButton>
                     <Text className="todobar-header" fontSize="xl">
                         User's Todo Dashboard
                     </Text>
                 </Stack>
                 <Stack direction="row" className="todobar-buttons">
-                    <Button size="sm" colorScheme="green">
+                    <Button size="sm" colorPalette="green">
                         Add
                     </Button>
-                    <Button size="sm" colorScheme="red">
+                    <Button size="sm" colorPalette="red">
                         Delete
                     </Button>
                 </Stack>

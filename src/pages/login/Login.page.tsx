@@ -1,25 +1,40 @@
-// NPM Packages
-
+// React Imports
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+
+// React Router Imports
 import { Link } from 'react-router-dom'
-import { joiResolver } from '@hookform/resolvers/joi'
-import { Stack, Input, Text, Button } from '@chakra-ui/react'
+
+// React Icon Imports
+import { RiLockPasswordFill } from "react-icons/ri";
+import { FaRegEnvelope } from "react-icons/fa6"
+
+// Chakra Imports
+import { Stack, Input, Text, Button, Field } from '@chakra-ui/react'
+import { PasswordInput } from '../../components/ui/password-input';
 import { Checkbox } from './../../components/ui/checkbox'
 import { InputGroup } from './../../components/ui/input-group'
-// Components
 
+// React Hook Form Imports
+import { useForm } from 'react-hook-form'
+
+// Joi Imports
+import { joiResolver } from '@hookform/resolvers/joi'
+
+// Stylesheet Imports
+import './login.page.scss'
+
+// Image & Asset Imports
+import background from './../../assets/img/background-2.svg'
+
+// User Component Imports
 import Footer from '../../components/footer/Footer.component'
 import NavBar from '../../components/navbar/Navbar.component'
 
-// Configurations
+// User Configuration Imports
 import { loginSchema } from '../../configs/schema.config'
+import Hr from '../../modules/underline/Underline.module';
 
-// Static Assets
-import background from './../../assets/img/background-2.svg'
-
-import './login.page.scss'
-
+// Root Component(Login)
 const Login = (props: any) => {
     const [email, setEmail] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -39,29 +54,21 @@ const Login = (props: any) => {
         console.log(data)
     }
     return (
-        <div
-            className="signin-form-section"
-            style={{ backgroundImage: `url(${background})` }}
-        >
+        <div className="login">
             <NavBar />
-            <div className="signin-form-container">
+            <div className='login__form--container'>
                 <form
-                    className="signin-form"
+                    className="login__form"
                     method="POST"
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <Stack>
+                    <Stack width='full'>
                         <Text fontSize="4xl" textAlign="center">
                             Login
                         </Text>
                         <InputGroup
-                            startElement={
-                                <i
-                                    style={{ fontSize: '24px' }}
-                                    className="bi bi-envelope"
-                                ></i>
-                            }
-                        >
+                            flex="5"
+                            startElement={<FaRegEnvelope />}>
                             <Input
                                 {...register('email')}
                                 type="text"
@@ -71,38 +78,19 @@ const Login = (props: any) => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </InputGroup>
-                        <Text className="login-error-msg">
+                        <Text fontSize="sm" fontWeight='semibold' textAlign='right' color='red.500'>
                             {errors.email?.message}
                         </Text>
                         <InputGroup
-                            startElement={
-                                <i
-                                    style={{ fontSize: '24px' }}
-                                    className="bi bi-key"
-                                ></i>
-                            }
-                            endElement={
-                                <i
-                                    onClick={() =>
-                                        setShowPassword(!showPassword)
-                                    }
-                                    className={
-                                        showPassword
-                                            ? 'fa-solid fa-eye'
-                                            : 'fa-solid fa-eye-slash'
-                                    }
-                                ></i>
-                            }
-                        >
-                            <Input
+                            startElement={<RiLockPasswordFill />}>
+                            <PasswordInput
                                 {...register('password')}
-                                type={showPassword ? 'text' : 'password'}
                                 name="login_password"
                                 placeholder="Password"
                                 data-testid="login-form-password-input"
                             />
                         </InputGroup>
-                        <Text size="sm" className="login-error-msg">
+                        <Text fontSize="sm" fontWeight='semibold' textAlign='right' color='red.500'>
                             {errors.password?.message}
                         </Text>
                         <Checkbox name="remember" colorScheme="orange">
@@ -112,7 +100,7 @@ const Login = (props: any) => {
                             Forgot Password?
                             <Link
                                 style={{
-                                    color: 'darkorange',
+                                    color: 'royalblue',
                                     fontWeight: 'bold',
                                     fontSize: '18px',
                                     marginLeft: '10px',
@@ -127,6 +115,13 @@ const Login = (props: any) => {
                             data-testid="login-form-submit-button"
                         >
                             Login
+                        </Button>
+                        <Hr color="orangse" height={2.5} />
+                        <Button
+                            type="submit"
+                            data-testid="login-form-submit-button"
+                        >
+                            Login with Google
                         </Button>
                     </Stack>
                 </form>

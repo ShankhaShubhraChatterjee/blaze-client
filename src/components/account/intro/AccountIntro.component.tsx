@@ -1,4 +1,5 @@
 import { Input, Box, Stack, Text } from '@chakra-ui/react'
+import { FaCamera } from "react-icons/fa";
 import ProfilePicture from './../../../assets/img/user.png'
 import './account-intro.component.scss'
 const AccountIntro = () => {
@@ -13,7 +14,7 @@ const AccountIntro = () => {
                             htmlFor="account-image-input"
                             className="account-image-input-label"
                         >
-                            <i className="bi bi-camera2"></i>
+                            <FaCamera />
                             <Input
                                 type="file"
                                 name="account_profile_image"

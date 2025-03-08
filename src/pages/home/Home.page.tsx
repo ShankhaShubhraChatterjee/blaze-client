@@ -1,34 +1,28 @@
+// Custom User Component Imports
 import NavBar from '../../components/navbar/Navbar.component'
-import background from './../../assets/img/background-2.svg'
-import logo from './../../assets/img/blaze.png'
-import { useEffect, useState } from 'react'
 import Footer from '../../components/footer/Footer.component'
 
+// Asset & Images Imports
+import BlazeLogo from './../../assets/img/blaze.png'
+
+// Stylesheet Imports
 import './home.page.scss'
 
-const HomePage = () => {
-    const [data, setData] = useState(null)
-    // useEffect(() => {
-    //     fetch("http://localhost:3000")
-    //     .then(result => result.json())
-    //     .then((result: any) => setData(result.error))
-    //     .catch((err) => console.error(err))
-    // }, [])
+const Home = () => {
     return (
         <div
-            className="index-page"
-            style={{ backgroundImage: `url(${background})` }}
+            className="home"
         >
             <NavBar />
-            <div className="intro-section">
+            <div className="home__intro--welcome">
                 <section>
                     <h1>
                         Its Time To Finish Your Unfinished Goals{' '}
                         <strong>Blazingly</strong> Fast.
                     </h1>
                 </section>
-                <section className="index-image-section">
-                    <img className="index-logo" src={logo} alt="App Logo" />
+                <section className="home__intro--logo">
+                    <img src={BlazeLogo} alt="App Logo" />
                 </section>
             </div>
 
@@ -36,4 +30,4 @@ const HomePage = () => {
         </div>
     )
 }
-export default HomePage
+export default Home

@@ -1,62 +1,79 @@
-import { Button, Input, Stack, Textarea } from '@chakra-ui/react'
+// Chakra UI Imports
+import { Button, Input, Stack, Textarea, Text, Group, InputAddon } from '@chakra-ui/react'
 import { InputGroup } from '../../ui/input-group'
+
+// React Icons Imports
+import { FaRegEnvelope, FaUserCircle, FaBook } from 'react-icons/fa'
+import { BsPersonFill } from 'react-icons/bs'
+
+// Root Component (AccountUpdate)
 const AccountUpdate = () => {
     return (
-        <section className="account-update account-window">
-            <h2 className="account-window-headers">Update Details</h2>
-            <div>
-                <Stack className="input-section">
+        <div className="account__page--component">
+            <form className='account__page--component--item'>
+                <h2 className="account__page--component--item--header">Update Details</h2>
+                <Stack width='full'>
                     <InputGroup
-                        startElement={
-                            <i
-                                style={{ marginLeft: '2px' }}
-                                className="fa-solid fa-user-secret"
-                            ></i>
-                        }
+                        startElement={<BsPersonFill />}
                     >
                         <Input
                             type="text"
-                            name="username"
-                            placeholder="Full Name"
+                            name="signup_fullname"
+                            placeholder="Fullname"
                         />
                     </InputGroup>
-                    <InputGroup
-                        startElement={
-                            <i className="fa-solid fa-user-circle"></i>
-                        }
+                    <Text
+                        textAlign="right"
+                        fontSize="sm"
+                        fontWeight="semibold"
+                        color='red.500'
                     >
+                        Name Invalid
+                    </Text>
+                    <InputGroup startElement={<FaUserCircle />}>
+
                         <Input
                             type="text"
-                            name="username"
+                            name="signup_username"
                             placeholder="Username"
                         />
+
                     </InputGroup>
-                    <InputGroup
-                        startElement={<i className="fa-solid fa-envelope"></i>}
+                    <Text
+                        textAlign="right"
+                        fontSize="sm"
+                        fontWeight="semibold"
+                        color='red.500'
                     >
+                        Username invalid
+                    </Text>
+
+                    <InputGroup
+                        flex="5"
+                        startElement={<FaRegEnvelope />}>
                         <Input
                             type="text"
-                            name="username"
+                            name="account_update_email"
                             placeholder="Email"
+                            data-testid="account-update-email-"
                         />
                     </InputGroup>
-                    <InputGroup
-                        startElement={
-                            <i className="bi bi-journal-richtext"></i>
-                        }
-                    >
+                    <Text fontSize="sm" fontWeight='semibold' textAlign='right' color='red.500'>
+                        Invalid Email
+                    </Text>
+                    <Group attached>
+                        <InputAddon><FaBook /></InputAddon>
                         <Textarea
                             size="md"
-                            borderRadius="0 7px 7px 0"
                             rows={3}
-                            name="bio"
-                            placeholder="Bio"
+                            name="account_update_bio"
+                            placeholder="Update Bio ..."
                         ></Textarea>
-                    </InputGroup>
+                    </Group>
                     <Button type="submit">Submit</Button>
                 </Stack>
-            </div>
-        </section>
+            </form>
+        </div>
     )
 }
 

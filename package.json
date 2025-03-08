@@ -8,7 +8,8 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "format": "prettier --write .",
+        "format": "prettier **/*{.jsx, ts, js} --write ",
+        "lint:scss": "stylelint **/*.scss --fix",
         "test": "vitest"
     },
     "dependencies": {
@@ -49,6 +50,7 @@
         "stylelint": "^16.14.1",
         "stylelint-config-standard": "^37.0.0",
         "stylelint-config-standard-scss": "^14.0.0",
+        "stylelint-config-two-dash-bem": "^1.0.0",
         "typescript": "^5.7.3",
         "vite": "^6.1.1",
         "vitest": "^3.0.6"

@@ -1,13 +1,8 @@
-:root {
-    --todo-sidebar-bg-color: red;
-    --todo-sidebar-item-bg-color: orange;
-    --scrollbar-thumb-bg-color: orange;
-}
-.todo-sidebar-container {
+.todo__sidebar--container {
     color: var(--default-fg-color);
     grid-area: todo-sidebar;
     height: var(--todo-section-height);
-    background: var(--default-bg-color);
+    background: var(--chakra-colors-chakra-body-bg);
     padding: 10px;
     border-radius: 10px;
     overflow-y: scroll;
@@ -15,36 +10,32 @@
     transform: scaleX(1);
     transform-origin: left;
     transition: transform 300ms ease-in;
+    width: 300px;
+
     &::-webkit-scrollbar {
         width: 5px;
         border-radius: 10px;
         background-color: silver;
     }
+
     &::-webkit-scrollbar-thumb {
-        background-color: var(--scrollbar-thumb-bg-color);
+        background-color: orange;
     }
 }
-.sidebar-items {
-    a {
-        display: inline-block;
-        border: 2px solid var(--todo-sidebar-item-bg-color);
-        padding: 5px;
-        border-radius: 5px;
-    }
-}
-@media (max-width: 768px) {
-    .todo-sidebar-container {
+
+@media (width <= 768px) {
+    .todo__sidebar--container {
         position: absolute;
         left: 5px;
         width: 250px;
         top: 60px;
         transform: scaleX(1);
+        display: none;
     }
 }
 
-@media (max-width: 400px) {
-    .todo-sidebar-container {
+@media (width <= 400px) {
+    .todo__sidebar--container {
         top: 110px;
-        width: 200px;
     }
 }

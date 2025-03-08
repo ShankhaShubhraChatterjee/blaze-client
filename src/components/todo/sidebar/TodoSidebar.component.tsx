@@ -1,114 +1,50 @@
-import {
-    Box,
-    Accordion,
-    AccordionItem,
-    Text,
-    Stack,
-    AccordionRoot,
-    AccordionItemTrigger,
-} from '@chakra-ui/react'
-import { useDispatch, useSelector } from 'react-redux'
-import { toggleSideBar } from '../../../redux/todo-sidebar.slice'
+// React Imports
 
+// React Icon Imports
+import { FaHeart } from "react-icons/fa";
+import { GrInProgress } from "react-icons/gr";
+import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
+
+// React Redux Imports
+
+// Chakra Imports
+import {
+    AccordionItem,
+    AccordionItemContent,
+    AccordionItemTrigger,
+    AccordionRoot
+} from './../../ui/accordion'
+
+
+// Stylesheet Imports
 import './todo-sidebar.component.scss'
+import { Box } from "@chakra-ui/react";
 
 const TodoSideBar = (props: any) => {
-    const dispatch = useDispatch()
-    const sidebarVisible = useSelector(
-        (state: any) => state.todoSidebarSlice.sidebarVisible
-    )
-    const hideSideBar = {
-        width: '10px',
-    }
-
     return (
-        <div
-            className="todo-sidebar-container"
-            style={!sidebarVisible ? hideSideBar : {}}
-        >
-            <AccordionRoot defaultIndex={[0]} allowMultiple>
-                <AccordionItem>
-                    <h2>
+        <Box className="todo__sidebar--container" bg={{ base: "white", _dark: "black" }}>
+            <AccordionRoot variant='enclosed' multiple collapsible defaultValue={["b"]}>
+                {/* Completed Accordion */}
+                    <AccordionItem value="completed">
                         <AccordionItemTrigger>
-                            <Box as="span" flex={1} textAlign="left">
-                                Completed
-                            </Box>
+                            <IoCheckmarkDoneCircleSharp size={24} color="yellowgreen" />
+                            Completed
                         </AccordionItemTrigger>
-                    </h2>
-                    <Stack direction="column" className="sidebar-items">
-                        <a href="#">
-                            <Text>task-1</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-2</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-3</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-4</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-5</Text>
-                        </a>
-                    </Stack>
-                </AccordionItem>
-                <AccordionItem>
-                    <h2>
-                        <AccordionItemTrigger>
-                            <Box as="span" flex="1" textAlign="left">
-                                Remaining
-                            </Box>
-                        </AccordionItemTrigger>
-                    </h2>
+                        <AccordionItemContent fontSize='14px' fontWeight='semibold'><em>Objective 0</em></AccordionItemContent>
+                    </AccordionItem>
 
-                    <Stack direction="column" className="sidebar-items">
-                        <a href="#">
-                            <Text>task-1</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-2</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-3</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-4</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-5</Text>
-                        </a>
-                    </Stack>
-                </AccordionItem>
-                <AccordionItem>
-                    <h2>
+                    {/* Remaining Accordion */}
+                    <AccordionItem value="remaining" size='lg'>
                         <AccordionItemTrigger>
-                            <Box as="span" flex="1" textAlign="left">
-                                In Progress
-                            </Box>
+                            <GrInProgress size={24} color="goldenrod" />
+                            Remaining
                         </AccordionItemTrigger>
-                    </h2>
-
-                    <Stack direction="column" className="sidebar-items">
-                        <a href="#">
-                            <Text>task-1</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-2</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-3</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-4</Text>
-                        </a>
-                        <a href="#">
-                            <Text>task-5</Text>
-                        </a>
-                    </Stack>
-                </AccordionItem>
+                        <AccordionItemContent fontSize='14px' fontWeight='semibold'><em>Objective 0</em></AccordionItemContent>
+                        <AccordionItemContent fontSize='14px' fontWeight='semibold'><em>Objective 1</em></AccordionItemContent>
+                        <AccordionItemContent fontSize='14px' fontWeight='semibold'><em>Objective 2</em></AccordionItemContent>
+                    </AccordionItem>
             </AccordionRoot>
-        </div>
+        </Box>
     )
 }
 export default TodoSideBar

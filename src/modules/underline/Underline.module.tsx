@@ -1,11 +1,11 @@
 const Hr = (props: any) => {
     return (
         <hr
+            className="custom__horizontal--line"
             style={{
                 width: props.width,
                 height: props.height,
                 backgroundColor: props.color,
-                borderRadius: '50px',
             }}
         />
     )

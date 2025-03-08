@@ -1,65 +1,54 @@
+// React Imports
 import { useState } from 'react'
-import { joiResolver } from '@hookform/resolvers/joi'
-import { useForm } from 'react-hook-form'
-import { registerSchema } from '../../configs/schema.config'
 
-import { Stack, Input, Button, Text } from '@chakra-ui/react'
-import { Checkbox } from './../../components/ui/checkbox'
-import { InputGroup } from './../../components/ui/input-group'
+// User Component Imports
 import NavBar from '../../components/navbar/Navbar.component'
 import Footer from '../../components/footer/Footer.component'
 import Hr from '../../modules/underline/Underline.module'
-import GoogleIcon from './../../assets/img/google.png'
-import background from './../../assets/img/background-2.svg'
+
+// Joi Imports
+import { joiResolver } from '@hookform/resolvers/joi'
+
+// React Hook Form Imports
+import { useForm } from 'react-hook-form'
+
+// Stylesheet Imports
 import './register.page.scss'
 
+// User Configuration Imports
+import { registerSchema } from '../../configs/schema.config'
+
+// Chakra Imports
+import { Stack, Input, Button, Text } from '@chakra-ui/react'
+import { Checkbox } from './../../components/ui/checkbox'
+import { InputGroup } from './../../components/ui/input-group'
+import { PasswordInput } from '../../components/ui/password-input'
+import { Field } from '../../components/ui/field'
+
+// React Icon Imports
+import { RiLockPasswordFill } from "react-icons/ri";
+import { FaRegEnvelope } from "react-icons/fa6"
+import { FaUserCircle, FaRegUserCircle } from "react-icons/fa";
+import { BsPersonFill } from "react-icons/bs";
+
+
+
 const Register = () => {
-    const [showPassword, setShowPassword] = useState(false)
-    const [showRetypePassword, setShowRetypePassword] = useState(false)
-
-    const toggleVisibility1 = () => setShowPassword(!showPassword)
-    const toggleVisibility2 = () => setShowRetypePassword(!showRetypePassword)
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({
-        resolver: joiResolver(registerSchema),
-        defaultValues: {
-            name: null,
-            username: null,
-            email: null,
-            password: null,
-        },
-    })
     return (
         <>
             <div
-                className="signup-form-section"
-                style={{ backgroundImage: `url('${background}')` }}
+                className="register"
             >
                 <NavBar />
-                <div className="signin-form-container">
-                    <form action="" className="signin-form" method="POST">
-                        <Stack>
+                <div className="register__form--container">
+                    <form action="" className="register__form" method="POST">
+                        <Stack width={'full'}>
                             <Text fontSize="4xl" textAlign="center">
                                 Register
                             </Text>
 
                             <InputGroup
-                                startElement={
-                                    <i
-                                        style={{ fontSize: '24px' }}
-                                        className="bi bi-person-fill"
-                                    ></i>
-                                }
-                                endElement={
-                                    <i
-                                        style={{ fontSize: '16px' }}
-                                        className="bi bi-info-circle"
-                                    ></i>
-                                }
+                                startElement={<BsPersonFill />}
                             >
                                 <Input
                                     type="text"
@@ -67,56 +56,33 @@ const Register = () => {
                                     placeholder="Fullname"
                                 />
                             </InputGroup>
-                            <Text
+                            <Text 
                                 textAlign="right"
                                 fontSize="sm"
-                                color="var(--default-fg-error)"
+                                fontWeight="semibold"
+                                color='red.500'
                             >
                                 Name Invalid
                             </Text>
+                            <InputGroup startElement={<FaUserCircle />}>
 
-                            <InputGroup
-                                startElement={
-                                    <i
-                                        style={{ fontSize: '24px' }}
-                                        className="bi bi-person-circle"
-                                    ></i>
-                                }
-                                endElement={
-                                    <i
-                                        style={{ fontSize: '16px' }}
-                                        className="bi bi-info-circle"
-                                    ></i>
-                                }
-                            >
                                 <Input
                                     type="text"
                                     name="signup_username"
                                     placeholder="Username"
                                 />
+
                             </InputGroup>
                             <Text
                                 textAlign="right"
                                 fontSize="sm"
-                                color="var(--default-fg-error)"
+                                fontWeight="semibold"
+                                color='red.500'
                             >
-                                Username Invalid
+                                Username invalid
                             </Text>
 
-                            <InputGroup
-                                startElement={
-                                    <i
-                                        style={{ fontSize: '24px' }}
-                                        className="bi bi-envelope"
-                                    ></i>
-                                }
-                                endElement={
-                                    <i
-                                        style={{ fontSize: '16px' }}
-                                        className="bi bi-info-circle"
-                                    ></i>
-                                }
-                            >
+                            <InputGroup startElement={<FaRegEnvelope />}>
                                 <Input
                                     type="text"
                                     name="signup_email"
@@ -126,32 +92,17 @@ const Register = () => {
                             <Text
                                 textAlign="right"
                                 fontSize="sm"
-                                color="var(--default-fg-error)"
+                                fontWeight="semibold"
+                                color="red.500"
                             >
                                 Email Invalid
                             </Text>
 
                             <InputGroup
-                                startElement={
-                                    <i
-                                        style={{ fontSize: '24px' }}
-                                        className="bi bi-key"
-                                    ></i>
-                                }
-                                endElement={
-                                    <i
-                                        onClick={toggleVisibility1}
-                                        style={{ fontSize: '16px' }}
-                                        className={
-                                            showPassword
-                                                ? 'fa-solid fa-eye'
-                                                : 'fa-solid fa-eye-slash'
-                                        }
-                                    ></i>
-                                }
+                                startElement={<RiLockPasswordFill />}
+
                             >
-                                <Input
-                                    type={showPassword ? 'text' : 'password'}
+                                <PasswordInput
                                     name="signup_password"
                                     placeholder="Password"
                                 />
@@ -159,42 +110,25 @@ const Register = () => {
                             <Text
                                 textAlign="right"
                                 fontSize="sm"
-                                color="var(--default-fg-error)"
+                                fontWeight="semibold"
+                                color="red.500"
                             >
                                 Password Not Valid
                             </Text>
 
                             <InputGroup
-                                startElement={
-                                    <i
-                                        style={{ fontSize: '24px' }}
-                                        className="bi bi-lock"
-                                    ></i>
-                                }
-                                endElement={
-                                    <i
-                                        onClick={toggleVisibility2}
-                                        style={{ fontSize: '16px' }}
-                                        className={
-                                            showRetypePassword
-                                                ? 'fa-solid fa-eye'
-                                                : 'fa-solid fa-eye-slash'
-                                        }
-                                    ></i>
-                                }
+                                startElement={<RiLockPasswordFill />}
                             >
-                                <Input
+                                <PasswordInput
                                     name="signup_retype_password"
-                                    type={
-                                        showRetypePassword ? 'text' : 'password'
-                                    }
                                     placeholder="Retype Password"
                                 />
                             </InputGroup>
                             <Text
                                 textAlign="right"
                                 fontSize="sm"
-                                color="var(--default-fg-error)"
+                                fontWeight="semibold"
+                                color="red.500"
                             >
                                 Password Doesnt Match
                             </Text>
@@ -204,7 +138,7 @@ const Register = () => {
                             <Button>Register</Button>
                             <Hr color="orange" height={2.5} />
                             <Button
-                                colorScheme="orange"
+                                colorPalette="orange"
                                 type="submit"
                                 width="25"
                                 height="25"
@@ -214,7 +148,7 @@ const Register = () => {
                         </Stack>
                     </form>
                 </div>
-            </div>
+            </div >
             <Footer />
         </>
     )

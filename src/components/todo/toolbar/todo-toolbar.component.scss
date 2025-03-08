@@ -1,9 +1,11 @@
 :root {
-    --todobar-bg-color: rgba(0, 0, 0, 0.85);
+    --todobar-bg-color: rgb(0 0 0 / 85%);
 }
+
 .todobar-container {
     grid-area: todo-bar;
 }
+
 .todobar {
     color: var(--default-fg-color);
     padding: 10px;
@@ -15,8 +17,10 @@
     justify-content: space-between;
     background-color: var(--default-bg-color);
 }
+
 .todobar-header {
     text-align: center;
+
     &::after {
         content: '';
         width: 100%;
@@ -25,26 +29,29 @@
         border-radius: 10px;
         background: linear-gradient(
             90deg,
-            rgba(255, 98, 0, 1) 0%,
-            rgba(232, 255, 0, 1) 60%,
-            rgba(244, 0, 255, 1) 100%
+            rgb(255 98 0 / 100%) 0%,
+            rgb(232 255 0 / 100%) 60%,
+            rgb(244 0 255 / 100%) 100%
         );
     }
 }
+
 .todobar-sidebar-button {
     display: none !important;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .todobar-sidebar-button {
         display: block !important;
     }
 }
-@media (max-width: 400px) {
+
+@media (width <= 400px) {
     .todobar {
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
+
         div {
             margin-bottom: 10px;
         }

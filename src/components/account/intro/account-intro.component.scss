@@ -5,6 +5,7 @@
     width: 100%;
     grid-template-columns: 1fr;
 }
+
 .account-intro-profile-section {
     width: 100%;
     display: grid;
@@ -12,15 +13,18 @@
     align-items: center;
     justify-content: center;
 }
+
 .account-intro-profile-image-section {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .account-intro-profile-image {
     width: 150px;
     height: 150px;
     position: relative;
+
     img {
         width: 150px;
         height: 150px;
@@ -28,6 +32,7 @@
         border-radius: 50%;
         box-shadow: 0 0 10px orange;
     }
+
     .account-image-input-label {
         position: absolute;
         right: 20px;
@@ -41,9 +46,11 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+
         input {
             display: none;
         }
+
         i {
             color: white;
             font-size: 20px;
@@ -51,7 +58,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (width <= 400px) {
     .account-intro-profile-section {
         grid-template-columns: 1fr;
         justify-content: center;

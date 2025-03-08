@@ -15,42 +15,36 @@ import { Link } from 'react-router-dom';
 // Root Component (ForgotPassword)
 const ForgotPassword = () => {
     return (
-        <div
-            className="forgot__password--container"
-            style={{ backgroundImage: `url(${background})` }}
-        >
-            <section className="forgot__password--container">
-                <form
-                    className="forgot__password--container--form"
-                    action=""
-                    method="POST"
-                >
-                    <Button rounded='full' color='orange.500'>
-                        <Link to="/">
-                            <FaHome size={24} />
-                        </Link>
+        <div className="forgot__password--container">
+            <form
+                className="forgot__password--container--form"
+                action=""
+                method="POST"
+            >
+                <Button rounded='full' color='orange.500'>
+                    <Link to="/">
+                        <FaHome size={24} />
+                    </Link>
+                </Button>
+                <h1 className='forgot__password--title'>Forgot Password</h1>
+                <InputGroup
+                    width='100%'
+                    flex="5"
+                    startElement={<FaRegEnvelope />}>
+                    <Input
+                        type="email"
+                        name="forgot_email"
+                        placeholder="Email"
+                        data-testid="forgot-password-form-email-input"
+                    />
+                </InputGroup>
+                <Stack align="center" marginTop="10px">
+                    <Button width="200px" marginTop='10px' type="submit">
+                        Submit
                     </Button>
-                    <h1 className='forgot__password--title'>Forgot Password</h1>
-                    <InputGroup
-                        width='100%'
-                        flex="5"
-                        startElement={<FaRegEnvelope />}>
-                        <Input
-                            type="text"
-                            name="forgot_email"
-                            placeholder="Email"
-                            data-testid="forgot-password-form-email-input"
-                        />
-                    </InputGroup>
-                    <Stack align="center" marginTop="10px">
-                        <Button width="200px" marginTop='10px' type="submit">
-                            Submit
-                        </Button>
-                    </Stack>
-                </form>
-            </section>
+                </Stack>
+            </form>
         </div>
-
     )
 }
 export default ForgotPassword

@@ -12,8 +12,6 @@ import './main.scss'
 // Configs
 
 import { store } from './configs/store.config'
-import theme from './configs/theme.config'
-import { defaultSystem } from '@chakra-ui/react'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <ChakraProvider.Provider>
