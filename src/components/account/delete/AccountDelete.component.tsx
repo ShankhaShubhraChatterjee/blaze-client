@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Input, Stack, Text } from '@chakra-ui/react'
 import {
     PopoverArrow,
     PopoverBody,
@@ -7,7 +7,10 @@ import {
     PopoverTitle,
     PopoverTrigger,
 } from './../../ui/popover'
+import { InputGroup } from './../../ui/input-group'
+import { LuUser } from 'react-icons/lu'
 
+// Root Component (AccountDelete)
 const AccountDelete = () => {
     return (
         <div className='account__page--component'>
@@ -18,25 +21,29 @@ const AccountDelete = () => {
                 </Stack>
                 <PopoverRoot closeOnInteractOutside>
                     <Box textAlign='center'>
-                    <PopoverTrigger width="50%" size="lg">
-                        
-                        <Text padding='2.5' borderRadius='2.5px' width='100' color='white' backgroundColor="orange" textAlign='center' >Delete Account</Text>
-                        
-                    </PopoverTrigger>
+                        <PopoverTrigger width="50%">
+
+                            <Text padding='2.5' borderRadius='2.5px' width='100' color='white' cursor='pointer' backgroundColor="orange" textAlign='center' >I Want To Delete</Text>
+
+                        </PopoverTrigger>
                     </Box>
                     <PopoverContent>
                         <PopoverArrow />
                         <PopoverBody>
-                            <PopoverTitle fontWeight="medium">
+                            <PopoverTitle fontWeight="bold" color='red.600'>
                                 Delete Account ? No Going Back!
                             </PopoverTitle>
 
                             <Stack
                                 width='full'
-                                direction="row"
+                                direction="column"
+                                marginTop='2'
                             >
-                                <Button colorPalette="red">
-                                    I Want To Delete
+                                <InputGroup flex="1" startElement={<LuUser />}>
+                                    <Input placeholder="Type Username ..." />
+                                </InputGroup>
+                                <Button colorPalette="red" width='full'>
+                                    Delete Permanently
                                 </Button>
                             </Stack>
                         </PopoverBody>
