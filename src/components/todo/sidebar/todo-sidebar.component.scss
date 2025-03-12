@@ -10,8 +10,7 @@
     transform: scaleX(1);
     transform-origin: left;
     transition: transform 300ms ease-in;
-    width: 300px;
-
+    position: relative;
     &::-webkit-scrollbar {
         width: 5px;
         border-radius: 10px;
