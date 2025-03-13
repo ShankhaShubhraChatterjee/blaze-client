@@ -1,16 +1,17 @@
 // React Imports
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 // React Router Imports
 import { NavLink } from 'react-router-dom'
 
 // Chakra Imports
-import { Avatar, Button, Stack } from '@chakra-ui/react'
+import { Avatar, Box, Button, Dialog, Portal } from '@chakra-ui/react'
 import { ColorModeButton } from './../ui/color-mode'
+import { CloseButton } from '../ui/close-button'
 
 // React Icon Imports
-import { LuMenu } from 'react-icons/lu'
 import { FaHamburger } from 'react-icons/fa'
+
 // Image & Assets Imports
 import Logo from './../../assets/img/blaze.png'
 import ProfilePicture from './../../assets/img/user.png'
@@ -20,7 +21,6 @@ import './navbar.component.scss'
 
 // Root Component (Navbar)
 const NavBar = () => {
-    const [show, setShow] = useState(false)
     return (
         <nav className="navbar">
             <section className="navbar__header">
@@ -29,7 +29,7 @@ const NavBar = () => {
                     <h1>Blaze</h1>
                 </NavLink>
             </section>
-            <ul className="navbar__list">
+            <Box as="ul" className="navbar__list">
                 <li className="navbar__list--item">
                     <NavLink className="navbar__list--item--link" to="/">
                         Home
@@ -53,7 +53,8 @@ const NavBar = () => {
                         Register
                     </NavLink>
                 </li>
-            </ul>
+            </Box>
+
             <section className="navbar__profile">
                 <ColorModeButton
                     color={{ base: 'yellow.300', _dark: 'blue.300' }}
@@ -74,14 +75,62 @@ const NavBar = () => {
                         <Avatar.Image src={ProfilePicture} />
                     </Avatar.Root>
                 </NavLink>
-                <Button
-                    padding={0}
-                    rounded="full"
-                    variant="solid"
-                    colorPalette="purple"
-                >
-                    <FaHamburger />
-                </Button>
+
+                <Dialog.Root placement={'center'}>
+                    <Dialog.Trigger asChild>
+                        <Button
+                            className="navbar__list--mobile--button"
+                            padding={0}
+                            rounded="full"
+                            variant="solid"
+                            colorPalette="purple"
+                            textAlign={'center'}
+                        >
+                            <FaHamburger />
+                        </Button>
+                    </Dialog.Trigger>
+                    <Portal>
+                        <Dialog.Backdrop />
+                        <Dialog.Positioner>
+                            <Dialog.Content style={{ width: '150px' }}>
+                                <Dialog.Header>
+                                    <Dialog.Title textAlign={'center'}>
+                                        Navigate
+                                    </Dialog.Title>
+                                </Dialog.Header>
+                                <Dialog.Body>
+                                    <NavLink
+                                        className="navbar__list--item--link--mobile"
+                                        to="/"
+                                    >
+                                        Home
+                                    </NavLink>
+                                    <NavLink
+                                        className="navbar__list--item--link--mobile"
+                                        to="/todos"
+                                    >
+                                        Todos
+                                    </NavLink>
+                                    <NavLink
+                                        className="navbar__list--item--link--mobile"
+                                        to="/login"
+                                    >
+                                        Login
+                                    </NavLink>
+                                    <NavLink
+                                        className="navbar__list--item--link--mobile"
+                                        to="/register"
+                                    >
+                                        Register
+                                    </NavLink>
+                                </Dialog.Body>
+                                <Dialog.CloseTrigger asChild>
+                                    <CloseButton size="sm" />
+                                </Dialog.CloseTrigger>
+                            </Dialog.Content>
+                        </Dialog.Positioner>
+                    </Portal>
+                </Dialog.Root>
             </section>
         </nav>
     )

@@ -61,7 +61,11 @@ const AccountDelete = () => {
                                 <InputGroup flex="1" startElement={<LuUser />}>
                                     <Input placeholder="Type Username ..." />
                                 </InputGroup>
-                                <Button colorPalette="red" width="full">
+                                <Button
+                                    colorPalette="red"
+                                    width="full"
+                                    disabled
+                                >
                                     Delete Permanently
                                 </Button>
                             </Stack>

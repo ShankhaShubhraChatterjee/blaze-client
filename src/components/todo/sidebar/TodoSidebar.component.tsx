@@ -46,7 +46,7 @@ const TodoSideBar = (props: any) => {
                 </AccordionItem>
 
                 {/* Remaining Accordion */}
-                <AccordionItem value="remaining" size="lg">
+                <AccordionItem value="remaining">
                     <AccordionItemTrigger>
                         <GrInProgress size={24} color="goldenrod" />
                         Remaining

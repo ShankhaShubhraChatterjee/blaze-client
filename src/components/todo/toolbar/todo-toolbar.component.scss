@@ -1,12 +1,5 @@
-:root {
-    --todobar-bg-color: rgb(0 0 0 / 85%);
-}
-
-.todobar-container {
+.todo__toolbar {
     grid-area: todo-bar;
-}
-
-.todobar {
     color: var(--default-fg-color);
     padding: 10px;
     width: 100%;
@@ -18,7 +11,7 @@
     background-color: var(--default-bg-color);
 }
 
-.todobar-header {
+.todo__toolbar--header {
     text-align: center;
 
     &::after {
@@ -27,33 +20,16 @@
         height: 5px;
         display: block;
         border-radius: 10px;
-        background: linear-gradient(
-            90deg,
-            rgb(255 98 0 / 100%) 0%,
-            rgb(232 255 0 / 100%) 60%,
-            rgb(244 0 255 / 100%) 100%
-        );
+        background: linear-gradient(90deg,
+                rgb(255 98 0 / 100%) 0%,
+                rgb(232 255 0 / 100%) 60%,
+                rgb(244 0 255 / 100%) 100%);
     }
 }
 
-.todobar-sidebar-button {
-    display: none !important;
-}
-
-@media (width <= 768px) {
-    .todobar-sidebar-button {
-        display: block !important;
-    }
-}
-
-@media (width <= 400px) {
-    .todobar {
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-
-        div {
-            margin-bottom: 10px;
-        }
+// Media Breakpoints
+@media (width <= 600px) {
+    .todo__toolbar--button>p {
+        display: none;
     }
 }

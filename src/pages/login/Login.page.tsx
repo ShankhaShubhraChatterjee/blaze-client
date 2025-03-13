@@ -120,6 +120,7 @@ const Login = (props: any) => {
                         <Button
                             type="submit"
                             data-testid="login-form-submit-button"
+                            colorPalette="blue"
                         >
                             Login
                         </Button>
@@ -127,6 +128,7 @@ const Login = (props: any) => {
                         <Button
                             type="submit"
                             data-testid="login-form-submit-button"
+                            colorPalette="orange"
                         >
                             Login with Google
                         </Button>
