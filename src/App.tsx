@@ -17,7 +17,7 @@ import { rootURL } from './configs/server.config'
 
 function App() {
     const URL = `${rootURL}/user/account`
-    const statusText = 404;
+    const statusText = 404
     return (
         <BrowserRouter>
             <Routes>

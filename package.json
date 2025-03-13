@@ -8,9 +8,10 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "format": "prettier **/*{.jsx, ts, js} --write ",
+        "format": "prettier **/*.tsx **/*.ts **/*.js --write ",
         "lint:scss": "stylelint **/*.scss --fix",
-        "test": "vitest"
+        "test": "vitest",
+        "e2e": "cypress"
     },
     "dependencies": {
         "@chakra-ui/react": "^3.8.1",

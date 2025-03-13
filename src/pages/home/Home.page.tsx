@@ -10,9 +10,7 @@ import './home.page.scss'
 
 const Home = () => {
     return (
-        <div
-            className="home"
-        >
+        <div className="home">
             <NavBar />
             <div className="home__intro--welcome">
                 <section>

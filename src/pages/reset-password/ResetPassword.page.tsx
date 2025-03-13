@@ -15,27 +15,48 @@ const ResetPassword = () => {
                 action=""
                 method="POST"
             >
-                <h1 className='reset__password--title'>Reset Password</h1>
-                <InputGroup
-                    startElement={<RiLockPasswordFill />}>
+                <h1 className="reset__password--title">Reset Password</h1>
+                <InputGroup startElement={<RiLockPasswordFill />}>
                     <PasswordInput
                         name="reset__password__new"
                         placeholder="New Password ..."
                         data-testid="reset-password-new-password-input"
                     />
                 </InputGroup>
-                <Text color='red.500' marginBottom={5} marginTop={1.5} fontWeight={'bold'} fontSize="sm" className="login-error-msg">Invalid Password</Text>
-                <InputGroup
-                    startElement={<RiLockPasswordFill />}>
+                <Text
+                    color="red.500"
+                    marginBottom={5}
+                    marginTop={1.5}
+                    fontWeight={'bold'}
+                    fontSize="sm"
+                    className="login-error-msg"
+                >
+                    Invalid Password
+                </Text>
+                <InputGroup startElement={<RiLockPasswordFill />}>
                     <PasswordInput
                         name="reset__password__confirm"
                         placeholder="Confirm Password ..."
                         data-testid="reset-password-confirm-password-input"
                     />
                 </InputGroup>
-                <Text color='red.500' marginBottom={5} marginTop={1.5} fontWeight={'bold'} fontSize="sm" className="login-error-msg">Invalid Password</Text>
+                <Text
+                    color="red.500"
+                    marginBottom={5}
+                    marginTop={1.5}
+                    fontWeight={'bold'}
+                    fontSize="sm"
+                    className="login-error-msg"
+                >
+                    Invalid Password
+                </Text>
                 <Stack align="center" marginTop="10px">
-                    <Button width="200px" marginTop='10px' type="submit" colorPalette='blue'>
+                    <Button
+                        width="200px"
+                        marginTop="10px"
+                        type="submit"
+                        colorPalette="blue"
+                    >
                         Reset Password
                     </Button>
                 </Stack>

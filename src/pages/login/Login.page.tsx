@@ -5,12 +5,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // React Icon Imports
-import { RiLockPasswordFill } from "react-icons/ri";
-import { FaRegEnvelope } from "react-icons/fa6"
+import { RiLockPasswordFill } from 'react-icons/ri'
+import { FaRegEnvelope } from 'react-icons/fa6'
 
 // Chakra Imports
 import { Stack, Input, Text, Button, Field } from '@chakra-ui/react'
-import { PasswordInput } from '../../components/ui/password-input';
+import { PasswordInput } from '../../components/ui/password-input'
 import { Checkbox } from './../../components/ui/checkbox'
 import { InputGroup } from './../../components/ui/input-group'
 
@@ -32,7 +32,7 @@ import NavBar from '../../components/navbar/Navbar.component'
 
 // User Configuration Imports
 import { loginSchema } from '../../configs/schema.config'
-import Hr from '../../modules/underline/Underline.module';
+import Hr from '../../modules/underline/Underline.module'
 
 // Root Component(Login)
 const Login = (props: any) => {
@@ -56,19 +56,17 @@ const Login = (props: any) => {
     return (
         <div className="login">
             <NavBar />
-            <div className='login__form--container'>
+            <div className="login__form--container">
                 <form
                     className="login__form"
                     method="POST"
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <Stack width='full'>
+                    <Stack width="full">
                         <Text fontSize="4xl" textAlign="center">
                             Login
                         </Text>
-                        <InputGroup
-                            flex="5"
-                            startElement={<FaRegEnvelope />}>
+                        <InputGroup flex="5" startElement={<FaRegEnvelope />}>
                             <Input
                                 {...register('email')}
                                 type="text"
@@ -78,11 +76,15 @@ const Login = (props: any) => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </InputGroup>
-                        <Text fontSize="sm" fontWeight='semibold' textAlign='right' color='red.500'>
+                        <Text
+                            fontSize="sm"
+                            fontWeight="semibold"
+                            textAlign="right"
+                            color="red.500"
+                        >
                             {errors.email?.message}
                         </Text>
-                        <InputGroup
-                            startElement={<RiLockPasswordFill />}>
+                        <InputGroup startElement={<RiLockPasswordFill />}>
                             <PasswordInput
                                 {...register('password')}
                                 name="login_password"
@@ -90,7 +92,12 @@ const Login = (props: any) => {
                                 data-testid="login-form-password-input"
                             />
                         </InputGroup>
-                        <Text fontSize="sm" fontWeight='semibold' textAlign='right' color='red.500'>
+                        <Text
+                            fontSize="sm"
+                            fontWeight="semibold"
+                            textAlign="right"
+                            color="red.500"
+                        >
                             {errors.password?.message}
                         </Text>
                         <Checkbox name="remember" colorScheme="orange">

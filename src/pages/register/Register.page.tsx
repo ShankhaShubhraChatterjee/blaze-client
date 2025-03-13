@@ -26,19 +26,15 @@ import { PasswordInput } from '../../components/ui/password-input'
 import { Field } from '../../components/ui/field'
 
 // React Icon Imports
-import { RiLockPasswordFill } from "react-icons/ri";
-import { FaRegEnvelope } from "react-icons/fa6"
-import { FaUserCircle, FaRegUserCircle } from "react-icons/fa";
-import { BsPersonFill } from "react-icons/bs";
-
-
+import { RiLockPasswordFill } from 'react-icons/ri'
+import { FaRegEnvelope } from 'react-icons/fa6'
+import { FaUserCircle, FaRegUserCircle } from 'react-icons/fa'
+import { BsPersonFill } from 'react-icons/bs'
 
 const Register = () => {
     return (
         <>
-            <div
-                className="register"
-            >
+            <div className="register">
                 <NavBar />
                 <div className="register__form--container">
                     <form action="" className="register__form" method="POST">
@@ -47,37 +43,33 @@ const Register = () => {
                                 Register
                             </Text>
 
-                            <InputGroup
-                                startElement={<BsPersonFill />}
-                            >
+                            <InputGroup startElement={<BsPersonFill />}>
                                 <Input
                                     type="text"
                                     name="signup_fullname"
                                     placeholder="Fullname"
                                 />
                             </InputGroup>
-                            <Text 
+                            <Text
                                 textAlign="right"
                                 fontSize="sm"
                                 fontWeight="semibold"
-                                color='red.500'
+                                color="red.500"
                             >
                                 Name Invalid
                             </Text>
                             <InputGroup startElement={<FaUserCircle />}>
-
                                 <Input
                                     type="text"
                                     name="signup_username"
                                     placeholder="Username"
                                 />
-
                             </InputGroup>
                             <Text
                                 textAlign="right"
                                 fontSize="sm"
                                 fontWeight="semibold"
-                                color='red.500'
+                                color="red.500"
                             >
                                 Username invalid
                             </Text>
@@ -98,10 +90,7 @@ const Register = () => {
                                 Email Invalid
                             </Text>
 
-                            <InputGroup
-                                startElement={<RiLockPasswordFill />}
-
-                            >
+                            <InputGroup startElement={<RiLockPasswordFill />}>
                                 <PasswordInput
                                     name="signup_password"
                                     placeholder="Password"
@@ -116,9 +105,7 @@ const Register = () => {
                                 Password Not Valid
                             </Text>
 
-                            <InputGroup
-                                startElement={<RiLockPasswordFill />}
-                            >
+                            <InputGroup startElement={<RiLockPasswordFill />}>
                                 <PasswordInput
                                     name="signup_retype_password"
                                     placeholder="Retype Password"
@@ -148,7 +135,7 @@ const Register = () => {
                         </Stack>
                     </form>
                 </div>
-            </div >
+            </div>
             <Footer />
         </>
     )

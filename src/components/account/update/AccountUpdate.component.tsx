@@ -1,5 +1,13 @@
 // Chakra UI Imports
-import { Button, Input, Stack, Textarea, Text, Group, InputAddon } from '@chakra-ui/react'
+import {
+    Button,
+    Input,
+    Stack,
+    Textarea,
+    Text,
+    Group,
+    InputAddon,
+} from '@chakra-ui/react'
 import { InputGroup } from '../../ui/input-group'
 
 // React Icons Imports
@@ -10,12 +18,12 @@ import { BsPersonFill } from 'react-icons/bs'
 const AccountUpdate = () => {
     return (
         <div className="account__page--component">
-            <form className='account__page--component--item'>
-                <h2 className="account__page--component--item--header">Update Details</h2>
-                <Stack width='full'>
-                    <InputGroup
-                        startElement={<BsPersonFill />}
-                    >
+            <form className="account__page--component--item">
+                <h2 className="account__page--component--item--header">
+                    Update Details
+                </h2>
+                <Stack width="full">
+                    <InputGroup startElement={<BsPersonFill />}>
                         <Input
                             type="text"
                             name="signup_fullname"
@@ -26,31 +34,27 @@ const AccountUpdate = () => {
                         textAlign="right"
                         fontSize="sm"
                         fontWeight="semibold"
-                        color='red.500'
+                        color="red.500"
                     >
                         Name Invalid
                     </Text>
                     <InputGroup startElement={<FaUserCircle />}>
-
                         <Input
                             type="text"
                             name="signup_username"
                             placeholder="Username"
                         />
-
                     </InputGroup>
                     <Text
                         textAlign="right"
                         fontSize="sm"
                         fontWeight="semibold"
-                        color='red.500'
+                        color="red.500"
                     >
                         Username invalid
                     </Text>
 
-                    <InputGroup
-                        flex="5"
-                        startElement={<FaRegEnvelope />}>
+                    <InputGroup flex="5" startElement={<FaRegEnvelope />}>
                         <Input
                             type="text"
                             name="account_update_email"
@@ -58,11 +62,18 @@ const AccountUpdate = () => {
                             data-testid="account-update-email-"
                         />
                     </InputGroup>
-                    <Text fontSize="sm" fontWeight='semibold' textAlign='right' color='red.500'>
+                    <Text
+                        fontSize="sm"
+                        fontWeight="semibold"
+                        textAlign="right"
+                        color="red.500"
+                    >
                         Invalid Email
                     </Text>
                     <Group attached>
-                        <InputAddon><FaBook /></InputAddon>
+                        <InputAddon>
+                            <FaBook />
+                        </InputAddon>
                         <Textarea
                             size="md"
                             rows={3}

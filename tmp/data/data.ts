@@ -27,7 +27,8 @@ export const todos: any = [
     {
         id: 7,
         title: 'Do-something',
-        description: 'Task-5 is crazy long and hard to understand too since enough',
+        description:
+            'Task-5 is crazy long and hard to understand too since enough',
     },
     {
         id: 8,

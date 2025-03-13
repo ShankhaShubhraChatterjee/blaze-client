@@ -6,11 +6,11 @@ import { InputGroup } from '../../components/ui/input-group'
 import background from './../../assets/img/background.svg'
 
 // React Icon Imports
-import { FaRegEnvelope } from "react-icons/fa6"
-import { FaHome } from "react-icons/fa";
+import { FaRegEnvelope } from 'react-icons/fa6'
+import { FaHome } from 'react-icons/fa'
 // Stylesheet Imports
 import './forgot-password.page.scss'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 // Root Component (ForgotPassword)
 const ForgotPassword = () => {
@@ -21,16 +21,17 @@ const ForgotPassword = () => {
                 action=""
                 method="POST"
             >
-                <Button rounded='full' color='orange.500'>
+                <Button rounded="full" color="orange.500">
                     <Link to="/">
                         <FaHome size={24} />
                     </Link>
                 </Button>
-                <h1 className='forgot__password--title'>Forgot Password</h1>
+                <h1 className="forgot__password--title">Forgot Password</h1>
                 <InputGroup
-                    width='100%'
+                    width="100%"
                     flex="5"
-                    startElement={<FaRegEnvelope />}>
+                    startElement={<FaRegEnvelope />}
+                >
                     <Input
                         type="email"
                         name="forgot_email"
@@ -39,7 +40,7 @@ const ForgotPassword = () => {
                     />
                 </InputGroup>
                 <Stack align="center" marginTop="10px">
-                    <Button width="200px" marginTop='10px' type="submit">
+                    <Button width="200px" marginTop="10px" type="submit">
                         Submit
                     </Button>
                 </Stack>

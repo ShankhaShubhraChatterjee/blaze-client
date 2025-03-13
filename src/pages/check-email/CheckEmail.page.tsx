@@ -1,15 +1,12 @@
 import { Text, IconButton, Center } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-
 import './check-email.page.scss'
 
 const CheckEmail = () => {
     return (
         <div>
-            <section
-                className="check-email"
-            >
+            <section className="check-email">
                 <div className="check-email-box">
                     <Text fontSize="lg" fontWeight="bold" marginBottom={5}>
                         A Link Has Been Sent To Your Email, Please Check Out
