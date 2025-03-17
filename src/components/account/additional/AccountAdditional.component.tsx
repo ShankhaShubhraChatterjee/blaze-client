@@ -3,7 +3,7 @@ import { LuGlobe, LuPhoneIncoming, LuBuilding } from 'react-icons/lu'
 import { FaLocationDot, FaBriefcase } from 'react-icons/fa6'
 
 // Chakra UI Imports
-import { Button, Input, Stack } from '@chakra-ui/react'
+import { Box, Button, Input, Stack } from '@chakra-ui/react'
 import { InputGroup } from './../../ui/input-group'
 
 // Root Component (AccountAdditional)
@@ -54,7 +54,9 @@ const AccountAdditional = () => {
                         />
                     </InputGroup>
 
-                    <Button type="submit">Submit</Button>
+                    <Box width='150px'>
+                        <Button colorPalette='blue' type="submit">Submit</Button>
+                    </Box>
                 </Stack>
             </form>
         </div>

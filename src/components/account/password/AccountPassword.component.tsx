@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { Input, Stack, Button, Text } from '@chakra-ui/react'
+import { Input, Stack, Button, Text, Box } from '@chakra-ui/react'
 import { InputGroup } from './../../ui/input-group'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { PasswordInput } from '../../ui/password-input'
 const PasswordUpdate = () => {
     return (
         <div className="account__page--component">
-            <form className="account__page--component--item">
+            <form name='account-additional-update-form' className="account__page--component--item" autoComplete='true'>
                 <h2 className="account__page--component--item--header">
                     Update Password
                 </h2>
@@ -19,7 +19,7 @@ const PasswordUpdate = () => {
                         />
                     </InputGroup>
                     <Text
-                        fontSize="sm"
+                        fontSize="xs"
                         fontWeight="semibold"
                         textAlign="right"
                         color="red.500"
@@ -34,7 +34,7 @@ const PasswordUpdate = () => {
                         />
                     </InputGroup>
                     <Text
-                        fontSize="sm"
+                        fontSize="xs"
                         fontWeight="semibold"
                         textAlign="right"
                         color="red.500"
@@ -49,14 +49,16 @@ const PasswordUpdate = () => {
                         />
                     </InputGroup>
                     <Text
-                        fontSize="sm"
+                        fontSize="xs"
                         fontWeight="semibold"
                         textAlign="right"
                         color="red.500"
                     >
                         Password Does Not Match
                     </Text>
-                    <Button type="submit">Submit</Button>
+                    <Box width='150px'>
+                        <Button colorPalette='blue' type="submit">Submit</Button>
+                    </Box>
                 </Stack>
             </form>
         </div>
