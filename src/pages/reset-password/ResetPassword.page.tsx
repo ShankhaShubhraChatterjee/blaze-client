@@ -25,10 +25,11 @@ const ResetPassword = () => {
                 </InputGroup>
                 <Text
                     color="red.500"
-                    marginBottom={5}
-                    marginTop={1.5}
+                    marginBottom={1}
+                    marginTop={1}
                     fontWeight={'bold'}
-                    fontSize="sm"
+                    fontSize="xs"
+                    textAlign='right'
                     className="login-error-msg"
                 >
                     Invalid Password
@@ -43,12 +44,13 @@ const ResetPassword = () => {
                 <Text
                     color="red.500"
                     marginBottom={5}
-                    marginTop={1.5}
+                    marginTop={1}
                     fontWeight={'bold'}
-                    fontSize="sm"
+                    fontSize="xs"
+                    textAlign='right'
                     className="login-error-msg"
                 >
-                    Invalid Password
+                    Passwords Do Not Match
                 </Text>
                 <Stack align="center" marginTop="10px">
                     <Button
