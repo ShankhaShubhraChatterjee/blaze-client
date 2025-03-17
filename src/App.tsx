@@ -1,6 +1,8 @@
 // React Router Imports
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+// React Redux Imports
+
 // Custom User Page Imports
 import Home from './pages/home/Home.page'
 import Login from './pages/login/Login.page'
@@ -15,6 +17,7 @@ import ForgotPassword from './pages/forgot-password/ForgotPassword.page'
 // User Configuration Imports
 import { rootURL } from './configs/server.config'
 
+// Root Component (App)
 function App() {
     const URL = `${rootURL}/user/account`
     const statusText = 404
