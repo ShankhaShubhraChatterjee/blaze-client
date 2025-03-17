@@ -3,7 +3,7 @@ import NavBar from '../../components/navbar/Navbar.component'
 import Footer from '../../components/footer/Footer.component'
 
 // Asset & Images Imports
-import BlazeLogo from './../../assets/img/blaze.png'
+import BlazeLogo from './../../assets/img/blaze.svg'
 
 // Stylesheet Imports
 import './home.page.scss'
