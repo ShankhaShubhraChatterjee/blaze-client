@@ -3,16 +3,16 @@ import {
     Button,
     Input,
     Stack,
-    Textarea,
     Text,
-    Group,
-    InputAddon,
+    Box
 } from '@chakra-ui/react'
 import { InputGroup } from '../../ui/input-group'
 
 // React Icons Imports
-import { FaRegEnvelope, FaUserCircle, FaBook } from 'react-icons/fa'
+import { FaUserCircle, FaBriefcase } from 'react-icons/fa'
 import { BsPersonFill } from 'react-icons/bs'
+import { LuBuilding, LuGlobe, LuPhoneIncoming } from 'react-icons/lu'
+import { FaLocationDot } from 'react-icons/fa6'
 
 // Root Component (AccountUpdate)
 const AccountUpdate = () => {
@@ -26,13 +26,13 @@ const AccountUpdate = () => {
                     <InputGroup startElement={<BsPersonFill />}>
                         <Input
                             type="text"
-                            name="signup_fullname"
+                            name="account_update_fullname"
                             placeholder="Fullname"
                         />
                     </InputGroup>
                     <Text
                         textAlign="right"
-                        fontSize="sm"
+                        fontSize="xs"
                         fontWeight="semibold"
                         color="red.500"
                     >
@@ -41,47 +41,59 @@ const AccountUpdate = () => {
                     <InputGroup startElement={<FaUserCircle />}>
                         <Input
                             type="text"
-                            name="signup_username"
+                            name="account_update_username"
                             placeholder="Username"
                         />
                     </InputGroup>
                     <Text
                         textAlign="right"
-                        fontSize="sm"
+                        fontSize="xs"
                         fontWeight="semibold"
                         color="red.500"
                     >
                         Username invalid
                     </Text>
-
-                    <InputGroup flex="5" startElement={<FaRegEnvelope />}>
+                    <InputGroup startElement={<LuGlobe />}>
                         <Input
                             type="text"
-                            name="account_update_email"
-                            placeholder="Email"
-                            data-testid="account-update-email-"
+                            name="website"
+                            placeholder="Website"
                         />
                     </InputGroup>
-                    <Text
-                        fontSize="sm"
-                        fontWeight="semibold"
-                        textAlign="right"
-                        color="red.500"
-                    >
-                        Invalid Email
-                    </Text>
-                    <Group attached>
-                        <InputAddon>
-                            <FaBook />
-                        </InputAddon>
-                        <Textarea
-                            size="md"
-                            rows={3}
-                            name="account_update_bio"
-                            placeholder="Update Bio ..."
-                        ></Textarea>
-                    </Group>
-                    <Button type="submit">Submit</Button>
+                    <InputGroup startElement={<LuPhoneIncoming />}>
+                        <Input
+                            type="text"
+                            name="phone"
+                            placeholder="Phone Number"
+                        />
+                    </InputGroup>
+
+                    <InputGroup startElement={<FaLocationDot />}>
+                        <Input
+                            type="text"
+                            name="location"
+                            placeholder="Location"
+                        />
+                    </InputGroup>
+
+                    <InputGroup startElement={<FaBriefcase />}>
+                        <Input
+                            type="text"
+                            name="profession"
+                            placeholder="Profession"
+                        />
+                    </InputGroup>
+
+                    <InputGroup startElement={<LuBuilding />}>
+                        <Input
+                            type="text"
+                            name="company"
+                            placeholder="Company Name"
+                        />
+                    </InputGroup>
+                    <Box width='150px'>
+                        <Button colorPalette='blue' type="submit">Submit</Button>
+                    </Box>
                 </Stack>
             </form>
         </div>
