@@ -13,7 +13,7 @@ import { CloseButton } from '../ui/close-button'
 import { FaHamburger } from 'react-icons/fa'
 
 // Image & Assets Imports
-import Logo from './../../assets/img/blaze.png'
+import Logo from './../../assets/img/blaze.svg'
 import ProfilePicture from './../../assets/img/user.png'
 
 // Stylesheet Imports
@@ -92,7 +92,7 @@ const NavBar = () => {
                     <Portal>
                         <Dialog.Backdrop />
                         <Dialog.Positioner>
-                            <Dialog.Content style={{ width: '150px' }}>
+                            <Dialog.Content style={{ width: '250px' }}>
                                 <Dialog.Header>
                                     <Dialog.Title textAlign={'center'}>
                                         Navigate
