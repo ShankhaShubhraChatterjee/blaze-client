@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState: any = {
+const initialState: object = {
     sidebarVisible: true,
+    hideSidebarToggleButton: false
 }
 
 const todoSidebarSlice = createSlice({
     name: 'todoSidebarSlice',
     initialState,
     reducers: {
-        showSideBar: (state: any) => {
-            if (window.innerWidth < 768) {
+        autoToggleSidebar: (state : any) => {
+            if(window.innerWidth > 768) {
                 state.sidebarVisible = true
-            } else {
-                state.sidebarVisible = false
+                state.hideSidebarToggleButton = true
             }
         },
         toggleSideBar: (state: any, action: any) => {
@@ -20,5 +20,5 @@ const todoSidebarSlice = createSlice({
         },
     },
 })
-export const { showSideBar, toggleSideBar } = todoSidebarSlice.actions
+export const { toggleSideBar, autoToggleSidebar } = todoSidebarSlice.actions
 export default todoSidebarSlice.reducer
