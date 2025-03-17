@@ -28,7 +28,7 @@ import { Field } from '../../components/ui/field'
 // React Icon Imports
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { FaRegEnvelope } from 'react-icons/fa6'
-import { FaUserCircle, FaRegUserCircle } from 'react-icons/fa'
+import { FaUserCircle } from 'react-icons/fa'
 import { BsPersonFill } from 'react-icons/bs'
 
 const Register = () => {
@@ -39,7 +39,7 @@ const Register = () => {
                 <div className="register__form--container">
                     <form action="" className="register__form" method="POST">
                         <Stack width={'full'}>
-                            <Text fontSize="4xl" textAlign="center">
+                            <Text fontSize="2xl" textAlign="center">
                                 Register
                             </Text>
 
@@ -52,7 +52,7 @@ const Register = () => {
                             </InputGroup>
                             <Text
                                 textAlign="right"
-                                fontSize="sm"
+                                fontSize="xs"
                                 fontWeight="semibold"
                                 color="red.500"
                             >
@@ -67,7 +67,7 @@ const Register = () => {
                             </InputGroup>
                             <Text
                                 textAlign="right"
-                                fontSize="sm"
+                                fontSize="xs"
                                 fontWeight="semibold"
                                 color="red.500"
                             >
@@ -83,7 +83,7 @@ const Register = () => {
                             </InputGroup>
                             <Text
                                 textAlign="right"
-                                fontSize="sm"
+                                fontSize="xs"
                                 fontWeight="semibold"
                                 color="red.500"
                             >
@@ -98,7 +98,7 @@ const Register = () => {
                             </InputGroup>
                             <Text
                                 textAlign="right"
-                                fontSize="sm"
+                                fontSize="xs"
                                 fontWeight="semibold"
                                 color="red.500"
                             >
@@ -113,16 +113,16 @@ const Register = () => {
                             </InputGroup>
                             <Text
                                 textAlign="right"
-                                fontSize="sm"
+                                fontSize="xs"
                                 fontWeight="semibold"
                                 color="red.500"
                             >
                                 Password Doesnt Match
                             </Text>
-                            <Checkbox name="signup_remember">
+                            <Checkbox name="signup_remember" colorPalette='blue'>
                                 Remember Me
                             </Checkbox>
-                            <Button>Register</Button>
+                            <Button colorPalette='blue'>Register</Button>
                             <Hr color="orange" height={2.5} />
                             <Button
                                 colorPalette="orange"
