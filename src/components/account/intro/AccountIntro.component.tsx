@@ -12,7 +12,7 @@ import {
     FaBriefcase,
 } from 'react-icons/fa6'
 import { MdDelete } from 'react-icons/md'
-import { LuGlobe, LuPhoneIncoming, LuBuilding } from 'react-icons/lu'
+import { LuGlobe, LuPhoneIncoming, LuBuilding, LuCheck, LuPencilLine, LuX } from 'react-icons/lu'
 
 // Chakra UI Imports
 import {
@@ -23,6 +23,7 @@ import {
     HStack,
     Card,
     Link as ChakraLink,
+    Editable,
 } from '@chakra-ui/react'
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from './../../ui/menu'
 import {
@@ -39,11 +40,12 @@ import './account-intro.component.scss'
 
 // Root Component (AccountIntro)
 const AccountIntro = () => {
+    const bio = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aspernatur soluta consectetur vitae eveniet architecto idreiciendis sapiente maiores? Exercitationemmaxime ducimus perferendis hic? Harum, rem! Praesentium molestias amet recusandae?"
+
     return (
         <Flex gap={4} className="account__intro">
             <Box
                 className="account__intro--user"
-                background="blackAlpha.200"
                 width="full"
             >
                 <h2 className="account__intro--header">Profile Account</h2>
@@ -55,14 +57,14 @@ const AccountIntro = () => {
                             alignItems="center"
                             justifyContent="center"
                         >
-                            <div className="account__intro--profile--image">
+                            <Box className="account__intro--profile--image">
                                 <img
                                     width="150px"
                                     height="150px"
                                     src={ProfilePicture}
                                     alt="Account Profile Image"
                                 />
-                                <div className="account__intro--profile--button">
+                                <Box className="account__intro--profile--button">
                                     <MenuRoot
                                         size="sm"
                                         positioning={{
@@ -131,16 +133,31 @@ const AccountIntro = () => {
                                             </MenuItem>
                                         </MenuContent>
                                     </MenuRoot>
-                                </div>
-                            </div>
-                            <Card.Description>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quasi aspernatur soluta
-                                consectetur vitae eveniet architecto id
-                                reiciendis sapiente maiores? Exercitationem
-                                maxime ducimus perferendis hic? Harum, rem!
-                                Praesentium molestias amet recusandae?
-                            </Card.Description>
+                                </Box>
+                            </Box>
+                            <Box width={'full'}>
+                                <Editable.Root defaultValue={bio} maxWidth='350px' display='flex' flexDirection='column'>
+                                    <Editable.Preview minH="150px" alignItems="center" flexDirection='column' width="full" />
+                                    <Editable.Textarea height='100px' />
+                                    <Editable.Control>
+                                        <Editable.EditTrigger asChild>
+                                            <IconButton variant="ghost" size="xs">
+                                                <LuPencilLine />
+                                            </IconButton>
+                                        </Editable.EditTrigger>
+                                        <Editable.CancelTrigger asChild>
+                                            <IconButton variant="ghost" size="xs">
+                                                <LuX />
+                                            </IconButton>
+                                        </Editable.CancelTrigger>
+                                        <Editable.SubmitTrigger asChild>
+                                            <IconButton variant="outline" size="xs">
+                                                <LuCheck />
+                                            </IconButton>
+                                        </Editable.SubmitTrigger>
+                                    </Editable.Control>
+                                </Editable.Root>
+                            </Box>
                             <Card.Body>
                                 <HStack marginBottom="1">
                                     <FaRegUser /> Shakhalo Wintergreen
