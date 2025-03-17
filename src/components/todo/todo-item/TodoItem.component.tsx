@@ -5,10 +5,7 @@ import { useState } from 'react'
 import {
     Button,
     IconButton,
-    Stack,
-    Input,
-    Editable,
-    Box,
+    Box
 } from '@chakra-ui/react'
 import { Checkbox } from './../../ui/checkbox'
 
@@ -20,6 +17,7 @@ import {
     FaRegStar,
     FaStar,
 } from 'react-icons/fa'
+import { MdDragHandle } from "react-icons/md";
 
 // Stylesheet Imports
 import './todoItem.component.scss'
@@ -27,6 +25,7 @@ import './todoItem.component.scss'
 // Root Component (TodoItem)
 const TodoItem = (props: any) => {
     const [starred, setStarred] = useState(false)
+    const [grab, setGrab] = useState(false)
     const content =
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
     return (
@@ -44,7 +43,7 @@ const TodoItem = (props: any) => {
                         onChange={() => setStarred(!starred)}
                         colorPalette="yellow"
                         size="lg"
-                        variant="none"
+                        unstyled
                         icon={
                             starred ? (
                                 <FaStar size={24} color="goldenrod" />
@@ -55,8 +54,8 @@ const TodoItem = (props: any) => {
                     />
                 </div>
                 <div className="todo__list--item--header--section-2">
-                    <IconButton variant="outline">
-                        <FaRegSave color="lightblue" />
+                    <IconButton variant="outline" onMouseUp={() => setGrab(false)} onMouseDown={() => setGrab(true)} >
+                        <MdDragHandle color="gray" cursor={grab ? 'grabbing' : 'grab'} />
                     </IconButton>
                     <Button variant="outline">
                         <FaPenAlt color="yellowgreen" />
@@ -71,13 +70,7 @@ const TodoItem = (props: any) => {
                 <h2 className="todo__list--item--content--header">
                     {props.title}
                 </h2>
-                <Editable.Root
-                    defaultValue={props.description}
-                    className="todo__list--item--content--body"
-                >
-                    <Editable.Preview />
-                    <Editable.Textarea />
-                </Editable.Root>
+                <p className="todo__list--item--content--body">{content}</p>
             </div>
             <div className="todo__list--item--content--index">100</div>
         </Box>
