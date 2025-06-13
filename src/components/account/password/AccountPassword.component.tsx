@@ -14,7 +14,7 @@ const PasswordUpdate = () => {
                     <InputGroup startElement={<RiLockPasswordFill />}>
                         <PasswordInput
                             name="account_change_password_old"
-                            placeholder="Password"
+                            placeholder="Enter Old Password ..."
                             data-testid="account-change-password-old-password-input"
                         />
                     </InputGroup>
@@ -29,7 +29,7 @@ const PasswordUpdate = () => {
                     <InputGroup startElement={<RiLockPasswordFill />}>
                         <PasswordInput
                             name="account_change_password_new"
-                            placeholder="Password"
+                            placeholder="Type New Password ..."
                             data-testid="account-change-password-new-password-input"
                         />
                     </InputGroup>
@@ -44,7 +44,7 @@ const PasswordUpdate = () => {
                     <InputGroup startElement={<RiLockPasswordFill />}>
                         <PasswordInput
                             name="account_change_password_confirm"
-                            placeholder="Password"
+                            placeholder="Confirm New Password ..."
                             data-testid="account-change-password-confirm-password-input"
                         />
                     </InputGroup>
