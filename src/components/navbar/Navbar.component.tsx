@@ -21,6 +21,11 @@ import './navbar.component.scss'
 
 // Root Component (Navbar)
 const NavBar = () => {
+    const navLinks = [
+        { id: 1, title: 'Todos', href: 'todos' },
+        { id: 2, title: 'Login', href: 'login' },
+        { id: 3, title: 'Register', href: 'register' },
+    ]
     return (
         <nav className="navbar">
             <section className="navbar__header">
@@ -30,29 +35,15 @@ const NavBar = () => {
                 </NavLink>
             </section>
             <Box as="ul" className="navbar__list">
-                <li className="navbar__list--item">
-                    <NavLink className="navbar__list--item--link" to="/">
-                        Home
-                    </NavLink>
-                </li>
-                <li className="navbar__list--item">
-                    <NavLink className="navbar__list--item--link" to="/todos">
-                        Todos
-                    </NavLink>
-                </li>
-                <li className="navbar__list--item">
-                    <NavLink className="navbar__list--item--link" to="/login">
-                        Login
-                    </NavLink>
-                </li>
-                <li className="navbar__list--item">
-                    <NavLink
-                        className="navbar__list--item--link"
-                        to="/register"
-                    >
-                        Register
-                    </NavLink>
-                </li>
+                {navLinks.map((navLink) => {
+                    return (
+                        <li className="navbar__list--item" key={navLink.id}>
+                            <NavLink className="navbar__list--item--link" to={`/user/${navLink.href}`}>
+                                {navLink.title}
+                            </NavLink>
+                        </li>
+                    )
+                })}
             </Box>
 
             <section className="navbar__profile">
@@ -99,30 +90,17 @@ const NavBar = () => {
                                     </Dialog.Title>
                                 </Dialog.Header>
                                 <Dialog.Body>
-                                    <NavLink
-                                        className="navbar__list--item--link--mobile"
-                                        to="/"
-                                    >
-                                        Home
-                                    </NavLink>
-                                    <NavLink
-                                        className="navbar__list--item--link--mobile"
-                                        to="/todos"
-                                    >
-                                        Todos
-                                    </NavLink>
-                                    <NavLink
-                                        className="navbar__list--item--link--mobile"
-                                        to="/login"
-                                    >
-                                        Login
-                                    </NavLink>
-                                    <NavLink
-                                        className="navbar__list--item--link--mobile"
-                                        to="/register"
-                                    >
-                                        Register
-                                    </NavLink>
+                                    {navLinks.map((navLink) => {
+                                        return (
+                                            <NavLink
+                                                key={navLink.id}
+                                                className="navbar__list--item--link--mobile"
+                                                to={`/user/${navLink.href}`}
+                                            >
+                                                {navLink.title}
+                                            </NavLink>
+                                        )
+                                    })}
                                 </Dialog.Body>
                                 <Dialog.CloseTrigger asChild>
                                     <CloseButton size="sm" />
