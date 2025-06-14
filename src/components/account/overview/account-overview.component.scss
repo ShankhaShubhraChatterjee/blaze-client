@@ -1,0 +1,25 @@
+.account__overview--profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account__overview--profile--image {
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+.account__overview--profile--button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.account__overview--header {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
