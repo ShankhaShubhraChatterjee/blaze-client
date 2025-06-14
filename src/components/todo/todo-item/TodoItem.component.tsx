@@ -1,6 +1,9 @@
 // React Imports
 import { useState } from 'react'
 
+// React Dnd Imports
+import { CSS } from '@dnd-kit/utilities'
+
 // Chakra Imports
 import {
     Button,
@@ -21,15 +24,23 @@ import { MdDragHandle } from "react-icons/md";
 
 // Stylesheet Imports
 import './todoItem.component.scss'
+import { useSortable } from '@dnd-kit/sortable';
 
 // Root Component (TodoItem)
-const TodoItem = (props: any) => {
+const TodoItem = ({ id, title, description } : any) => {
     const [starred, setStarred] = useState(false)
     const [grab, setGrab] = useState(false)
-    const content =
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    const { attributes, listeners, transform, setNodeRef, transition } = useSortable({id})
+    const styles = {
+        transition,
+        transform: CSS.Transform.toString(transform)
+    }
     return (
         <Box
+            ref={setNodeRef}
+            {...attributes}
+            {...listeners}
+            style={styles}
             as="li"
             className="todo__preview--list--item"
             shadow="lg"
@@ -55,7 +66,7 @@ const TodoItem = (props: any) => {
                 </div>
                 <div className="todo__list--item--header--section-2">
                     <IconButton variant="outline" onMouseUp={() => setGrab(false)} onMouseDown={() => setGrab(true)} >
-                        <MdDragHandle color="gray" cursor={grab ? 'grabbing' : 'grab'} />
+                        <MdDragHandle color="gray" />
                     </IconButton>
                     <Button variant="outline">
                         <FaPenAlt color="yellowgreen" />
@@ -68,11 +79,11 @@ const TodoItem = (props: any) => {
 
             <div className="todo__list--item--content">
                 <h2 className="todo__list--item--content--header">
-                    {props.title}
+                    {title}
                 </h2>
-                <p className="todo__list--item--content--body">{content}</p>
+                <p className="todo__list--item--content--body">{description}</p>
             </div>
-            <div className="todo__list--item--content--index">100</div>
+            <div className="todo__list--item--content--index">{id + 1}</div>
         </Box>
     )
 }

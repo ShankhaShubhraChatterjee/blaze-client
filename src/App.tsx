@@ -28,26 +28,26 @@ function App() {
                     path="/"
                     index
                     errorElement={
-                        <ErrorPage status={status} statusText={statusText} />
+                        <ErrorPage />
                     }
                     element={<Home />}
                 />
-                <Route path="/todos" element={<Todo />} />
-                <Route path="/account" element={<Account />} />
-                <Route path="/login" element={<Login url={URL} />} />
-                <Route path="/register" element={<Register />} />
+                <Route path="/user/todos" element={<Todo />} />
+                <Route path="/user/login" element={<Login url={URL} />} />
+                <Route path="/user/register" element={<Register />} />
                 <Route
                     path="*"
                     element={
-                        <ErrorPage status={status} statusText={statusText} />
+                        <ErrorPage statusText={statusText} />
                     }
                 />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/user/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
                 <Route
                     path="/forgot-password/check-email"
                     element={<CheckEmail />}
                 />
+                <Route path="account/user" element={<Account />}></Route>
             </Routes>
         </BrowserRouter>
     )

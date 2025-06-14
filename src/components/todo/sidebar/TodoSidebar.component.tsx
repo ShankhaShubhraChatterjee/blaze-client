@@ -62,8 +62,8 @@ const TodoSideBar = (props: any) => {
 
                             {accordion.tasks.map((task: any) => {
                                 return (
-                                    <AccordionItemContent fontSize="14px" fontWeight="semibold">
-                                        <em key={task.id}>{task.title}</em>
+                                    <AccordionItemContent fontSize="14px" fontWeight="semibold" key={task.id}>
+                                        <em>{task.title}</em>
                                     </AccordionItemContent>
                                 )
                             })}

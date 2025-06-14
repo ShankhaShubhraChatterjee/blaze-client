@@ -55,7 +55,7 @@ const NavBar = () => {
                     variant="solid"
                     bg={{ base: 'yellow.700', _dark: 'blue.900' }}
                 />
-                <NavLink to="/account">
+                <NavLink to="/account/user">
                     <Avatar.Root
                         bg={{
                             base: 'colorPalette.50',
