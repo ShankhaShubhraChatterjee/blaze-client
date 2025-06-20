@@ -1,10 +1,10 @@
 // React Icons Imports
 import { FaPlus, FaTrash } from 'react-icons/fa6'
-import { FiSidebar } from "react-icons/fi";
+import { FiSidebar } from 'react-icons/fi'
 
 // Redux Imports
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleSideBar } from './../../../redux/todo-sidebar.slice';
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleSideBar } from './../../../redux/todo-sidebar.slice'
 
 // Chakra UI Imports
 import { Box, Button, Stack, Text } from '@chakra-ui/react'
@@ -15,9 +15,11 @@ import './todo-toolbar.component.scss'
 // Root Component (TodoBar)
 const TodoBar = () => {
     const dispatch = useDispatch()
-    const sidebarVisible: boolean = useSelector((state: any) => state.todoSidebarSlice.sidebarVisible)
-    const createTodoItem = () => { }
-    const deleteTodoItem = () => { }
+    const sidebarVisible: boolean = useSelector(
+        (state: any) => state.todoSidebarSlice.sidebarVisible
+    )
+    const createTodoItem = () => {}
+    const deleteTodoItem = () => {}
     return (
         <div className="todo__toolbar">
             <Stack

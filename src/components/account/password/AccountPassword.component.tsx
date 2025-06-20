@@ -6,7 +6,11 @@ import { PasswordInput } from '../../ui/password-input'
 const PasswordUpdate = () => {
     return (
         <div className="account__page--component">
-            <form name='account-additional-update-form' className="account__page--component--item" autoComplete='true'>
+            <form
+                name="account-additional-update-form"
+                className="account__page--component--item"
+                autoComplete="true"
+            >
                 <h2 className="account__page--component--item--header">
                     Update Password
                 </h2>
@@ -56,8 +60,10 @@ const PasswordUpdate = () => {
                     >
                         Password Does Not Match
                     </Text>
-                    <Box width='150px'>
-                        <Button colorPalette='blue' type="submit">Submit</Button>
+                    <Box width="150px">
+                        <Button colorPalette="blue" type="submit">
+                            Submit
+                        </Button>
                     </Box>
                 </Stack>
             </form>

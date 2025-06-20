@@ -15,7 +15,9 @@ import './todo.page.scss'
 
 // Root Component (Todo)
 const Todo = () => {
-    const sidebarVisible = useSelector((state: any) => state.todoSidebarSlice.sidebarVisible)
+    const sidebarVisible = useSelector(
+        (state: any) => state.todoSidebarSlice.sidebarVisible
+    )
     const dispatch = useDispatch()
     window.addEventListener('resize', () => {
         dispatch(autoToggleSidebar())
@@ -26,7 +28,11 @@ const Todo = () => {
             <div className="todo__container">
                 <div className="todo">
                     <TodoBar />
-                    {sidebarVisible ? <TodoSideBar translate='0px' /> : <TodoSideBar translate='-350px' />}
+                    {sidebarVisible ? (
+                        <TodoSideBar translate="0px" />
+                    ) : (
+                        <TodoSideBar translate="-350px" />
+                    )}
                     <TodoPreview />
                 </div>
             </div>

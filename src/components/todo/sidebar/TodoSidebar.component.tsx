@@ -22,23 +22,25 @@ import { Box } from '@chakra-ui/react'
 const TodoSideBar = (props: any) => {
     const sidebarAccordions = [
         {
-            id: 1, title: 'Completed', icon: <IoCheckmarkDoneCircleSharp size={24} color="yellowgreen" />,
-            tasks: [
-                { id: 1, title: 'Objective 0' }
-            ]
+            id: 1,
+            title: 'Completed',
+            icon: <IoCheckmarkDoneCircleSharp size={24} color="yellowgreen" />,
+            tasks: [{ id: 1, title: 'Objective 0' }],
         },
         {
-            id: 2, title: 'Remaining', icon: <GrInProgress size={24} color="goldenrod" />,
-            tasks: [
-                { id: 1, title: 'Objective 1' }
-            ]
+            id: 2,
+            title: 'Remaining',
+            icon: <GrInProgress size={24} color="goldenrod" />,
+            tasks: [{ id: 1, title: 'Objective 1' }],
         },
         {
-            id: 3, title: 'Starred', icon: <FaRegStar size={24} color="goldenrod" />,
+            id: 3,
+            title: 'Starred',
+            icon: <FaRegStar size={24} color="goldenrod" />,
             tasks: [
                 { id: 1, title: 'Objective 2' },
-                { id: 2, title: 'Objective 2' }
-            ]
+                { id: 2, title: 'Objective 2' },
+            ],
         },
     ]
     return (
@@ -47,14 +49,13 @@ const TodoSideBar = (props: any) => {
             transform={`translateX(${props.translate})`}
             bg={{ base: 'white', _dark: 'black' }}
         >
-            <AccordionRoot
-                variant="enclosed"
-                collapsible
-                defaultValue={['b']}
-            >
+            <AccordionRoot variant="enclosed" collapsible defaultValue={['b']}>
                 {sidebarAccordions.map((accordion: any) => {
                     return (
-                        <AccordionItem key={accordion.id} value={accordion.title}>
+                        <AccordionItem
+                            key={accordion.id}
+                            value={accordion.title}
+                        >
                             <AccordionItemTrigger>
                                 {accordion.icon}
                                 {accordion.title}
@@ -62,7 +63,11 @@ const TodoSideBar = (props: any) => {
 
                             {accordion.tasks.map((task: any) => {
                                 return (
-                                    <AccordionItemContent fontSize="14px" fontWeight="semibold" key={task.id}>
+                                    <AccordionItemContent
+                                        fontSize="14px"
+                                        fontWeight="semibold"
+                                        key={task.id}
+                                    >
                                         <em>{task.title}</em>
                                     </AccordionItemContent>
                                 )

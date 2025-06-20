@@ -38,7 +38,10 @@ const NavBar = () => {
                 {navLinks.map((navLink) => {
                     return (
                         <li className="navbar__list--item" key={navLink.id}>
-                            <NavLink className="navbar__list--item--link" to={`/user/${navLink.href}`}>
+                            <NavLink
+                                className="navbar__list--item--link"
+                                to={`/user/${navLink.href}`}
+                            >
                                 {navLink.title}
                             </NavLink>
                         </li>

@@ -27,9 +27,7 @@ function App() {
                 <Route
                     path="/"
                     index
-                    errorElement={
-                        <ErrorPage />
-                    }
+                    errorElement={<ErrorPage />}
                     element={<Home />}
                 />
                 <Route path="/user/todos" element={<Todo />} />
@@ -37,11 +35,12 @@ function App() {
                 <Route path="/user/register" element={<Register />} />
                 <Route
                     path="*"
-                    element={
-                        <ErrorPage statusText={statusText} />
-                    }
+                    element={<ErrorPage statusText={statusText} />}
                 />
-                <Route path="/user/forgot-password" element={<ForgotPassword />} />
+                <Route
+                    path="/user/forgot-password"
+                    element={<ForgotPassword />}
+                />
                 <Route path="/reset-password" element={<ResetPassword />} />
                 <Route
                     path="/forgot-password/check-email"

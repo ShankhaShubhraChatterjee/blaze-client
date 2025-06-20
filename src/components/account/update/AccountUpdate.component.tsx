@@ -1,11 +1,5 @@
 // Chakra UI Imports
-import {
-    Button,
-    Input,
-    Stack,
-    Text,
-    Box
-} from '@chakra-ui/react'
+import { Button, Input, Stack, Text, Box } from '@chakra-ui/react'
 import { InputGroup } from '../../ui/input-group'
 
 // React Icons Imports
@@ -91,13 +85,14 @@ const AccountUpdate = () => {
                             placeholder="Company Name"
                         />
                     </InputGroup>
-                    <Box width='150px'>
-                        <Button colorPalette='blue' type="submit">Submit</Button>
+                    <Box width="150px">
+                        <Button colorPalette="blue" type="submit">
+                            Submit
+                        </Button>
                     </Box>
                 </Stack>
             </form>
         </div>
-
     )
 }
 

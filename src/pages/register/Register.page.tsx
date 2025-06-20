@@ -119,10 +119,13 @@ const Register = () => {
                             >
                                 Password Doesnt Match
                             </Text>
-                            <Checkbox name="signup_remember" colorPalette='blue'>
+                            <Checkbox
+                                name="signup_remember"
+                                colorPalette="blue"
+                            >
                                 Remember Me
                             </Checkbox>
-                            <Button colorPalette='blue'>Register</Button>
+                            <Button colorPalette="blue">Register</Button>
                             <Hr color="orange" height={2.5} />
                             <Button
                                 colorPalette="orange"

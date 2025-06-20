@@ -14,10 +14,11 @@ import { Link } from 'react-router-dom'
 
 // Root Component (ForgotPassword)
 const ForgotPassword = () => {
-    const alertTitle = "Password Reset Instructions Sent Successfully, Check Your Email"
+    const alertTitle =
+        'Password Reset Instructions Sent Successfully, Check Your Email'
     return (
         <div className="forgot__password--container">
-            <Alert.Root maxWidth='600px' status="success" title={alertTitle}>
+            <Alert.Root maxWidth="600px" status="success" title={alertTitle}>
                 <Alert.Indicator />
                 <Alert.Title>{alertTitle}</Alert.Title>
             </Alert.Root>

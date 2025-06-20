@@ -5,11 +5,7 @@ import { useState } from 'react'
 import { CSS } from '@dnd-kit/utilities'
 
 // Chakra Imports
-import {
-    Button,
-    IconButton,
-    Box
-} from '@chakra-ui/react'
+import { Button, IconButton, Box } from '@chakra-ui/react'
 import { Checkbox } from './../../ui/checkbox'
 
 // React Icon Imports
@@ -20,20 +16,21 @@ import {
     FaRegStar,
     FaStar,
 } from 'react-icons/fa'
-import { MdDragHandle } from "react-icons/md";
+import { MdDragHandle } from 'react-icons/md'
 
 // Stylesheet Imports
 import './todoItem.component.scss'
-import { useSortable } from '@dnd-kit/sortable';
+import { useSortable } from '@dnd-kit/sortable'
 
 // Root Component (TodoItem)
-const TodoItem = ({ id, title, description } : any) => {
+const TodoItem = ({ id, title, description }: any) => {
     const [starred, setStarred] = useState(false)
     const [grab, setGrab] = useState(false)
-    const { attributes, listeners, transform, setNodeRef, transition } = useSortable({id})
+    const { attributes, listeners, transform, setNodeRef, transition } =
+        useSortable({ id: id.toString() })
     const styles = {
         transition,
-        transform: CSS.Transform.toString(transform)
+        transform: CSS.Transform.toString(transform),
     }
     return (
         <Box
@@ -65,7 +62,7 @@ const TodoItem = ({ id, title, description } : any) => {
                     />
                 </div>
                 <div className="todo__list--item--header--section-2">
-                    <IconButton variant="outline" onMouseUp={() => setGrab(false)} onMouseDown={() => setGrab(true)} >
+                    <IconButton variant="outline">
                         <MdDragHandle color="gray" />
                     </IconButton>
                     <Button variant="outline">
@@ -78,9 +75,7 @@ const TodoItem = ({ id, title, description } : any) => {
             </header>
 
             <div className="todo__list--item--content">
-                <h2 className="todo__list--item--content--header">
-                    {title}
-                </h2>
+                <h2 className="todo__list--item--content--header">{title}</h2>
                 <p className="todo__list--item--content--body">{description}</p>
             </div>
             <div className="todo__list--item--content--index">{id + 1}</div>

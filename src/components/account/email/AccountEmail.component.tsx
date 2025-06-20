@@ -1,11 +1,11 @@
 // Chakra UI Imports
-import { Stack, Button, Text, Input, Box } from '@chakra-ui/react';
-import { InputGroup } from '../../ui/input-group';
-import { PasswordInput } from '../../ui/password-input';
+import { Stack, Button, Text, Input, Box } from '@chakra-ui/react'
+import { InputGroup } from '../../ui/input-group'
+import { PasswordInput } from '../../ui/password-input'
 
 // React Icons Imports
-import { FaEnvelope } from 'react-icons/fa6';
-import { MdOutlineMailLock } from "react-icons/md";
+import { FaEnvelope } from 'react-icons/fa6'
+import { MdOutlineMailLock } from 'react-icons/md'
 
 // Stylesheet Imports
 import './account-email.component.scss'
@@ -49,8 +49,10 @@ const AccountEmail = () => {
                     >
                         Invalid Verification Code
                     </Text>
-                    <Box width='150px'>
-                        <Button colorPalette='blue' type="submit">Submit</Button>
+                    <Box width="150px">
+                        <Button colorPalette="blue" type="submit">
+                            Submit
+                        </Button>
                     </Box>
                 </Stack>
             </form>
@@ -58,4 +60,4 @@ const AccountEmail = () => {
     )
 }
 
-export default AccountEmail;
+export default AccountEmail

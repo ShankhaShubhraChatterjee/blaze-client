@@ -1,5 +1,5 @@
 // Chakra UI Imports
-import { Stack, Box, QrCode, PinInput, Field, Button } from "@chakra-ui/react";
+import { Stack, Box, QrCode, PinInput, Field, Button } from '@chakra-ui/react'
 
 // Stylesheet Imports
 import './account-mfa.component.scss'
@@ -8,22 +8,32 @@ import './account-mfa.component.scss'
 const AccountMFA = () => {
     return (
         <div className="account__page--component">
-            <form name="account-mfa-form" className="account__page--component--item" style={{ width: '300px' }}>
-                <h2 className="account__page--component--item--header">
-                    MFA
-                </h2>
-                <Stack textAlign='center'>
+            <form
+                name="account-mfa-form"
+                className="account__page--component--item"
+                style={{ width: '300px' }}
+            >
+                <h2 className="account__page--component--item--header">MFA</h2>
+                <Stack textAlign="center">
                     <Box className="account__mfa--qrcode--container">
-                        <QrCode.Root value="some secret" size='xl'>
+                        <QrCode.Root value="some secret" size="xl">
                             <QrCode.Frame>
                                 <QrCode.Pattern />
                             </QrCode.Frame>
                         </QrCode.Root>
                     </Box>
-                    <Field.Root width='full'>
+                    <Field.Root width="full">
                         <Stack>
-                            <PinInput.Root otp size='sm' placeholder="*" colorPalette='green' variant='outline'>
-                                <Field.Label marginBottom='2'>Enter Code Manually</Field.Label>
+                            <PinInput.Root
+                                otp
+                                size="sm"
+                                placeholder="*"
+                                colorPalette="green"
+                                variant="outline"
+                            >
+                                <Field.Label marginBottom="2">
+                                    Enter Code Manually
+                                </Field.Label>
                                 <PinInput.HiddenInput />
                                 <PinInput.Control display={'flex'} gap={4}>
                                     <PinInput.Input index={0} />
@@ -34,7 +44,7 @@ const AccountMFA = () => {
                                     <PinInput.Input index={5} />
                                 </PinInput.Control>
                             </PinInput.Root>
-                            <Button colorPalette='blue'>Verify Code</Button>
+                            <Button colorPalette="blue">Verify Code</Button>
                         </Stack>
                     </Field.Root>
                 </Stack>
@@ -43,4 +53,4 @@ const AccountMFA = () => {
     )
 }
 
-export default AccountMFA;
+export default AccountMFA

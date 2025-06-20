@@ -12,7 +12,14 @@ import {
     FaBriefcase,
 } from 'react-icons/fa6'
 import { MdDelete } from 'react-icons/md'
-import { LuGlobe, LuPhoneIncoming, LuBuilding, LuCheck, LuPencilLine, LuX } from 'react-icons/lu'
+import {
+    LuGlobe,
+    LuPhoneIncoming,
+    LuBuilding,
+    LuCheck,
+    LuPencilLine,
+    LuX,
+} from 'react-icons/lu'
 
 // Chakra UI Imports
 import {
@@ -42,14 +49,12 @@ import './account-overview.component.scss'
 
 // Root Component (AccountOverview)
 const AccountOverview = () => {
-    const bio = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aspernatur soluta consectetur vitae eveniet architecto idreiciendis sapiente maiores? Exercitationemmaxime ducimus perferendis hic? Harum, rem! Praesentium molestias amet recusandae?"
+    const bio =
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aspernatur soluta consectetur vitae eveniet architecto idreiciendis sapiente maiores? Exercitationemmaxime ducimus perferendis hic? Harum, rem! Praesentium molestias amet recusandae?'
 
     return (
         <Flex gap={4} className="account__overview">
-            <Box
-                className="account__overview--user"
-                width="full"
-            >
+            <Box className="account__overview--user" width="full">
                 <h2 className="account__overview--header">Profile Account</h2>
                 <div className="account__overview--profile">
                     <Card.Root maxW="2xl" overflow="hidden" variant="elevated">
@@ -66,9 +71,12 @@ const AccountOverview = () => {
                                     src={ProfilePicture}
                                     alt="Account Profile Image"
                                 /> */}
-                                <Avatar.Root width='150px' height='150px'>
-                                    <Avatar.Fallback fontSize={24} name="Foster Z" />
-                                    <Avatar.Image  />
+                                <Avatar.Root width="150px" height="150px">
+                                    <Avatar.Fallback
+                                        fontSize={24}
+                                        name="Foster Z"
+                                    />
+                                    <Avatar.Image />
                                 </Avatar.Root>
                                 <Box className="account__overview--profile--button">
                                     <MenuRoot
@@ -142,22 +150,44 @@ const AccountOverview = () => {
                                 </Box>
                             </Box>
                             <Box width={'full'}>
-                                <Editable.Root defaultValue={bio} maxWidth='350px' display='flex' flexDirection='column'>
-                                    <Editable.Preview minH="150px" alignItems="center" flexDirection='column' width="full" />
-                                    <Editable.Textarea height='100px' maxLength={250} />
+                                <Editable.Root
+                                    defaultValue={bio}
+                                    maxWidth="350px"
+                                    display="flex"
+                                    flexDirection="column"
+                                >
+                                    <Editable.Preview
+                                        minH="150px"
+                                        alignItems="center"
+                                        flexDirection="column"
+                                        width="full"
+                                    />
+                                    <Editable.Textarea
+                                        height="100px"
+                                        maxLength={250}
+                                    />
                                     <Editable.Control>
                                         <Editable.EditTrigger asChild>
-                                            <IconButton variant="ghost" size="xs">
+                                            <IconButton
+                                                variant="ghost"
+                                                size="xs"
+                                            >
                                                 <LuPencilLine />
                                             </IconButton>
                                         </Editable.EditTrigger>
                                         <Editable.CancelTrigger asChild>
-                                            <IconButton variant="ghost" size="xs">
+                                            <IconButton
+                                                variant="ghost"
+                                                size="xs"
+                                            >
                                                 <LuX />
                                             </IconButton>
                                         </Editable.CancelTrigger>
                                         <Editable.SubmitTrigger asChild>
-                                            <IconButton variant="outline" size="xs">
+                                            <IconButton
+                                                variant="outline"
+                                                size="xs"
+                                            >
                                                 <LuCheck />
                                             </IconButton>
                                         </Editable.SubmitTrigger>

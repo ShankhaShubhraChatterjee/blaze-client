@@ -29,7 +29,7 @@ const ResetPassword = () => {
                     marginTop={1}
                     fontWeight={'bold'}
                     fontSize="xs"
-                    textAlign='right'
+                    textAlign="right"
                     className="login-error-msg"
                 >
                     Invalid Password
@@ -47,7 +47,7 @@ const ResetPassword = () => {
                     marginTop={1}
                     fontWeight={'bold'}
                     fontSize="xs"
-                    textAlign='right'
+                    textAlign="right"
                     className="login-error-msg"
                 >
                     Passwords Do Not Match

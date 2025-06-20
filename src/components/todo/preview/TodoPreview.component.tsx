@@ -1,9 +1,21 @@
 // React DnD Imports
-import { DndContext, closestCorners } from '@dnd-kit/core'
-import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { DndContext, closestCenter } from '@dnd-kit/core'
+import {
+    SortableContext,
+    useSortable,
+    verticalListSortingStrategy,
+} from '@dnd-kit/sortable'
 
 // Chakra UI Imports
-import { Box, Button, CloseButton, Drawer, Editable, IconButton, Portal } from '@chakra-ui/react'
+import {
+    Box,
+    Button,
+    CloseButton,
+    Drawer,
+    Editable,
+    IconButton,
+    Portal,
+} from '@chakra-ui/react'
 
 // Custom User Component Imports
 import TodoItem from '../todo-item/TodoItem.component'
@@ -15,18 +27,23 @@ import './todo-preview.component.scss'
 import { todos } from '../../../../tmp/data/data'
 import { Checkbox } from '../../ui/checkbox'
 import { LuPencilLine, LuX, LuCheck } from 'react-icons/lu'
+import { useState } from 'react'
 
 // Root Component (TodoPreview)
 const TodoPreview = () => {
-    const content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed doeiusmod tempor incididunt ut labore et dolore magna aliqua."
-
+    const content =
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    const [todo] = useState(todos)
+    const handleDrag = (event: any) => {
+        console.log('OnDragEnd', event)
+    }
     return (
         <div className="todo__preview--container">
             <Box shadow="md" className="todo__preview--header">
                 Todos / Objectives
             </Box>
             <ul className="todo__preview--list">
-                <Drawer.Root closeOnInteractOutside={false}>
+                {/* <Drawer.Root closeOnInteractOutside={false}>
                     <Drawer.Trigger asChild>
                         <Button variant="outline" size="sm">
                             Open Drawer
@@ -37,7 +54,6 @@ const TodoPreview = () => {
                         <Drawer.Positioner>
                             <Drawer.Content>
                                 <Drawer.Header>
-
                                     <Checkbox colorPalette='purple' marginBottom={1} />
                                     <Drawer.Title display='flex' alignItems='flex-start'>
                                         <Editable.Root defaultValue="Lorem ipsum dolor sit amet, consectetur sit amet, consectetur adipiscing">
@@ -78,19 +94,23 @@ const TodoPreview = () => {
                             </Drawer.Content>
                         </Drawer.Positioner>
                     </Portal>
-                </Drawer.Root>
-                <DndContext collisionDetection={closestCorners}>
-                    <SortableContext items={todos} strategy={verticalListSortingStrategy}>
-                        {todos.map((todo: any, index: number) => {
+                </Drawer.Root> */}
+                <DndContext
+                    collisionDetection={closestCenter}
+                    onDragEnd={handleDrag}
+                >
+                    <SortableContext
+                        items={todo}
+                        strategy={verticalListSortingStrategy}
+                    >
+                        {todo.map((todo: any, index: number) => {
                             return (
-
                                 <TodoItem
                                     key={index}
                                     id={index}
                                     title={todo.title}
                                     description={todo.description}
                                 />
-
                             )
                         })}
                     </SortableContext>
