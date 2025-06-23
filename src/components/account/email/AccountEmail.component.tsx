@@ -7,17 +7,12 @@ import { PasswordInput } from '../../ui/password-input'
 import { FaEnvelope } from 'react-icons/fa6'
 import { MdOutlineMailLock } from 'react-icons/md'
 
-// Stylesheet Imports
-import './account-email.component.scss'
-
 // Root Component (AccountEmail)
 const AccountEmail = () => {
     return (
         <div className="account__page--component">
             <form className="account__page--component--item">
-                <h2 className="account__page--component--item--header">
-                    Update Email
-                </h2>
+                <h2 className="account__page--component--item--header">Update Email</h2>
                 <Stack width="full">
                     <InputGroup startElement={<FaEnvelope />}>
                         <Input
