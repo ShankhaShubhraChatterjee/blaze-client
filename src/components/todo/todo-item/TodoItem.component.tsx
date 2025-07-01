@@ -1,9 +1,6 @@
 // React Imports
 import { useState } from 'react'
 
-// React Dnd Imports
-import { CSS } from '@dnd-kit/utilities'
-
 // Chakra Imports
 import { Button, IconButton, Box } from '@chakra-ui/react'
 import { Checkbox } from './../../ui/checkbox'
@@ -21,23 +18,22 @@ import { MdDragHandle } from 'react-icons/md'
 // Stylesheet Imports
 import './todoItem.component.scss'
 import { useSortable } from '@dnd-kit/sortable'
-
+import { CSS } from '@dnd-kit/utilities'
 // Root Component (TodoItem)
-const TodoItem = ({ id, title, description }: any) => {
-    const [starred, setStarred] = useState(false)
-    const [grab, setGrab] = useState(false)
-    const { attributes, listeners, transform, setNodeRef, transition } =
-        useSortable({ id: id.toString() })
-    const styles = {
-        transition,
+const TodoItem = (props: any) => {
+    const { attributes, setNodeRef, listeners, transform, transition } = useSortable({ id: props.id });
+    const [starred, setStarred] = useState(props.starred)
+    const [grab, setGrab] = useState(props.checked)
+    const style = {
         transform: CSS.Transform.toString(transform),
-    }
+        transition,
+    };
     return (
         <Box
             ref={setNodeRef}
             {...attributes}
             {...listeners}
-            style={styles}
+            style={style}
             as="li"
             className="todo__preview--list--item"
             shadow="lg"
@@ -62,7 +58,7 @@ const TodoItem = ({ id, title, description }: any) => {
                     />
                 </div>
                 <div className="todo__list--item--header--section-2">
-                    <IconButton variant="outline">
+                    <IconButton variant="outline" onMouseUp={() => setGrab(false)} onMouseDown={() => setGrab(true)} onMouseLeave={() => setGrab(false)} style={{ cursor: grab ? 'grabbing' : 'grab' }}>
                         <MdDragHandle color="gray" />
                     </IconButton>
                     <Button variant="outline">
@@ -75,10 +71,10 @@ const TodoItem = ({ id, title, description }: any) => {
             </header>
 
             <div className="todo__list--item--content">
-                <h2 className="todo__list--item--content--header">{title}</h2>
-                <p className="todo__list--item--content--body">{description}</p>
+                <h2 className="todo__list--item--content--header">{props.title}</h2>
+                <p className="todo__list--item--content--body">{props.description}</p>
             </div>
-            <div className="todo__list--item--content--index">{id + 1}</div>
+            <div className="todo__list--item--content--index">{props.index}</div>
         </Box>
     )
 }
