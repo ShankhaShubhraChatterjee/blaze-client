@@ -10,6 +10,7 @@
         "preview": "vite preview",
         "format": "prettier **/*.tsx **/*.ts **/*.js --write ",
         "lint:scss": "stylelint **/*.scss --fix",
+        "lint:ts": "eslint --fix .",
         "test": "vitest",
         "e2e": "cypress"
     },
@@ -37,25 +38,26 @@
         "@babel/core": "^7.27.7",
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-conventional": "^19.8.1",
+        "@eslint/js": "^9.30.0",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.3.0",
-        "@testing-library/user-event": "^14.6.1",
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
         "@vitejs/plugin-react-swc": "^3.10.2",
-        "autoprefixer": "^10.4.21",
-        "cssnano": "^7.0.7",
-        "cssnano-preset-default": "^7.0.7",
+        "cypress": "^14.5.0",
+        "eslint": "^9.30.0",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-react": "^7.37.5",
+        "globals": "^16.2.0",
         "jsdom": "^26.1.0",
-        "postcss": "^8.5.6",
         "prettier": "^3.6.2",
         "sass": "^1.89.2",
         "stylelint": "^16.21.0",
-        "stylelint-config-standard": "^38.0.0",
         "stylelint-config-standard-scss": "^15.0.1",
         "stylelint-config-two-dash-bem": "^1.0.0",
         "typescript": "^5.8.3",
+        "typescript-eslint": "^8.35.1",
         "vite": "^7.0.0",
         "vitest": "^3.2.4"
     },
@@ -63,6 +65,7 @@
         "onlyBuiltDependencies": [
             "@parcel/watcher",
             "@swc/core",
+            "cypress",
             "esbuild"
         ]
     }

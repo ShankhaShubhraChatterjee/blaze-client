@@ -1,4 +1,12 @@
-export const todos: any = [
+interface TodoInterface {
+    id: number,
+    title: string,
+    index: number,
+    starred: boolean,
+    checked: boolean,
+    description: string
+}
+export const todos: Array<TodoInterface> = [
     {
         id: 1,
         title: 'Do-something',
@@ -16,13 +24,13 @@ export const todos: any = [
         title: 'Do-something',
         description: 'Task-2 Is Somewhat Smaller Comparatively',
     },
-    { 
+    {
         id: 3,
         index: 1,
         starred: false,
-        checked: false, 
-        title: 'Do-something', 
-        description: 'Task-3 Is Tiny' 
+        checked: false,
+        title: 'Do-something',
+        description: 'Task-3 Is Tiny',
     },
     // { id: 4, title: 'Do-something', description: 'Task-4 Is Mini But Bigger' },
     // {
