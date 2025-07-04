@@ -1,5 +1,3 @@
-// React Imports
-
 // React Icon Imports
 import { FaRegStar } from 'react-icons/fa'
 import { GrInProgress } from 'react-icons/gr'
@@ -19,7 +17,11 @@ import {
 import './todo-sidebar.component.scss'
 import { Box } from '@chakra-ui/react'
 
-const TodoSideBar = (props: any) => {
+interface TodoSidebarInterface {
+    translate: string
+}
+
+const TodoSideBar = (props: TodoSidebarInterface) => {
     const sidebarAccordions = [
         {
             id: 1,

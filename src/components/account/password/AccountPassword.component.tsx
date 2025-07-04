@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Input, Stack, Button, Text, Box } from '@chakra-ui/react'
+
+import { Stack, Button, Text, Box } from '@chakra-ui/react'
 import { InputGroup } from './../../ui/input-group'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { PasswordInput } from '../../ui/password-input'

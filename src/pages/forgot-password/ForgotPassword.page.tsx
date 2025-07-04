@@ -2,9 +2,6 @@
 import { Input, Button, Stack, Alert } from '@chakra-ui/react'
 import { InputGroup } from '../../components/ui/input-group'
 
-// Assets & Image Imports
-import background from './../../assets/img/background.svg'
-
 // React Icon Imports
 import { FaRegEnvelope } from 'react-icons/fa6'
 import { FaHome } from 'react-icons/fa'

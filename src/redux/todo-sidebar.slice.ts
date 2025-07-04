@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState: object = {
+interface initialState {
+    sidebarVisible: boolean,
+    hideSidebarToggleButton: boolean
+}
+
+const initialState: initialState = {
     sidebarVisible: true,
     hideSidebarToggleButton: false,
 }

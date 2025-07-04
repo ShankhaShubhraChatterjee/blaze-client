@@ -1,6 +1,6 @@
 // Chakra Imports
 import { Tabs, Link as ChakraLink } from '@chakra-ui/react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { Tooltip } from '../../components/ui/tooltip'
 
 // Custom User Imports
@@ -23,7 +23,6 @@ import './account.page.scss'
 
 // Root Component (Account)
 const Account = () => {
-    const navigate = useNavigate()
     const tabs = [
         {
             id: 1,

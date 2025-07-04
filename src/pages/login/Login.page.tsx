@@ -9,7 +9,7 @@ import { RiLockPasswordFill } from 'react-icons/ri'
 import { FaRegEnvelope } from 'react-icons/fa6'
 
 // Chakra Imports
-import { Stack, Input, Text, Button, Field } from '@chakra-ui/react'
+import { Stack, Input, Text, Button } from '@chakra-ui/react'
 import { PasswordInput } from '../../components/ui/password-input'
 import { Checkbox } from './../../components/ui/checkbox'
 import { InputGroup } from './../../components/ui/input-group'
@@ -23,9 +23,6 @@ import { joiResolver } from '@hookform/resolvers/joi'
 // Stylesheet Imports
 import './login.page.scss'
 
-// Image & Asset Imports
-import background from './../../assets/img/background-2.svg'
-
 // User Component Imports
 import Footer from '../../components/footer/Footer.component'
 import NavBar from '../../components/navbar/Navbar.component'
@@ -35,10 +32,8 @@ import { loginSchema } from '../../configs/schema.config'
 import Hr from '../../modules/underline/Underline.module'
 
 // Root Component(Login)
-const Login = (props: any) => {
+const Login = () => {
     const [email, setEmail] = useState('')
-    const [showPassword, setShowPassword] = useState(false)
-
     const {
         register,
         handleSubmit,
@@ -50,7 +45,7 @@ const Login = (props: any) => {
             password: null,
         },
     })
-    const onSubmit = (data: any) => {
+    const onSubmit = (data: object) => {
         console.log(data)
     }
     return (
@@ -72,6 +67,7 @@ const Login = (props: any) => {
                                 type="text"
                                 name="login_email"
                                 placeholder="Email"
+                                defaultValue={email}
                                 data-testid="login-form-email-input"
                                 onChange={(e) => setEmail(e.target.value)}
                             />

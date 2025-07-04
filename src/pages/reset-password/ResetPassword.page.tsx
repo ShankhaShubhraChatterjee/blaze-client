@@ -1,6 +1,6 @@
 import './reset-password.page.scss'
 
-import { Input, Text, Button, Stack } from '@chakra-ui/react'
+import { Text, Button, Stack } from '@chakra-ui/react'
 
 import './reset-password.page.scss'
 import { InputGroup } from '../../components/ui/input-group'

@@ -18,8 +18,7 @@ const TodoBar = () => {
     const sidebarVisible: boolean = useSelector(
         (state: any) => state.todoSidebarSlice.sidebarVisible
     )
-    const createTodoItem = () => {}
-    const deleteTodoItem = () => {}
+
     return (
         <div className="todo__toolbar">
             <Stack
@@ -29,7 +28,7 @@ const TodoBar = () => {
                 justifyContent="space-between"
             >
                 <Text className="todo__toolbar--header" fontSize="md">
-                    User's Todo Dashboard
+                    User`&apos;`s Todo Dashboard
                 </Text>
                 <Box className="todo__toolbar--button--container">
                     <Button

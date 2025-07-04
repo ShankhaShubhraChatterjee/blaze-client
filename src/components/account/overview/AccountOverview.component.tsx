@@ -34,15 +34,11 @@ import {
     Editable,
 } from '@chakra-ui/react'
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '../../ui/menu'
-// import { Avatar } from './../../ui/avatar'
 import {
     FileUploadList,
     FileUploadRoot,
     FileUploadTrigger,
 } from '../../ui/file-upload'
-
-// Asset & Image Imports
-import ProfilePicture from './../../../assets/img/user.png'
 
 // Stylesheet Imports
 import './account-overview.component.scss'

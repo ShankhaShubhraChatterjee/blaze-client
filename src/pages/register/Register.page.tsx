@@ -1,5 +1,5 @@
 // React Imports
-import { useState } from 'react'
+// import { useState } from 'react'
 
 // User Component Imports
 import NavBar from '../../components/navbar/Navbar.component'
@@ -7,23 +7,22 @@ import Footer from '../../components/footer/Footer.component'
 import Hr from '../../modules/underline/Underline.module'
 
 // Joi Imports
-import { joiResolver } from '@hookform/resolvers/joi'
+// import { joiResolver } from '@hookform/resolvers/joi'
 
 // React Hook Form Imports
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 
 // Stylesheet Imports
 import './register.page.scss'
 
 // User Configuration Imports
-import { registerSchema } from '../../configs/schema.config'
+// import { registerSchema } from '../../configs/schema.config'
 
 // Chakra Imports
 import { Stack, Input, Button, Text } from '@chakra-ui/react'
 import { Checkbox } from './../../components/ui/checkbox'
 import { InputGroup } from './../../components/ui/input-group'
 import { PasswordInput } from '../../components/ui/password-input'
-import { Field } from '../../components/ui/field'
 
 // React Icon Imports
 import { RiLockPasswordFill } from 'react-icons/ri'

@@ -12,7 +12,9 @@ const AccountEmail = () => {
     return (
         <div className="account__page--component">
             <form className="account__page--component--item">
-                <h2 className="account__page--component--item--header">Update Email</h2>
+                <h2 className="account__page--component--item--header">
+                    Update Email
+                </h2>
                 <Stack width="full">
                     <InputGroup startElement={<FaEnvelope />}>
                         <Input

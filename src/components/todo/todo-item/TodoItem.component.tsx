@@ -6,28 +6,37 @@ import { Button, IconButton, Box } from '@chakra-ui/react'
 import { Checkbox } from './../../ui/checkbox'
 
 // React Icon Imports
-import {
-    FaTrashAlt,
-    FaPenAlt,
-    FaRegSave,
-    FaRegStar,
-    FaStar,
-} from 'react-icons/fa'
+import { FaTrashAlt, FaPenAlt, FaRegStar, FaStar } from 'react-icons/fa'
 import { MdDragHandle } from 'react-icons/md'
+
+// React DnD-Kit Imports
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 // Stylesheet Imports
 import './todoItem.component.scss'
-import { useSortable } from '@dnd-kit/sortable'
-import { CSS } from '@dnd-kit/utilities'
+
+interface TodoItemInterface {
+    id: number,
+    index: number,
+    checked: boolean,
+    starred: boolean,
+    title: string,
+    description: string
+
+}
+
 // Root Component (TodoItem)
-const TodoItem = (props: any) => {
-    const { attributes, setNodeRef, listeners, transform, transition } = useSortable({ id: props.id });
+const TodoItem = (props: TodoItemInterface) => {
+    console.log(typeof(props))
+    const { attributes, setNodeRef, listeners, transform, transition } =
+        useSortable({ id: props.id })
     const [starred, setStarred] = useState(props.starred)
     const [grab, setGrab] = useState(props.checked)
     const style = {
         transform: CSS.Transform.toString(transform),
         transition,
-    };
+    }
     return (
         <Box
             ref={setNodeRef}
@@ -58,7 +67,13 @@ const TodoItem = (props: any) => {
                     />
                 </div>
                 <div className="todo__list--item--header--section-2">
-                    <IconButton variant="outline" onMouseUp={() => setGrab(false)} onMouseDown={() => setGrab(true)} onMouseLeave={() => setGrab(false)} style={{ cursor: grab ? 'grabbing' : 'grab' }}>
+                    <IconButton
+                        variant="outline"
+                        onMouseUp={() => setGrab(false)}
+                        onMouseDown={() => setGrab(true)}
+                        onMouseLeave={() => setGrab(false)}
+                        style={{ cursor: grab ? 'grabbing' : 'grab' }}
+                    >
                         <MdDragHandle color="gray" />
                     </IconButton>
                     <Button variant="outline">
@@ -71,10 +86,16 @@ const TodoItem = (props: any) => {
             </header>
 
             <div className="todo__list--item--content">
-                <h2 className="todo__list--item--content--header">{props.title}</h2>
-                <p className="todo__list--item--content--body">{props.description}</p>
+                <h2 className="todo__list--item--content--header">
+                    {props.title}
+                </h2>
+                <p className="todo__list--item--content--body">
+                    {props.description}
+                </p>
             </div>
-            <div className="todo__list--item--content--index">{props.index}</div>
+            <div className="todo__list--item--content--index">
+                {props.index}
+            </div>
         </Box>
     )
 }

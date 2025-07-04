@@ -1,13 +1,5 @@
 // Chakra UI Imports
-import {
-    Box,
-    Button,
-    CloseButton,
-    Drawer,
-    Editable,
-    IconButton,
-    Portal,
-} from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 // Custom User Component Imports
 import TodoItem from '../todo-item/TodoItem.component'
@@ -27,15 +19,15 @@ import {
     useSensor,
     useSensors,
     closestCenter,
-} from "@dnd-kit/core";
+} from '@dnd-kit/core'
 
 import {
     arrayMove,
     SortableContext,
     sortableKeyboardCoordinates,
-    verticalListSortingStrategy
-}
-    from "@dnd-kit/sortable";
+    verticalListSortingStrategy,
+} from '@dnd-kit/sortable'
+
 // Root Component (TodoPreview)
 const TodoPreview = () => {
     const [todo, setTodo] = useState(todos)
@@ -44,30 +36,38 @@ const TodoPreview = () => {
         useSensor(KeyboardSensor, {
             coordinateGetter: sortableKeyboardCoordinates,
         })
-    );
-    const handleDragEnd = (event: any) => {
-        const { active, over } = event;
+    )
+    const handleDragEnd = (event: object) => {
+        const { active, over }: object = event
 
         if (active.id !== over.id) {
             setTodo((items: any) => {
-                const oldIndex = items.findIndex((item: any) => item.id === active.id);
-                const newIndex = items.findIndex((item: any) => item.id === over.id);
+                const oldIndex = items.findIndex(
+                    (item: any) => item.id === active.id
+                )
+                const newIndex = items.findIndex(
+                    (item: any) => item.id === over.id
+                )
 
-                return arrayMove(items, oldIndex, newIndex);
-            });
+                return arrayMove(items, oldIndex, newIndex)
+            })
         }
-    };
+    }
     return (
         <div className="todo__preview--container">
-
             <Box shadow="md" className="todo__preview--header">
-                <Checkbox color='orange.500' marginLeft={2.5} />
+                <Checkbox color="orange.500" marginLeft={2.5} />
                 <p>Todos / Objectives</p>
             </Box>
-            <DndContext sensors={sensors}
+            <DndContext
+                sensors={sensors}
                 collisionDetection={closestCenter}
-                onDragEnd={handleDragEnd}>
-                <SortableContext items={todos} strategy={verticalListSortingStrategy}>
+                onDragEnd={handleDragEnd}
+            >
+                <SortableContext
+                    items={todos}
+                    strategy={verticalListSortingStrategy}
+                >
                     <ul className="todo__preview--list">
                         {todo.map((todo: any, index: number) => {
                             return (
@@ -82,11 +82,9 @@ const TodoPreview = () => {
                                 />
                             )
                         })}
-
                     </ul>
                 </SortableContext>
             </DndContext>
-
         </div>
     )
 }

@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 import Login from './Login.page'
-import * as loginData from './../../../tests/data/login.test.data'
 
 describe('Login With Email & Password', () => {
     it('Type No Email & Password', () => {
