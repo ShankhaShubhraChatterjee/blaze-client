@@ -33,4 +33,8 @@ const registerSchema = Joi.object({
     password: Joi.string().required().messages(passwordRules),
 })
 
+const additionalSchema = Joi.object({
+    
+})
+
 export { loginSchema, registerSchema }
