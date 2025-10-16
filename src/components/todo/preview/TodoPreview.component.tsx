@@ -1,5 +1,9 @@
+// React Imports
+import { useEffect, useState } from 'react'
+
 // Chakra UI Imports
 import { Box } from '@chakra-ui/react'
+import { Checkbox } from '../../ui/checkbox'
 
 // Custom User Component Imports
 import TodoItem from '../todo-item/TodoItem.component'
@@ -9,9 +13,10 @@ import './todo-preview.component.scss'
 
 // Temporary Data Imports
 import { todos } from '../../../../tmp/data/data'
-import { Checkbox } from '../../ui/checkbox'
 
-import { useState } from 'react'
+// Axios Imports
+import axios from 'axios'
+
 import {
     DndContext,
     KeyboardSensor,
@@ -19,6 +24,7 @@ import {
     useSensor,
     useSensors,
     closestCenter,
+    DragEndEvent,
 } from '@dnd-kit/core'
 
 import {
@@ -28,19 +34,32 @@ import {
     verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
 
+// Configuration Imports
+import { rootURL } from '../../../configs/server.config'
+
 // Root Component (TodoPreview)
-const TodoPreview = () => {
+const TodoPreview = (props: any) => {
     const [todo, setTodo] = useState(todos)
+    const [data, setData] = useState(null)
+    useEffect(() => {
+        axios.get(`${rootURL}/user/todo/fetch/foster0123`, {method: 'get'})
+        .then((response) => setData(response.data))
+        .catch((err) => console.error(err))
+    }, [])
+
+    console.log(data)
     const sensors = useSensors(
         useSensor(PointerSensor),
         useSensor(KeyboardSensor, {
             coordinateGetter: sortableKeyboardCoordinates,
         })
     )
-    const handleDragEnd = (event: object) => {
-        const { active, over }: object = event
 
-        if (active.id !== over.id) {
+    
+    const handleDragEnd = (event: DragEndEvent) => {
+        const { active, over } = event
+
+        if (over && active.id !== over.id) {
             setTodo((items: any) => {
                 const oldIndex = items.findIndex(
                     (item: any) => item.id === active.id
@@ -68,7 +87,7 @@ const TodoPreview = () => {
                     items={todos}
                     strategy={verticalListSortingStrategy}
                 >
-                    <ul className="todo__preview--list">
+                    <ul className="todo__preview--list" ref={props.ref}>
                         {todo.map((todo: any, index: number) => {
                             return (
                                 <TodoItem

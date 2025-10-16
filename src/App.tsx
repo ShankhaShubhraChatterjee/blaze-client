@@ -31,7 +31,7 @@ function App() {
                     element={<Home />}
                 />
                 <Route path="/user/todos" element={<Todo />} />
-                <Route path="/user/login" element={<Login url={URL} />} />
+                <Route path="/user/login" element={<Login />} />
                 <Route path="/user/register" element={<Register />} />
                 <Route
                     path="*"

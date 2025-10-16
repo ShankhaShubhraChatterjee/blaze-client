@@ -1,6 +1,6 @@
 // Chakra Imports
 import { Tabs, Link as ChakraLink } from '@chakra-ui/react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { Tooltip } from '../../components/ui/tooltip'
 
 // Custom User Imports
@@ -28,42 +28,42 @@ const Account = () => {
             id: 1,
             title: 'Overview',
             value: 'overview',
-            url: 'user',
+            url: 'overview',
             icon: <RiProfileLine size={20} />,
         },
         {
             id: 2,
             title: 'Update Profile',
             value: 'update-profile',
-            url: '#/update/profile',
+            url: 'update/profile',
             icon: <RiEditBoxFill size={20} />,
         },
         {
             id: 3,
             title: 'Update Email',
             value: 'update-email',
-            url: '#/update/email',
+            url: 'update/email',
             icon: <FaEnvelope size={20} />,
         },
         {
             id: 4,
             title: 'Update Password',
             value: 'update-password',
-            url: '#/update/password',
+            url: 'update/password',
             icon: <TbPasswordUser size={24} />,
         },
         {
             id: 5,
             title: 'MFA',
             value: 'mfa',
-            url: '#/mfa',
+            url: 'mfa',
             icon: <TbShieldLock size={20} />,
         },
         {
             id: 6,
             title: 'Danger',
             value: 'danger',
-            url: '#/danger',
+            url: 'danger',
             icon: <CgDanger size={20} />,
         },
     ]
@@ -79,6 +79,7 @@ const Account = () => {
         <div>
             <NavBar />
             <div className="account__page">
+                {/* navigate={(value) => navigate(`/user/${value}`)} */}
                 <Tabs.Root defaultValue="overview" fitted>
                     <Tabs.List>
                         {tabs.map((tab) => {
@@ -110,7 +111,7 @@ const Account = () => {
                     {tabContents.map((tabContent) => {
                         return (
                             <Tabs.Content
-                                value={tabContent.value}
+                                value={`user/${tabContent.value}`}
                                 key={tabContent.id}
                             >
                                 {tabContent.component}

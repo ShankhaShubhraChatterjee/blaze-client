@@ -23,7 +23,6 @@ const Home = () => {
                     <img src={BlazeLogo} alt="App Logo" />
                 </section>
             </div>
-
             <Footer />
         </div>
     )

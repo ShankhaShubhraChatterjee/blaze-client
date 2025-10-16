@@ -30,6 +30,14 @@ import NavBar from '../../components/navbar/Navbar.component'
 // User Configuration Imports
 import { loginSchema } from '../../configs/schema.config'
 import Hr from '../../modules/underline/Underline.module'
+import axios from 'axios'
+import { rootURL } from '../../configs/server.config'
+
+// User Type Definitions
+type LoginForm = {
+    login_email: string,
+    login_password: string
+}
 
 // Root Component(Login)
 const Login = () => {
@@ -38,15 +46,18 @@ const Login = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm({
-        resolver: joiResolver(loginSchema),
-        defaultValues: {
-            email: null,
-            password: null,
-        },
-    })
-    const onSubmit = (data: object) => {
+    } = useForm<LoginForm>()
+    const onSubmit = async (data: LoginForm) => {
         console.log(data)
+        await axios.post(`${rootURL}/auth/user/login`, {
+            email: data.login_email,
+            password: data.login_password
+        }, 
+        { 
+            headers: { 'Content-Type': 'application/json' } 
+        })
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err))
     }
     return (
         <div className="login">
@@ -63,9 +74,8 @@ const Login = () => {
                         </Text>
                         <InputGroup flex="5" startElement={<FaRegEnvelope />}>
                             <Input
-                                {...register('email')}
+                                {...register('login_email')}
                                 type="text"
-                                name="login_email"
                                 placeholder="Email"
                                 defaultValue={email}
                                 data-testid="login-form-email-input"
@@ -78,12 +88,11 @@ const Login = () => {
                             textAlign="right"
                             color="red.500"
                         >
-                            {errors.email?.message}
+                            {/* {errors.email?.message} */}
                         </Text>
                         <InputGroup startElement={<RiLockPasswordFill />}>
                             <PasswordInput
-                                {...register('password')}
-                                name="login_password"
+                                {...register('login_password')}
                                 placeholder="Password"
                                 data-testid="login-form-password-input"
                             />
@@ -94,7 +103,7 @@ const Login = () => {
                             textAlign="right"
                             color="red.500"
                         >
-                            {errors.password?.message}
+                            {/* {errors.password?.message} */}
                         </Text>
                         <Checkbox name="remember" colorScheme="orange">
                             Remember Me

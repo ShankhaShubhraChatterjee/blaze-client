@@ -7,16 +7,22 @@ import Footer from '../../components/footer/Footer.component'
 import Hr from '../../modules/underline/Underline.module'
 
 // Joi Imports
-// import { joiResolver } from '@hookform/resolvers/joi'
+import { joiResolver } from '@hookform/resolvers/joi'
 
 // React Hook Form Imports
-// import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+
+// Root URL
+import { rootURL } from '../../configs/server.config'
+
+// Axios Imports
+import axios from 'axios';
 
 // Stylesheet Imports
 import './register.page.scss'
 
 // User Configuration Imports
-// import { registerSchema } from '../../configs/schema.config'
+import { registerSchema } from '../../configs/schema.config'
 
 // Chakra Imports
 import { Stack, Input, Button, Text } from '@chakra-ui/react'
@@ -30,23 +36,45 @@ import { FaRegEnvelope } from 'react-icons/fa6'
 import { FaUserCircle } from 'react-icons/fa'
 import { BsPersonFill } from 'react-icons/bs'
 
+// User Type Definitions
+
+type RegisterForm = {
+    register_fullname: string,
+    register_username: string
+    register_email: string,
+    register_password: string,
+    register_retype_password: string
+}
+
 const Register = () => {
+    const { register, handleSubmit } = useForm<RegisterForm>({ resolver: joiResolver(registerSchema) })
+    const onSubmit = async (data: RegisterForm) => {
+        await axios.post(`${rootURL}/auth/user/register`, {
+            name: data.register_fullname,
+            username: data.register_username,
+            email: data.register_email,
+            password: data.register_password,
+
+        }, { headers: { 'Content-Type': 'application/json' }})
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err))
+    }
     return (
         <>
             <div className="register">
                 <NavBar />
                 <div className="register__form--container">
-                    <form action="" className="register__form" method="POST">
+                    <form action="" className="register__form" method="POST" onSubmit={handleSubmit(onSubmit)}>
                         <Stack width={'full'}>
-                            <Text fontSize="2xl" textAlign="center">
+                            <Text fontSize="4xl" textAlign="center">
                                 Register
                             </Text>
 
                             <InputGroup startElement={<BsPersonFill />}>
                                 <Input
                                     type="text"
-                                    name="signup_fullname"
                                     placeholder="Fullname"
+                                    {...register('register_fullname')}
                                 />
                             </InputGroup>
                             <Text
@@ -60,8 +88,8 @@ const Register = () => {
                             <InputGroup startElement={<FaUserCircle />}>
                                 <Input
                                     type="text"
-                                    name="signup_username"
                                     placeholder="Username"
+                                    {...register('register_username')}
                                 />
                             </InputGroup>
                             <Text
@@ -76,8 +104,8 @@ const Register = () => {
                             <InputGroup startElement={<FaRegEnvelope />}>
                                 <Input
                                     type="text"
-                                    name="signup_email"
                                     placeholder="Email"
+                                    {...register('register_email')}
                                 />
                             </InputGroup>
                             <Text
@@ -91,8 +119,8 @@ const Register = () => {
 
                             <InputGroup startElement={<RiLockPasswordFill />}>
                                 <PasswordInput
-                                    name="signup_password"
                                     placeholder="Password"
+                                    {...register('register_password')}
                                 />
                             </InputGroup>
                             <Text
@@ -106,8 +134,8 @@ const Register = () => {
 
                             <InputGroup startElement={<RiLockPasswordFill />}>
                                 <PasswordInput
-                                    name="signup_retype_password"
                                     placeholder="Retype Password"
+                                    {...register('register_retype_password')}
                                 />
                             </InputGroup>
                             <Text
@@ -124,11 +152,11 @@ const Register = () => {
                             >
                                 Remember Me
                             </Checkbox>
-                            <Button colorPalette="blue">Register</Button>
+                            <Button colorPalette="blue" type='submit'>Register</Button>
                             <Hr color="orange" height={2.5} />
                             <Button
                                 colorPalette="orange"
-                                type="submit"
+                                type='button'
                                 width="25"
                                 height="25"
                             >

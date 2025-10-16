@@ -12,9 +12,11 @@ import TodoBar from '../../components/todo/toolbar/TodoToolbar.component'
 
 // Stylesheet Imports
 import './todo.page.scss'
+import { useRef } from 'react'
 
 // Root Component (Todo)
 const Todo = () => {
+    const todoPreviewRef = useRef(null)
     const sidebarVisible = useSelector(
         (state: any) => state.todoSidebarSlice.sidebarVisible
     )
@@ -27,13 +29,13 @@ const Todo = () => {
             <NavBar />
             <div className="todo__container">
                 <div className="todo">
-                    <TodoBar />
+                    <TodoBar ref={todoPreviewRef} />
                     {sidebarVisible ? (
                         <TodoSideBar translate="0px" />
                     ) : (
                         <TodoSideBar translate="-350px" />
                     )}
-                    <TodoPreview />
+                    <TodoPreview ref={todoPreviewRef} />
                 </div>
             </div>
         </div>

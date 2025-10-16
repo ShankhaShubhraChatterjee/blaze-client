@@ -1,3 +1,6 @@
+// React Imports
+import { useState } from 'react';
+
 // React Icons Imports
 import { FaPlus, FaTrash } from 'react-icons/fa6'
 import { FiSidebar } from 'react-icons/fi'
@@ -12,13 +15,19 @@ import { Box, Button, Stack, Text } from '@chakra-ui/react'
 // Stylesheet Imports
 import './todo-toolbar.component.scss'
 
+// User Component Imports
+import TodoItem from './../todo-item/TodoItem.component';
+
 // Root Component (TodoBar)
-const TodoBar = () => {
+const TodoBar = (props: any) => {
     const dispatch = useDispatch()
+    const [ todo, setTodo ] = useState(null)
     const sidebarVisible: boolean = useSelector(
         (state: any) => state.todoSidebarSlice.sidebarVisible
     )
-
+    const handleAddTodo = () => {
+        props.ref.current.append(<div>Texting</div>)
+    }
     return (
         <div className="todo__toolbar">
             <Stack
@@ -47,6 +56,7 @@ const TodoBar = () => {
                         colorPalette="green"
                         rounded="full"
                         marginRight="1.5"
+                        onClick={handleAddTodo}
                     >
                         <FaPlus />
                         <p>Add</p>
