@@ -117,7 +117,7 @@ const Login = () => {
                                     fontSize: '18px',
                                     marginLeft: '10px',
                                 }}
-                                to="/forgot-password"
+                                to="/user/forgot-password"
                             >
                                 Reset
                             </Link>
