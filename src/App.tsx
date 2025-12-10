@@ -1,6 +1,6 @@
 // React Router Imports
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { redirect } from 'react-router-dom'
 // React Redux Imports
 
 // Custom User Page Imports
@@ -10,16 +10,19 @@ import Register from './pages/register/Register.page'
 import Account from './pages/account/Account.page'
 import Todo from './pages/todo/Todo.page'
 import ErrorPage from './pages/error/Error.page'
-import CheckEmail from './pages/check-email/CheckEmail.page'
 import ResetPassword from './pages/reset-password/ResetPassword.page'
 import ForgotPassword from './pages/forgot-password/ForgotPassword.page'
 
-// User Configuration Imports
-import { rootURL } from './configs/server.config'
+// Account Component Imports
+import AccountOverview from './components/account/overview/AccountOverview.component'
+import AccountEmail from './components/account/email/AccountEmail.component'
+import AccountUpdate from './components/account/update/AccountUpdate.component'
+import AccountMFA from './components/account/mfa/AccountMFA.component'
+import AccountDelete from './components/account/delete/AccountDelete.component'
+import PasswordUpdate from './components/account/password/AccountPassword.component'
 
 // Root Component (App)
 function App() {
-    const URL = `${rootURL}/user/account`
     const statusText = 404
     return (
         <BrowserRouter>
@@ -42,11 +45,15 @@ function App() {
                     element={<ForgotPassword />}
                 />
                 <Route path="/reset-password" element={<ResetPassword />} />
-                <Route
-                    path="/forgot-password/check-email"
-                    element={<CheckEmail />}
-                />
-                <Route path="account/user" element={<Account />}></Route>
+
+                <Route path='account/user' element={<Account />}>
+                    <Route index path='overview' element={<AccountOverview />} />
+                    <Route path='profile' element={<AccountUpdate />} />
+                    <Route path='email' element={<AccountEmail />} />
+                    <Route path='password' element={<PasswordUpdate />} />
+                    <Route path='mfa' element={<AccountMFA />} />
+                    <Route path='danger' element={<AccountDelete />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     )
