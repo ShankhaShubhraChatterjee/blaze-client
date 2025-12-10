@@ -1,7 +1,10 @@
 // Chakra Imports
-import { Tabs, Link as ChakraLink } from '@chakra-ui/react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Container, Tabs } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
 import { Tooltip } from '../../components/ui/tooltip'
+
+// React Router Imports
+import { NavLink as ReactRouterNavLink } from 'react-router-dom'
 
 // Custom User Imports
 import NavBar from '../../components/navbar/Navbar.component'
@@ -20,48 +23,53 @@ import { RiEditBoxFill, RiProfileLine } from 'react-icons/ri'
 
 // Stylesheet Imports
 import './account.page.scss'
+import { useEffect } from 'react'
 
 // Root Component (Account)
 const Account = () => {
+    const navigate = useNavigate()
+    useEffect(() => {
+        navigate('overview')
+    }, [])
     const tabs = [
         {
             id: 1,
-            title: 'Overview',
+            title: 'Profile Overview',
             value: 'overview',
             url: 'overview',
             icon: <RiProfileLine size={20} />,
         },
         {
             id: 2,
-            title: 'Update Profile',
-            value: 'update-profile',
-            url: 'update/profile',
+            title: 'Manage Profile',
+            value: 'profile',
+            url: 'profile',
             icon: <RiEditBoxFill size={20} />,
         },
         {
             id: 3,
             title: 'Update Email',
-            value: 'update-email',
-            url: 'update/email',
+            value: 'email',
+            url: 'email',
             icon: <FaEnvelope size={20} />,
         },
         {
             id: 4,
-            title: 'Update Password',
-            value: 'update-password',
-            url: 'update/password',
+            title: 'Change Password',
+            value: 'password',
+            url: 'password',
             icon: <TbPasswordUser size={24} />,
         },
         {
             id: 5,
-            title: 'MFA',
+            title: 'Authentication',
             value: 'mfa',
             url: 'mfa',
             icon: <TbShieldLock size={20} />,
         },
         {
             id: 6,
-            title: 'Danger',
+            title: 'Danger Zone',
             value: 'danger',
             url: 'danger',
             icon: <CgDanger size={20} />,
@@ -69,9 +77,9 @@ const Account = () => {
     ]
     const tabContents = [
         { id: 1, value: 'overview', component: <AccountIntro /> },
-        { id: 2, value: 'update-profile', component: <AccountUpdate /> },
-        { id: 3, value: 'update-email', component: <AccountEmail /> },
-        { id: 4, value: 'update-password', component: <PasswordUpdate /> },
+        { id: 2, value: 'profile', component: <AccountUpdate /> },
+        { id: 3, value: 'email', component: <AccountEmail /> },
+        { id: 4, value: 'password', component: <PasswordUpdate /> },
         { id: 5, value: 'mfa', component: <AccountMFA /> },
         { id: 6, value: 'danger', component: <AccountDelete /> },
     ]
@@ -79,49 +87,47 @@ const Account = () => {
         <div>
             <NavBar />
             <div className="account__page">
-                {/* navigate={(value) => navigate(`/user/${value}`)} */}
-                <Tabs.Root defaultValue="overview" fitted>
+                <Tabs.Root
+                    defaultValue='overview'
+                    variant="plain"
+                    lazyMount
+                    fitted
+                    navigate={({ value }) => navigate(value)}
+                    css={{
+                        "--tabs-indicator-bg": "colors.orange.subtle",
+                        "--tabs-indicator-shadow": "shadows.xs",
+                        "--tabs-trigger-radius": "radii.full",
+                    }}
+                >
                     <Tabs.List>
+                        {/* Tab Components For Account Page */}
                         {tabs.map((tab) => {
                             return (
-                                <Tabs.Trigger
-                                    value={tab.value}
-                                    key={tab.id}
-                                    outline={'none'}
-                                    paddingInline={0}
-                                    paddingBlock={0}
-                                >
-                                    <Tooltip
-                                        content={tab.title}
-                                        openDelay={50}
-                                        closeDelay={50}
-                                    >
-                                        <ChakraLink
-                                            href={tab.url}
-                                            className="account__page--tab--item"
-                                        >
-                                            {tab.icon}
-                                            <p>{tab.title}</p>
-                                        </ChakraLink>
-                                    </Tooltip>
+                                <Tabs.Trigger key={tab.id} value={tab.value} asChild>
+                                    <ReactRouterNavLink to={`/account/user/${tab.url}`}>
+                                        <Tooltip content={tab.title} showArrow>
+                                            <Container css={{display: 'flex', justifyContent: 'center', alignItems:'center'}}>
+                                                {tab.icon}
+                                              <p className='account__page--tab--item--title'>{tab.title}</p>
+                                            </Container>
+
+                                        </Tooltip>
+                                    </ReactRouterNavLink>
                                 </Tabs.Trigger>
                             )
                         })}
+                        <Tabs.Indicator />
                     </Tabs.List>
-                    {tabContents.map((tabContent) => {
+
+                    {/* Tab Contents For Account Page */}
+                    {tabContents.map((tab) => {
                         return (
-                            <Tabs.Content
-                                value={`user/${tabContent.value}`}
-                                key={tabContent.id}
-                            >
-                                {tabContent.component}
-                            </Tabs.Content>
+                            <Tabs.Content key={tab.id} value={tab.value}>{tab.component}</Tabs.Content>
                         )
                     })}
-                    <Outlet></Outlet>
                 </Tabs.Root>
             </div>
-        </div>
+        </div >
     )
 }
 
