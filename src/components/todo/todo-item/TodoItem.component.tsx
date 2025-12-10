@@ -40,8 +40,6 @@ const TodoItem = (props: TodoItemInterface) => {
     return (
         <Box
             ref={setNodeRef}
-            {...attributes}
-            {...listeners}
             style={style}
             as="li"
             className="todo__preview--list--item"
@@ -68,6 +66,8 @@ const TodoItem = (props: TodoItemInterface) => {
                 </div>
                 <div className="todo__list--item--header--section-2">
                     <IconButton
+                        {...attributes}
+                        {...listeners}
                         variant="outline"
                         onMouseUp={() => setGrab(false)}
                         onMouseDown={() => setGrab(true)}
