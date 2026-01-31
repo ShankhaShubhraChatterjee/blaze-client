@@ -19,12 +19,14 @@ import axios from 'axios'
 
 import {
     DndContext,
-    KeyboardSensor,
-    PointerSensor,
     useSensor,
     useSensors,
     closestCenter,
     DragEndEvent,
+    DragStartEvent,
+    TouchSensor,
+    MouseSensor,
+    KeyboardSensor
 } from '@dnd-kit/core'
 
 import {
@@ -41,21 +43,28 @@ import { rootURL } from '../../../configs/server.config'
 const TodoPreview = (props: any) => {
     const [todo, setTodo] = useState(todos)
     const [data, setData] = useState(null)
-    useEffect(() => {
-        axios.get(`${rootURL}/user/todo/fetch/foster0123`, {method: 'get'})
-        .then((response) => setData(response.data))
-        .catch((err) => console.error(err))
-    }, [])
+    // useEffect(() => {
+    //     axios.get(`${rootURL}/user/todo/fetch/foster0123`, {method: 'get'})
+    //     .then((response) => setData(response.data))
+    //     .catch((err) => console.error(err))
+    // }, [])
+    const mouseSensor = useSensor(MouseSensor, {
+        activationConstraint: {
+            delay: 250,
+            tolerance: 5
+        },
+    });
 
+    const touchSensor = useSensor(TouchSensor, {
+        activationConstraint: {
+            delay: 250,
+            tolerance: 5,
+        },
+    });
+    const keyboardSensor = useSensor(KeyboardSensor, {coordinateGetter: sortableKeyboardCoordinates})
     console.log(data)
-    const sensors = useSensors(
-        useSensor(PointerSensor),
-        useSensor(KeyboardSensor, {
-            coordinateGetter: sortableKeyboardCoordinates,
-        })
-    )
+    const sensors = useSensors(mouseSensor, touchSensor, keyboardSensor)
 
-    
     const handleDragEnd = (event: DragEndEvent) => {
         const { active, over } = event
 
@@ -72,6 +81,11 @@ const TodoPreview = (props: any) => {
             })
         }
     }
+
+    const handleDragStart = (event: DragStartEvent) => {
+        const { active } = event;
+        console.log(active)
+    }
     return (
         <div className="todo__preview--container">
             <Box shadow="md" className="todo__preview--header">
@@ -81,6 +95,7 @@ const TodoPreview = (props: any) => {
             <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}
+                onDragStart={handleDragStart}
                 onDragEnd={handleDragEnd}
             >
                 <SortableContext

@@ -20,7 +20,7 @@
     width: 100%;
     overflow: hidden scroll;
     height: calc(100vh - 200px);
-    touch-action: none;
+    // touch-action: none;
 
     &::-webkit-scrollbar {
         width: 5px;
