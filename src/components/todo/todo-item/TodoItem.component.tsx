@@ -28,7 +28,6 @@ interface TodoItemInterface {
 
 // Root Component (TodoItem)
 const TodoItem = (props: TodoItemInterface) => {
-    console.log(typeof(props))
     const { attributes, setNodeRef, listeners, transform, transition } =
         useSortable({ id: props.id })
     const [starred, setStarred] = useState(props.starred)
@@ -69,9 +68,6 @@ const TodoItem = (props: TodoItemInterface) => {
                         {...attributes}
                         {...listeners}
                         variant="outline"
-                        onMouseUp={() => setGrab(false)}
-                        onMouseDown={() => setGrab(true)}
-                        onMouseLeave={() => setGrab(false)}
                         style={{ cursor: grab ? 'grabbing' : 'grab' }}
                     >
                         <MdDragHandle color="gray" />
