@@ -1,8 +1,8 @@
 // React Icon Imports
 import { FaRegStar } from 'react-icons/fa'
 import { GrInProgress } from 'react-icons/gr'
-import { IoCheckmarkDoneCircleSharp } from 'react-icons/io5'
 
+import { FaCheckDouble } from "react-icons/fa6";
 // React Redux Imports
 
 // Chakra Imports
@@ -26,13 +26,13 @@ const TodoSideBar = (props: TodoSidebarInterface) => {
         {
             id: 1,
             title: 'Completed',
-            icon: <IoCheckmarkDoneCircleSharp size={24} color="yellowgreen" />,
+            icon: <FaCheckDouble size={24} color="yellowgreen" />,
             tasks: [{ id: 1, title: 'Objective 0' }],
         },
         {
             id: 2,
             title: 'Remaining',
-            icon: <GrInProgress size={24} color="goldenrod" />,
+            icon: <GrInProgress size={24} color="red" />,
             tasks: [{ id: 1, title: 'Objective 1' }],
         },
         {
