@@ -9,7 +9,7 @@ interface TodoInterface {
 export const todos: Array<TodoInterface> = [
     {
         id: 1,
-        title: 'Do-something',
+        title: 'Do Not Do Anything',
         index: 2,
         starred: true,
         checked: false,
@@ -21,52 +21,39 @@ export const todos: Array<TodoInterface> = [
         index: 3,
         starred: false,
         checked: true,
-        title: 'Do-something',
+        title: 'Do Something Crazy As Hell',
         description: 'Task-2 Is Somewhat Smaller Comparatively',
     },
     {
         id: 3,
+        index: 4,
+        starred: false,
+        checked: false,
+        title: 'Do Nothing At All',
+        description: 'Task 4 Is Biggg !!!',
+    },
+    {
+        id: 4,
+        index: 5,
+        starred: false,
+        checked: false,
+        title: 'Do Whatever You Want',
+        description: 'Task 5 Is Tiny & Random',
+    },
+     {
+        id: 5,
         index: 1,
         starred: false,
         checked: false,
-        title: 'Do-something',
-        description: 'Task-3 Is Tiny',
+        title: 'Do Nothing At All',
+        description: 'Task 4 Is Biggg !!!',
     },
-    // { id: 4, title: 'Do-something', description: 'Task-4 Is Mini But Bigger' },
-    // {
-    //     id: 5,
-    //     title: 'Do-something',
-    //     description:
-    //         'Task-5 is crazy long and hard to understand too since its not clearly explained enough',
-    // },
-    // {
-    //     id: 6,
-    //     title: 'Do-something',
-    //     description:
-    //         'Task-5 is crazy long and hard to understand too since its not clearly explained',
-    // },
-    // {
-    //     id: 7,
-    //     title: 'Do-something',
-    //     description:
-    //         'Task-5 is crazy long and hard to understand too since enough',
-    // },
-    // {
-    //     id: 8,
-    //     title: 'Do-something',
-    //     description:
-    //         'Task-5 is crazy long and hard to understand too since its not clearly',
-    // },
-    // {
-    //     id: 9,
-    //     title: 'Do-something',
-    //     description:
-    //         'Task-5 is crazy long and hard to understand too since its not clearly',
-    // },
-    // {
-    //     id: 10,
-    //     title: 'Do-something',
-    //     description:
-    //         'Task-5 is crazy long and hard to understand too since its not clearly',
-    // },
+    {
+        id: 6,
+        index: 6,
+        starred: false,
+        checked: false,
+        title: 'Do Whatever You Want',
+        description: 'Task 5 Is Tiny & Random',
+    },
 ]
