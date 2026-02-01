@@ -17,16 +17,26 @@ import './todo-toolbar.component.scss'
 
 // User Component Imports
 import TodoItem from './../todo-item/TodoItem.component';
+import { todos } from '../../../../tmp/data/data';
 
 // Root Component (TodoBar)
 const TodoBar = (props: any) => {
     const dispatch = useDispatch()
-    const [ todo, setTodo ] = useState(null)
+    const [ todo, setTodo ] = useState(todos)
     const sidebarVisible: boolean = useSelector(
         (state: any) => state.todoSidebarSlice.sidebarVisible
     )
+    const sampleTodo = {
+                            id: 1, title:'Add A Todo ...' , 
+                            index: todos.length, 
+                            description: 'Lorem Ipsum ...' , 
+                            checked: false , 
+                            starred: false
+                        }
     const handleAddTodo = () => {
-        props.ref.current.append(<div>Texting</div>)
+        setTodo([...todo, sampleTodo])
+        console.log(todo)
+        // props.ref.current.append(<div>Texting</div>)
     }
     return (
         <div className="todo__toolbar">
@@ -37,7 +47,7 @@ const TodoBar = (props: any) => {
                 justifyContent="space-between"
             >
                 <Text className="todo__toolbar--header" fontSize="md">
-                    User`&apos;`s Todo Dashboard
+                    User&apos;s Todo Dashboard
                 </Text>
                 <Box className="todo__toolbar--button--container">
                     <Button
