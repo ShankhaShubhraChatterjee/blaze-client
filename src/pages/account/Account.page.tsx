@@ -1,5 +1,5 @@
 // Chakra Imports
-import { Container, Tabs } from '@chakra-ui/react'
+import { Box, Container, Tabs } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { Tooltip } from '../../components/ui/tooltip'
 
@@ -34,7 +34,7 @@ const Account = () => {
     const tabs = [
         {
             id: 1,
-            title: 'Profile Overview',
+            title: 'Overview',
             value: 'overview',
             url: 'overview',
             icon: <RiProfileLine size={20} />,
@@ -55,14 +55,14 @@ const Account = () => {
         },
         {
             id: 4,
-            title: 'Change Password',
+            title: 'Password',
             value: 'password',
             url: 'password',
             icon: <TbPasswordUser size={24} />,
         },
         {
             id: 5,
-            title: 'Authentication',
+            title: 'Security',
             value: 'mfa',
             url: 'mfa',
             icon: <TbShieldLock size={20} />,
@@ -86,7 +86,7 @@ const Account = () => {
     return (
         <div>
             <NavBar />
-            <div className="account__page">
+            <Box className="account__page">
                 <Tabs.Root
                     defaultValue='overview'
                     variant="plain"
@@ -106,11 +106,10 @@ const Account = () => {
                                 <Tabs.Trigger key={tab.id} value={tab.value} asChild>
                                     <ReactRouterNavLink to={`/account/user/${tab.url}`}>
                                         <Tooltip content={tab.title} showArrow>
-                                            <Container css={{display: 'flex', justifyContent: 'center', alignItems:'center'}}>
+                                            <Box css={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                                                 {tab.icon}
                                               <p className='account__page--tab--item--title'>{tab.title}</p>
-                                            </Container>
-
+                                            </Box>
                                         </Tooltip>
                                     </ReactRouterNavLink>
                                 </Tabs.Trigger>
@@ -126,7 +125,7 @@ const Account = () => {
                         )
                     })}
                 </Tabs.Root>
-            </div>
+            </Box>
         </div >
     )
 }
