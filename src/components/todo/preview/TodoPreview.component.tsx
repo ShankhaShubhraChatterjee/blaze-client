@@ -21,12 +21,12 @@ import {
     DndContext,
     useSensor,
     useSensors,
-    closestCenter,
     DragEndEvent,
     DragStartEvent,
     TouchSensor,
     MouseSensor,
-    KeyboardSensor
+    KeyboardSensor,
+    closestCorners
 } from '@dnd-kit/core'
 
 import {
@@ -50,20 +50,19 @@ const TodoPreview = (props: any) => {
     // }, [])
     const mouseSensor = useSensor(MouseSensor, {
         activationConstraint: {
-            delay: 250,
-            tolerance: 5
+            distance: 8, // Minimum pixels moved before drag starts
         },
     });
 
     const touchSensor = useSensor(TouchSensor, {
         activationConstraint: {
-            delay: 250,
+            delay: 250, // Longer delay on touch to prevent accidental drag
             tolerance: 5,
         },
     });
     const keyboardSensor = useSensor(KeyboardSensor, {coordinateGetter: sortableKeyboardCoordinates})
     console.log(data)
-    const sensors = useSensors(mouseSensor, touchSensor, keyboardSensor)
+    const sensors = useSensors(touchSensor, keyboardSensor, mouseSensor)
 
     const handleDragEnd = (event: DragEndEvent) => {
         const { active, over } = event
@@ -94,7 +93,7 @@ const TodoPreview = (props: any) => {
             </Box>
             <DndContext
                 sensors={sensors}
-                collisionDetection={closestCenter}
+                collisionDetection={closestCorners}
                 onDragStart={handleDragStart}
                 onDragEnd={handleDragEnd}
             >
