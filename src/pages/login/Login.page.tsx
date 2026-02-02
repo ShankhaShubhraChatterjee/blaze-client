@@ -30,7 +30,8 @@ import NavBar from '../../components/navbar/Navbar.component'
 // User Configuration Imports
 import { loginSchema } from '../../configs/schema.config'
 import Hr from '../../modules/underline/Underline.module'
-import axios from 'axios'
+
+
 import { rootURL } from '../../configs/server.config'
 
 // User Type Definitions
@@ -48,16 +49,7 @@ const Login = () => {
         formState: { errors },
     } = useForm<LoginForm>()
     const onSubmit = async (data: LoginForm) => {
-        console.log(data)
-        await axios.post(`${rootURL}/auth/user/login`, {
-            email: data.login_email,
-            password: data.login_password
-        }, 
-        { 
-            headers: { 'Content-Type': 'application/json' } 
-        })
-        .then((response) => console.log(response))
-        .catch((err) => console.error(err))
+        
     }
     return (
         <div className="login">

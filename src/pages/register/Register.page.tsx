@@ -15,9 +15,6 @@ import { useForm } from 'react-hook-form'
 // Root URL
 import { rootURL } from '../../configs/server.config'
 
-// Axios Imports
-import axios from 'axios';
-
 // Stylesheet Imports
 import './register.page.scss'
 
@@ -49,15 +46,7 @@ type RegisterForm = {
 const Register = () => {
     const { register, handleSubmit } = useForm<RegisterForm>({ resolver: joiResolver(registerSchema) })
     const onSubmit = async (data: RegisterForm) => {
-        await axios.post(`${rootURL}/auth/user/register`, {
-            name: data.register_fullname,
-            username: data.register_username,
-            email: data.register_email,
-            password: data.register_password,
-
-        }, { headers: { 'Content-Type': 'application/json' }})
-        .then((response) => console.log(response))
-        .catch((err) => console.error(err))
+       console.log("Registered")
     }
     return (
         <>
