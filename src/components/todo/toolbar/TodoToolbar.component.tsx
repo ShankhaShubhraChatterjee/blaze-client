@@ -19,23 +19,18 @@ import './todo-toolbar.component.scss'
 import TodoItem from './../todo-item/TodoItem.component';
 import { todos } from '../../../../tmp/data/data';
 
+import { addTodo } from '../../../redux/todo.slice';
+
 // Root Component (TodoBar)
 const TodoBar = (props: any) => {
     const dispatch = useDispatch()
-    const [ todo, setTodo ] = useState(todos)
+
     const sidebarVisible: boolean = useSelector(
         (state: any) => state.todoSidebarSlice.sidebarVisible
     )
-    const sampleTodo = {
-                            id: 1, title:'Add A Todo ...' , 
-                            index: todos.length, 
-                            description: 'Lorem Ipsum ...' , 
-                            checked: false , 
-                            starred: false
-                        }
+
     const handleAddTodo = () => {
-        setTodo([...todo, sampleTodo])
-        console.log(todo)
+        dispatch(addTodo())
         // props.ref.current.append(<div>Texting</div>)
     }
     return (
