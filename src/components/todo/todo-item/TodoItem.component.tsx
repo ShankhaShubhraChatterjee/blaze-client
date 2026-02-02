@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 // Chakra Imports
-import { Button, IconButton, Box } from '@chakra-ui/react'
+import { Button, IconButton, Box, Editable } from '@chakra-ui/react'
 import { Checkbox } from './../../ui/checkbox'
 
 // React Icon Imports
@@ -15,6 +15,7 @@ import { CSS } from '@dnd-kit/utilities'
 
 // Stylesheet Imports
 import './todoItem.component.scss'
+import { LuPencilLine, LuX, LuCheck } from 'react-icons/lu'
 
 interface TodoItemInterface {
     id: number,
@@ -28,6 +29,7 @@ interface TodoItemInterface {
 
 // Root Component (TodoItem)
 const TodoItem = (props: TodoItemInterface) => {
+    const [title, setTitle] = useState('')
     const { attributes, setNodeRef, listeners, transform, transition } =
         useSortable({ id: props.id })
     const [starred, setStarred] = useState(props.starred)
@@ -82,9 +84,31 @@ const TodoItem = (props: TodoItemInterface) => {
             </header>
 
             <div className="todo__list--item--content">
-                <h2 className="todo__list--item--content--header">
-                    {props.title}
-                </h2>
+                <Editable.Root
+                    value={title}
+                    onValueChange={(e) => setTitle(e.value)}
+                    placeholder={props.title}
+                >
+                    <Editable.Preview css={{ fontWeight: 'bolder', fontSize: '1.25em' }} />
+                    <Editable.Input />
+                    <Editable.Control>
+                        <Editable.EditTrigger asChild>
+                            <IconButton variant="ghost" size="xs">
+                                <LuPencilLine />
+                            </IconButton>
+                        </Editable.EditTrigger>
+                        <Editable.CancelTrigger asChild>
+                            <IconButton variant="outline" size="xs">
+                                <LuX />
+                            </IconButton>
+                        </Editable.CancelTrigger>
+                        <Editable.SubmitTrigger asChild>
+                            <IconButton variant="outline" size="xs">
+                                <LuCheck />
+                            </IconButton>
+                        </Editable.SubmitTrigger>
+                    </Editable.Control>
+                </Editable.Root>
                 <p className="todo__list--item--content--body">
                     {props.description}
                 </p>
