@@ -14,9 +14,6 @@ import './todo-preview.component.scss'
 // Temporary Data Imports
 import { todos } from '../../../../tmp/data/data'
 
-// Axios Imports
-import axios from 'axios'
-
 import {
     DndContext,
     useSensor,
@@ -36,18 +33,18 @@ import {
     verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
 
+import { sortTodo } from '../../../redux/todo.slice'
 // Configuration Imports
 import { rootURL } from '../../../configs/server.config'
+import { useDispatch, useSelector } from 'react-redux'
 
 // Root Component (TodoPreview)
 const TodoPreview = (props: any) => {
-    const [todo, setTodo] = useState(todos)
-    const [data, setData] = useState(null)
-    // useEffect(() => {
-    //     axios.get(`${rootURL}/user/todo/fetch/foster0123`, {method: 'get'})
-    //     .then((response) => setData(response.data))
-    //     .catch((err) => console.error(err))
-    // }, [])
+    const todoList = useSelector((state: any) => state.todoSlice.todos)
+    const dispatch = useDispatch()
+    
+
+    // Hardware Sensors 
     const mouseSensor = useSensor(MouseSensor, {
         activationConstraint: {
             distance: 8, // Minimum pixels moved before drag starts
@@ -60,24 +57,26 @@ const TodoPreview = (props: any) => {
             tolerance: 5,
         },
     });
-    const keyboardSensor = useSensor(KeyboardSensor, {coordinateGetter: sortableKeyboardCoordinates})
-    console.log(data)
+    const keyboardSensor = useSensor(KeyboardSensor, {
+        coordinateGetter: sortableKeyboardCoordinates
+    })
+
     const sensors = useSensors(touchSensor, keyboardSensor, mouseSensor)
 
     const handleDragEnd = (event: DragEndEvent) => {
         const { active, over } = event
 
         if (over && active.id !== over.id) {
-            setTodo((items: any) => {
+            const items = todoList
                 const oldIndex = items.findIndex(
                     (item: any) => item.id === active.id
                 )
                 const newIndex = items.findIndex(
                     (item: any) => item.id === over.id
                 )
-
-                return arrayMove(items, oldIndex, newIndex)
-            })
+                const newList = arrayMove(todoList, oldIndex, newIndex)
+                dispatch(sortTodo(newList))
+                return arrayMove(todoList, oldIndex, newIndex)
         }
     }
 
@@ -85,6 +84,7 @@ const TodoPreview = (props: any) => {
         const { active } = event;
         console.log(active)
     }
+
     return (
         <div className="todo__preview--container">
             <Box shadow="md" className="todo__preview--header">
@@ -98,11 +98,11 @@ const TodoPreview = (props: any) => {
                 onDragEnd={handleDragEnd}
             >
                 <SortableContext
-                    items={todos}
+                    items={todoList}
                     strategy={verticalListSortingStrategy}
                 >
                     <ul className="todo__preview--list" ref={props.ref}>
-                        {todo.map((todo: any, index: number) => {
+                        {todoList.map((todo: any, index: number) => {
                             return (
                                 <TodoItem
                                     key={todo.id}
