@@ -1,5 +1,5 @@
-describe('Register Page E2E Testing', () => {
-    beforeEach(() => {
-        cy.visit('/register')
-    })
-})
+describe("Register Page E2E Testing", () => {
+	beforeEach(() => {
+		cy.visit("/register");
+	});
+});

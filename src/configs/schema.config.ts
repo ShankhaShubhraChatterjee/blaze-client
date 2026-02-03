@@ -1,40 +1,38 @@
-import Joi from 'joi'
+import Joi from "joi";
 
 const nameRules = {
-    'string.empty': 'Name cannot be empty',
-}
+	"string.empty": "Name cannot be empty",
+};
 const usernameRules = {
-    'string.empty': 'Username cannot be empty',
-}
+	"string.empty": "Username cannot be empty",
+};
 const emailRules = {
-    'string.empty': 'Email cannot be empty',
-}
+	"string.empty": "Email cannot be empty",
+};
 const passwordRules = {
-    'string.empty': 'Password cannot be empty',
-}
+	"string.empty": "Password cannot be empty",
+};
 
 const loginSchema = Joi.object({
-    email: Joi.string()
-        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
-        .messages(emailRules),
+	email: Joi.string()
+		.email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
+		.messages(emailRules),
 
-    password: Joi.string().required().messages(passwordRules),
-}).required()
+	password: Joi.string().required().messages(passwordRules),
+}).required();
 
 const registerSchema = Joi.object({
-    name: Joi.string().messages(nameRules),
+	name: Joi.string().messages(nameRules),
 
-    username: Joi.string().messages(usernameRules),
+	username: Joi.string().messages(usernameRules),
 
-    email: Joi.string()
-        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
-        .messages(emailRules),
+	email: Joi.string()
+		.email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
+		.messages(emailRules),
 
-    password: Joi.string().required().messages(passwordRules),
-})
+	password: Joi.string().required().messages(passwordRules),
+});
 
-const additionalSchema = Joi.object({
-    
-})
+const additionalSchema = Joi.object({});
 
-export { loginSchema, registerSchema }
+export { loginSchema, registerSchema };
