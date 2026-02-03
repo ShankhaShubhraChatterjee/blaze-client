@@ -1,5 +1,5 @@
 // React Imports
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 // Chakra Imports
 import { Button, IconButton, Box, Editable } from '@chakra-ui/react'
@@ -16,6 +16,9 @@ import { CSS } from '@dnd-kit/utilities'
 // Stylesheet Imports
 import './todoItem.component.scss'
 import { LuPencilLine, LuX, LuCheck } from 'react-icons/lu'
+import { removeTodo } from '../../../redux/todo.slice'
+
+import { useDispatch } from 'react-redux'
 
 interface TodoItemInterface {
     id: number,
@@ -29,14 +32,21 @@ interface TodoItemInterface {
 
 // Root Component (TodoItem)
 const TodoItem = (props: TodoItemInterface) => {
+    const dispatch =  useDispatch()
+    const listItemRef = useRef(null)
+
     const [title, setTitle] = useState('')
-    const { attributes, setNodeRef, listeners, transform, transition } =
-        useSortable({ id: props.id })
+    const { attributes, setNodeRef, listeners, transform, transition } = useSortable({ id: props.id })
     const [starred, setStarred] = useState(props.starred)
-    const [grab, setGrab] = useState(props.checked)
+
     const style = {
         transform: CSS.Transform.toString(transform),
         transition,
+    }
+    const handleRemoveTodo = (e: any) => {
+        const listItem: any = parseInt(listItemRef.current.dataset.id)
+        console.log(listItemRef.current.dataset.id)
+        dispatch(removeTodo({ id: listItem }))
     }
     return (
         <Box
@@ -47,7 +57,7 @@ const TodoItem = (props: TodoItemInterface) => {
             shadow="lg"
             bg={{ base: 'gray.contrast' }}
         >
-            <header className="todo__preview--list--item--header">
+            <header className="todo__preview--list--item--header" ref={listItemRef} data-id={props.id}>
                 <div className="todo__list--item--header--section-1">
                     <Checkbox colorPalette="purple" />
                     <Checkbox // prettier-ignore
@@ -70,14 +80,14 @@ const TodoItem = (props: TodoItemInterface) => {
                         {...attributes}
                         {...listeners}
                         variant="outline"
-                        style={{ cursor: grab ? 'grabbing' : 'grab' }}
+                        // style={{ cursor: grab ? 'grabbing' : 'grab' }}
                     >
                         <MdDragHandle color="gray" />
                     </IconButton>
                     <Button variant="outline">
                         <FaPenAlt color="yellowgreen" />
                     </Button>
-                    <Button variant="outline" color="red">
+                    <Button variant="outline" color="red" onClick={handleRemoveTodo}>
                         <FaTrashAlt />
                     </Button>
                 </div>
@@ -121,3 +131,7 @@ const TodoItem = (props: TodoItemInterface) => {
 }
 
 export default TodoItem
+function dispatch(arg0: { payload: any; type: "todoSlice/removeTodo" }) {
+    throw new Error('Function not implemented.')
+}
+

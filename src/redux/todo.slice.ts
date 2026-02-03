@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { arrayMove } from "@dnd-kit/sortable";
 
 const initialState = {
     todos: [
@@ -20,30 +19,30 @@ const initialState = {
             title: 'Do Something Crazy As Hell',
             description: 'Task-2 Is Somewhat Smaller Comparatively',
         },
-        // {
-        //     id: 3,
-        //     index: 4,
-        //     starred: false,
-        //     checked: false,
-        //     title: 'Do Nothing At All',
-        //     description: 'Task 4 Is Biggg !!!',
-        // },
-        // {
-        //     id: 4,
-        //     index: 5,
-        //     starred: false,
-        //     checked: false,
-        //     title: 'Do Whatever You Want',
-        //     description: 'Task 5 Is Tiny & Random',
-        // },
-        // {
-        //     id: 5,
-        //     index: 1,
-        //     starred: false,
-        //     checked: false,
-        //     title: 'Do Nothing At All',
-        //     description: 'Task 4 Is Biggg !!!',
-        // },
+        {
+            id: 3,
+            index: 4,
+            starred: false,
+            checked: false,
+            title: 'Do Nothing At All',
+            description: 'Task 4 Is Biggg !!!',
+        },
+        {
+            id: 4,
+            index: 5,
+            starred: false,
+            checked: false,
+            title: 'Do Whatever You Want',
+            description: 'Task 5 Is Tiny & Random',
+        },
+        {
+            id: 5,
+            index: 1,
+            starred: false,
+            checked: false,
+            title: 'Do Nothing At All',
+            description: 'Task 4 Is Biggg !!!',
+        },
     ]
 }
 
@@ -63,6 +62,10 @@ const todoSlice = createSlice({
                 description: 'Describe Your Task Here Briefly ...',
             }]
         },
+        removeTodo: (state: any, action) => {
+            state.todos = state.todos.filter((todo: any) => todo.id !== action.payload.id)
+            console.log(state.todos)
+        },
         sortTodo: (state: any, action) => {
             console.log("Working")
             state.todos = action.payload
@@ -70,5 +73,5 @@ const todoSlice = createSlice({
     },
 })
 
-export const { addTodo, sortTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, sortTodo } = todoSlice.actions;
 export default todoSlice.reducer;

@@ -19,7 +19,7 @@ import './todo-toolbar.component.scss'
 import TodoItem from './../todo-item/TodoItem.component';
 import { todos } from '../../../../tmp/data/data';
 
-import { addTodo } from '../../../redux/todo.slice';
+import { addTodo, removeTodo } from '../../../redux/todo.slice';
 
 // Root Component (TodoBar)
 const TodoBar = (props: any) => {
@@ -31,8 +31,8 @@ const TodoBar = (props: any) => {
 
     const handleAddTodo = () => {
         dispatch(addTodo())
-        // props.ref.current.append(<div>Texting</div>)
     }
+    
     return (
         <div className="todo__toolbar">
             <Stack
